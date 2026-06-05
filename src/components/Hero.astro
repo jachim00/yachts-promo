@@ -35,7 +35,7 @@ const lines = headline.includes('. ')
   class="relative flex min-h-[100svh] w-full items-end overflow-hidden bg-ink-900"
 >
   {/* Background media + placeholder art */}
-  <div class="absolute inset-0 -z-10" data-hero-bg>
+  <div class="absolute inset-0 z-0" data-hero-bg>
     {/* Elegant LIGHT gradient placeholder (always present; sits under the video).
         Warm beige → white wash with a whisper of coral, lots of air. */}
     <div
@@ -44,6 +44,18 @@ const lines = headline.includes('. ')
       aria-hidden="true"
     >
     </div>
+
+    {/* Poster photo — the hero background whenever no real video is supplied
+       (the <video> below removes itself on source error, so without this the
+       gradient would show instead of the poster). */}
+    <img
+      src={poster}
+      alt=""
+      decoding="async"
+      onerror="this.remove()"
+      onload="this.classList.add('is-loaded')"
+      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-cine [&.is-loaded]:opacity-100"
+    />
 
     {/* Real video when supplied; poster is the immediate fallback. */}
     <video
