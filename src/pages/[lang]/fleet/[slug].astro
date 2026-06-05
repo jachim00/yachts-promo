@@ -135,11 +135,11 @@ const enquireHref = localizedPath(lang, '') + '#contact';
 
     {/* ---- Story + ideal-for ---- */}
     <section class="section bg-ink-900">
-      <div class="shell shell-wide grid gap-9 lg:grid-cols-12">
-        <div class="lg:col-span-7" data-reveal>
+      <div class="shell shell-wide fleet-grid grid gap-9">
+        <div data-reveal>
           <p class="prose-measure text-body-l text-sand-200">{story}</p>
         </div>
-        <aside class="lg:col-span-5" data-reveal data-reveal-delay="0.1">
+        <aside data-reveal data-reveal-delay="0.1">
           <div class="rounded-lg border border-line bg-ink-700 shadow-soft p-7">
             <h2 class="overline mb-4">{t('yachtsCommon.idealFor')}</h2>
             <p class="text-body text-sand-100">{idealFor}</p>
@@ -197,4 +197,19 @@ const enquireHref = localizedPath(lang, '') + '#contact';
   <script>
     import '../../../scripts/animations.ts';
   </script>
+
+<style>
+  /* Robust 7/5 split — same root cause as ContactSection: Tailwind's
+     `lg:grid-cols-12` rule was code-split away from this page's CSS, so the grid
+     created content-sized implicit columns and overflowed. Scoped style is
+     always emitted; minmax(0,…) prevents any blowout. */
+  @media (min-width: 1024px) {
+    .fleet-grid {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    }
+  }
+  .fleet-grid > * {
+    min-width: 0;
+  }
+</style>
 </BaseLayout>

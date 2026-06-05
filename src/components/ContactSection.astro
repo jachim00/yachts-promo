@@ -17,9 +17,9 @@ const phone = site.contact.phone;
 ---
 
 <section id="contact" class="section scroll-mt-24 bg-ink-900">
-  <div class="shell shell-wide grid gap-10 lg:grid-cols-12 lg:gap-12">
+  <div class="shell shell-wide contact-grid grid gap-10 lg:gap-12">
     {/* Left: invitation copy */}
-    <div class="lg:col-span-5" data-reveal data-reveal-stagger>
+    <div data-reveal data-reveal-stagger>
       <p class="overline mb-6" data-reveal-item>{t('contact.overline')}</p>
       <h2 class="font-display text-h1 text-sand-100" data-reveal-item>
         {t('contact.title')}
@@ -57,10 +57,26 @@ const phone = site.contact.phone;
     </div>
 
     {/* Right: form card — white surface with a soft light shadow */}
-    <div class="lg:col-span-7" data-reveal data-reveal-delay="0.15">
+    <div data-reveal data-reveal-delay="0.15">
       <div class="rounded-lg border border-line bg-ink-700 shadow-soft p-6 sm:p-8">
         <ContactForm />
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Robust 5/7 split. Tailwind's `lg:grid-cols-12` rule was being code-split
+     away from this page's CSS bundle, so the grid fell back to content-sized
+     implicit columns and overflowed the viewport horizontally. A scoped style
+     is always emitted (never purged/split), and minmax(0,…) guarantees the
+     tracks can shrink — no blowout. */
+  @media (min-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+  }
+  .contact-grid > * {
+    min-width: 0;
+  }
+</style>
