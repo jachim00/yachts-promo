@@ -91,7 +91,7 @@ const enquireHref = localizedPath(lang, '') + '#contact';
       <div class="absolute inset-0 -z-10" data-hero-bg>
         <div
           class="absolute inset-0"
-          style="background-image: radial-gradient(120% 80% at 75% 15%, rgba(52,224,196,0.16), transparent 55%), radial-gradient(120% 90% at 15% 95%, rgba(255,106,69,0.18), transparent 50%), linear-gradient(180deg,#0b2128,#06141a 75%);"
+          style="background-image: radial-gradient(120% 80% at 75% 12%, rgba(232,85,47,0.06), transparent 55%), radial-gradient(120% 90% at 15% 95%, rgba(11,33,40,0.05), transparent 55%), linear-gradient(180deg,#ffffff,#f5efe3 75%);"
           aria-hidden="true"
         >
         </div>
@@ -110,7 +110,7 @@ const enquireHref = localizedPath(lang, '') + '#contact';
       <div class="shell shell-wide relative z-10 pb-section pt-32">
         <a
           href={backHref}
-          class="mb-7 inline-flex items-center gap-2 font-mono text-overline uppercase tracking-overline text-lagoon-400 transition-colors hover:text-lagoon-500"
+          class="mb-7 inline-flex items-center gap-2 font-mono text-overline uppercase tracking-overline text-coral-600 transition-colors hover:text-coral-500"
         >
           <svg
             class="h-4 w-4"
@@ -140,7 +140,7 @@ const enquireHref = localizedPath(lang, '') + '#contact';
           <p class="prose-measure text-body-l text-sand-200">{story}</p>
         </div>
         <aside class="lg:col-span-5" data-reveal data-reveal-delay="0.1">
-          <div class="rounded-lg border border-line bg-ink-700 p-7">
+          <div class="rounded-lg border border-line bg-ink-700 shadow-soft p-7">
             <h2 class="overline mb-4">{t('yachtsCommon.idealFor')}</h2>
             <p class="text-body text-sand-100">{idealFor}</p>
             <div class="mt-7">
@@ -176,7 +176,7 @@ const enquireHref = localizedPath(lang, '') + '#contact';
 
     {/* ---- Closing CTA ---- */}
     <section class="section bg-ink-900">
-      <div class="shell shell-wide flex flex-col items-start gap-7 rounded-lg border border-line bg-ink-700 p-9 sm:p-10" data-reveal data-reveal-stagger>
+      <div class="shell shell-wide flex flex-col items-start gap-7 rounded-lg border border-line bg-ink-700 shadow-soft p-9 sm:p-10" data-reveal data-reveal-stagger>
         <p class="overline" data-reveal-item>{t('contact.overline')}</p>
         <h2 class="font-display text-h1 text-sand-100 max-w-[20ch]" data-reveal-item>
           {t('contact.title')}

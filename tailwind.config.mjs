@@ -12,6 +12,9 @@ export default {
           800: 'var(--ink-800)',
           700: 'var(--ink-700)',
           600: 'var(--ink-600)',
+          // Canonical DARK text token (light theme). Use text-ink-text wherever
+          // dark text is wanted, since ink-900 is now a light surface value.
+          text: 'var(--ink-text)',
         },
         sand: {
           100: 'var(--sand-100)',

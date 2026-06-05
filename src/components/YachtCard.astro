@@ -24,11 +24,12 @@ const tagline = t(`yachts.${yacht.slug}.tagline`);
 const href = localizedPath(lang, `fleet/${yacht.slug}`);
 const img = withBase(yacht.heroPlaceholder);
 
-// Distinct accent tint per card for visual variety (still token-based hues).
+// Distinct LIGHT tint per card for visual variety — warm beige/cream washes
+// (placeholder art that shows through until a real <img> loads).
 const tints = [
-  'linear-gradient(140deg, #102e36, #18424c 55%, #06141a)',
-  'linear-gradient(140deg, #0b2128, #102e36 50%, #18424c)',
-  'linear-gradient(140deg, #102e36, #0b2128 60%, #102e36)',
+  'linear-gradient(140deg, #faf6ee, #efe7d6 55%, #f5efe3)',
+  'linear-gradient(140deg, #ffffff, #f5efe3 50%, #efe7d6)',
+  'linear-gradient(140deg, #f5efe3, #faf6ee 60%, #efe7d6)',
 ];
 const tint = tints[index % tints.length];
 ---
@@ -37,7 +38,7 @@ const tint = tints[index % tints.length];
   href={href}
   data-view-yacht={yacht.name}
   data-reveal-item
-  class="yacht-card group relative flex flex-col overflow-hidden rounded-lg border border-line bg-ink-700 transition-transform duration-base ease-out hover:-translate-y-1 focus-visible:-translate-y-1"
+  class="yacht-card group relative flex flex-col overflow-hidden rounded-lg border border-line bg-ink-700 shadow-soft transition-transform duration-base ease-out hover:-translate-y-1 focus-visible:-translate-y-1"
 >
   {/* Media (placeholder gradient; a real <img> overlays it when it loads) */}
   <div class="relative aspect-[4/5] overflow-hidden">
@@ -56,16 +57,16 @@ const tint = tints[index % tints.length];
       class="absolute inset-0 h-full w-full object-cover opacity-0 transition-[opacity,transform] duration-slow ease-out group-hover:scale-105 [&.is-loaded]:opacity-100"
       onload="this.classList.add('is-loaded')"
     />
-    {/* Bottom gradient for label legibility */}
+    {/* Bottom gradient for label legibility (soft white wash on light tints) */}
     <div
-      class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink-900/90 to-transparent"
+      class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-white/70 to-transparent"
       aria-hidden="true"
     >
     </div>
 
     {/* Order index marker */}
     <span
-      class="absolute left-5 top-5 font-mono text-overline uppercase tracking-overline text-sand-300/80"
+      class="absolute left-5 top-5 font-mono text-overline uppercase tracking-overline text-slate-500"
     >
       {String(yacht.order).padStart(2, '0')}
     </span>
@@ -77,7 +78,7 @@ const tint = tints[index % tints.length];
     <p class="text-small text-sand-300">{tagline}</p>
 
     <span
-      class="mt-3 inline-flex items-center gap-2 text-small font-semibold text-lagoon-400 transition-transform duration-base ease-out group-hover:translate-x-1"
+      class="mt-3 inline-flex items-center gap-2 text-small font-semibold text-coral-600 transition-transform duration-base ease-out group-hover:translate-x-1"
     >
       {t('fleet.viewYacht')}
       <svg

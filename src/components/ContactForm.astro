@@ -99,7 +99,7 @@ const privacyHref = localizedPath(lang, 'privacy');
       />
       <span>
         {t('contact.form.consent')}
-        <a href={privacyHref} class="ml-1 text-lagoon-400 underline underline-offset-2">
+        <a href={privacyHref} class="ml-1 text-coral-600 underline underline-offset-2">
           {t('legal.privacy.title')}
         </a>
       </span>
@@ -125,8 +125,8 @@ const privacyHref = localizedPath(lang, 'privacy');
 <style>
   .field-input {
     width: 100%;
-    background: var(--ink-700);
-    color: var(--sand-100);
+    background: #ffffff;
+    color: var(--sand-100); /* dark ink */
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
     padding: var(--space-3) var(--space-4);
@@ -142,23 +142,23 @@ const privacyHref = localizedPath(lang, 'privacy');
   }
   .field-input:focus {
     outline: none;
-    border-color: var(--lagoon-400);
-    box-shadow: 0 0 0 3px rgba(52, 224, 196, 0.18);
+    border-color: var(--coral-500);
+    box-shadow: 0 0 0 3px rgba(232, 85, 47, 0.16);
   }
   .field-input[aria-invalid='true'] {
     border-color: var(--coral-500);
-    box-shadow: 0 0 0 3px rgba(255, 106, 69, 0.18);
+    box-shadow: 0 0 0 3px rgba(232, 85, 47, 0.16);
   }
   .field-error {
-    color: var(--coral-500);
+    color: var(--coral-600);
     font-size: var(--fs-small);
     line-height: 1.4;
   }
   .form-status[data-state='error'] {
-    color: var(--coral-500);
+    color: var(--coral-600);
   }
   .form-status[data-state='success'] {
-    color: var(--lagoon-400);
+    color: var(--lagoon-500); /* darkened teal — legible on light */
   }
 </style>
 

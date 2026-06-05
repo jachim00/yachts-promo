@@ -125,6 +125,7 @@ const t = useTranslations(lang);
     z-index: 80;
     background: color-mix(in srgb, var(--ink-800) 94%, transparent);
     border-top: 1px solid var(--line);
+    box-shadow: 0 -12px 32px -24px rgba(11, 33, 40, 0.4);
     backdrop-filter: blur(10px);
     transform: translateY(110%);
     transition: transform var(--dur-base) var(--ease-out);
@@ -168,11 +169,11 @@ const t = useTranslations(lang);
       border-color var(--dur-fast) var(--ease-out);
   }
   .cc-btn--primary {
-    background: var(--coral-500);
-    color: var(--ink-900);
+    background: var(--coral-600);
+    color: #ffffff;
   }
   .cc-btn--primary:hover {
-    background: var(--coral-600);
+    filter: brightness(1.1);
     box-shadow: var(--glow-coral);
   }
   .cc-btn--ghost {
@@ -181,8 +182,8 @@ const t = useTranslations(lang);
     border-color: var(--line);
   }
   .cc-btn--ghost:hover {
-    border-color: var(--lagoon-400);
-    color: var(--lagoon-400);
+    border-color: var(--coral-500);
+    color: var(--coral-600);
   }
 
   /* ---- Modal ---- */
@@ -263,7 +264,7 @@ const t = useTranslations(lang);
     width: 44px;
     height: 24px;
     border-radius: var(--radius-pill);
-    background: var(--ink-900);
+    background: var(--ink-600); /* light beige track (off state) */
     border: 1px solid var(--line);
     transition: background var(--dur-fast) var(--ease-out);
   }
@@ -281,18 +282,19 @@ const t = useTranslations(lang);
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: var(--slate-500);
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(11, 33, 40, 0.25);
     transition:
       transform var(--dur-fast) var(--ease-out),
       background var(--dur-fast) var(--ease-out);
   }
   .cc-toggle__input:checked ~ .cc-toggle__dot {
     transform: translateX(20px);
-    background: var(--ink-900);
+    background: #ffffff;
   }
   .cc-toggle:has(.cc-toggle__input:checked) {
-    background: var(--lagoon-500);
-    border-color: var(--lagoon-500);
+    background: var(--coral-500);
+    border-color: var(--coral-500);
   }
   .cc-toggle__input:focus-visible ~ .cc-toggle__dot {
     outline: 2px solid var(--lagoon-400);
@@ -300,13 +302,13 @@ const t = useTranslations(lang);
   }
   /* Locked (necessary) toggle — visually "on", non-interactive. */
   .cc-toggle--locked {
-    background: var(--lagoon-500);
-    border-color: var(--lagoon-500);
-    opacity: 0.7;
+    background: var(--coral-500);
+    border-color: var(--coral-500);
+    opacity: 0.55;
   }
   .cc-toggle--locked .cc-toggle__dot {
     transform: translateX(20px);
-    background: var(--ink-900);
+    background: #ffffff;
   }
 
   .cc-modal__actions {

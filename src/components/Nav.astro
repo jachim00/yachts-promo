@@ -25,11 +25,12 @@ const t = useTranslations(lang);
 const homeHref = localizedPath(lang, '');
 
 // Chapter anchors used both for the menu and for the side indicator.
+// The Manifesto (#manifesto) and Craft (#craft) chapters were removed from the
+// one-pager, so their menu entries are gone too — every anchor below points to
+// a section that still exists. (i18n keys nav.manifesto / nav.craft are kept.)
 const chapters = [
-  { id: 'manifesto', label: t('nav.manifesto') },
   { id: 'fleet', label: t('nav.fleet') },
   { id: 'experiences', label: t('nav.experiences') },
-  { id: 'craft', label: t('nav.craft') },
   { id: 'contact', label: t('nav.contact') },
 ];
 
@@ -128,7 +129,7 @@ const hrefFor = (id: string) => (onHome ? `#${id}` : `${homeHref}#${id}`);
           href={hrefFor(c.id)}
           data-mobile-link
           style={`--i:${i}`}
-          class="mobile-link font-display text-h2 text-sand-100 transition-colors duration-fast hover:text-lagoon-400"
+          class="mobile-link font-display text-h2 text-sand-100 transition-colors duration-fast hover:text-coral-600"
         >
           {c.label}
         </a>
@@ -145,10 +146,14 @@ const hrefFor = (id: string) => (onHome ? `#${id}` : `${homeHref}#${id}`);
 </div>
 
 <style>
-  /* Solid state toggled by JS when scrolled past the hero threshold. */
+  /* Solid state toggled by JS when scrolled past the hero threshold.
+     On the light theme this is a translucent beige bar with a hairline +
+     a whisper of shadow so it reads as a surface over the page. */
   [data-nav].is-solid {
-    background: var(--ink-900);
+    background: color-mix(in srgb, var(--ink-900) 88%, transparent);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
+    box-shadow: 0 8px 24px -20px rgba(11, 33, 40, 0.4);
   }
 
   /* Burger icon */
@@ -226,7 +231,7 @@ const hrefFor = (id: string) => (onHome ? `#${id}` : `${homeHref}#${id}`);
     bottom: -6px;
     height: 2px;
     width: 100%;
-    background: var(--lagoon-400);
+    background: var(--coral-500);
     border-radius: 2px;
   }
 
@@ -297,7 +302,7 @@ const hrefFor = (id: string) => (onHome ? `#${id}` : `${homeHref}#${id}`);
   // ---- Chapter indicator + active nav link (IntersectionObserver) ----------
   const dots = Array.from(document.querySelectorAll<HTMLElement>('[data-chapter-dot]'));
   const links = Array.from(document.querySelectorAll<HTMLElement>('[data-nav-link]'));
-  const sections = ['manifesto', 'fleet', 'experiences', 'craft', 'contact']
+  const sections = ['fleet', 'experiences', 'contact']
     .map((id) => document.getElementById(id))
     .filter((el): el is HTMLElement => !!el);
 

@@ -46,11 +46,15 @@ const base =
   'btn group relative inline-flex items-center justify-center gap-3 font-sans font-semibold tracking-tight transition-all duration-base ease-out select-none cursor-pointer disabled:opacity-50 disabled:pointer-events-none';
 
 const byVariant: Record<Variant, string> = {
+  // primary: coral fill with WHITE label (AA: white on coral-600 ≈ 5.6:1)
+  // + soft light shadow; hover brightens slightly and adds the coral glow.
   primary:
-    'rounded-pill bg-coral-500 text-ink-900 px-7 py-4 text-small hover:bg-coral-600 hover:shadow-glow-coral focus-visible:shadow-glow-coral',
+    'rounded-pill bg-coral-600 text-white px-7 py-4 text-small shadow-soft hover:brightness-110 hover:shadow-glow-coral focus-visible:shadow-glow-coral',
+  // ghost: dark ink outline on light, fills to coral on hover.
   ghost:
-    'rounded-pill border border-lagoon-400/60 text-sand-100 px-7 py-4 text-small hover:border-lagoon-400 hover:text-lagoon-400 hover:bg-lagoon-400/5',
-  text: 'text-sand-100 text-small hover:text-lagoon-400 px-0 py-2',
+    'rounded-pill border border-ink-text/30 text-ink-text px-7 py-4 text-small hover:border-coral-500 hover:text-coral-600 hover:bg-coral-500/5',
+  // text: ink label, coral on hover, with the arrow.
+  text: 'text-ink-text text-small hover:text-coral-600 px-0 py-2',
 };
 
 const cls = `${base} ${byVariant[variant]} ${extra}`.trim();

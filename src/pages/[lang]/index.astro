@@ -4,9 +4,9 @@
 // Replaces the Foundation stub: this is page CONTENT, the one Foundation file
 // Builder Frontend is allowed to take over.
 //
-// Order of chapters (section 5):
-//   Hero → Manifesto → FleetTeaser → ExperienceScroll → Craft →
-//   Testimonials → ContactSection
+// Order of chapters (shortened one-pager — Manifesto, Craft and Testimonials
+// were removed at the owner's request):
+//   Hero → FleetTeaser → ExperienceScroll → ContactSection
 // Wrapped in BaseLayout; <Seo slot="head"/> + <CookieConsent/> are Systems
 // components consumed as-is. Nav/Footer are Builder Frontend's own.
 // getStaticPaths returns all 5 locales.
@@ -16,11 +16,8 @@ import Seo from '../../components/Seo.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
-import Manifesto from '../../components/Manifesto.astro';
 import FleetTeaser from '../../components/FleetTeaser.astro';
 import ExperienceScroll from '../../components/ExperienceScroll.astro';
-import Craft from '../../components/Craft.astro';
-import Testimonials from '../../components/Testimonials.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import { locales, useTranslations, getLocaleFromUrl } from '../../i18n/utils';
 import type { Locale } from '../../i18n/utils';
@@ -46,11 +43,8 @@ const t = useTranslations(lang);
 
   <main id="main">
     <Hero />
-    <Manifesto />
     <FleetTeaser />
     <ExperienceScroll />
-    <Craft />
-    <Testimonials />
     <ContactSection />
   </main>
 

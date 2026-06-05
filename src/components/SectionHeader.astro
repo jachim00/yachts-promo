@@ -31,8 +31,11 @@ const {
 
 const Heading = as;
 
-const titleColor = tone === 'light' ? 'text-ink-900' : 'text-sand-100';
-const leadColor = tone === 'light' ? 'text-ink-700' : 'text-sand-300';
+// Light theme: every section sits on a light surface, so headings are always
+// dark ink and leads are the muted taupe. The `tone` prop is kept for API
+// compatibility but both tones now resolve to legible-on-light colours.
+const titleColor = tone === 'light' ? 'text-ink-text' : 'text-sand-100';
+const leadColor = tone === 'light' ? 'text-sand-300' : 'text-sand-300';
 const alignCls = align === 'center' ? 'mx-auto text-center items-center' : 'items-start';
 const headingSize = as === 'h1' ? 'text-h1' : 'text-h2';
 const revealAttr = reveal ? '' : undefined;

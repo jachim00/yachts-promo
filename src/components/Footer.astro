@@ -34,11 +34,10 @@ const legalLinks = [
   { href: localizedPath(lang, 'cookies'), label: t('legal.cookies.title') },
 ];
 
+// Only sections that still exist on the one-pager (Manifesto + Craft removed).
 const navLinks = [
-  { href: localizedPath(lang, '') + '#manifesto', label: t('nav.manifesto') },
   { href: localizedPath(lang, '') + '#fleet', label: t('nav.fleet') },
   { href: localizedPath(lang, '') + '#experiences', label: t('nav.experiences') },
-  { href: localizedPath(lang, '') + '#craft', label: t('nav.craft') },
   { href: localizedPath(lang, '') + '#contact', label: t('nav.contact') },
 ];
 ---
@@ -64,7 +63,7 @@ const navLinks = [
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-small text-sand-300 transition-colors duration-fast hover:text-lagoon-400"
+                  class="text-small text-sand-300 transition-colors duration-fast hover:text-coral-600"
                 >
                   {s.label}
                 </a>
@@ -103,7 +102,7 @@ const navLinks = [
             <li>
               <a
                 href={`mailto:${email}`}
-                class="transition-colors duration-fast hover:text-lagoon-400"
+                class="transition-colors duration-fast hover:text-coral-600"
               >
                 {email}
               </a>
@@ -115,7 +114,7 @@ const navLinks = [
             <li>
               <a
                 href={`tel:${phone.replace(/\s+/g, '')}`}
-                class="transition-colors duration-fast hover:text-lagoon-400"
+                class="transition-colors duration-fast hover:text-coral-600"
               >
                 {phone}
               </a>

@@ -1,16 +1,20 @@
 ---
 // =========================================================================
 // LanguageSwitcher.astro — 5-locale switcher.
+//  - variant "inline" (desktop nav): elegant DROPDOWN button (globe + current
+//    locale + chevron) opening a refined menu with native language names.
+//  - variant "menu" (footer / mobile overlay): row of soft pills.
 // Preserves the CURRENT sub-page (locale-less path) when switching, so a
 // visitor on /fr/fleet/aurora lands on /de/fleet/aurora, etc.
 // Emits `language_switch` via window.yachtsAnalytics (defensive optional call).
 // All paths via localizedPath() so the deploy base is always respected.
+// Light theme: surfaces white (ink-700), text ink (sand-100), accent coral-600.
 // =========================================================================
 import { locales, getLocaleFromUrl, localizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/utils';
 
 interface Props {
-  /** Visual variant — compact pills (nav) vs inline list (footer / mobile). */
+  /** Visual variant — dropdown button (nav) vs inline pills (footer / mobile). */
   variant?: 'inline' | 'menu';
   class?: string;
 }
@@ -28,48 +32,190 @@ const segments = path.split('/').filter(Boolean);
 if (segments.length && locales.includes(segments[0] as Locale)) segments.shift();
 const subPath = segments.join('/'); // '' on the home page
 
-const labels: Record<Locale, string> = {
-  en: 'EN',
-  de: 'DE',
-  fr: 'FR',
-  es: 'ES',
-  pl: 'PL',
+const code: Record<Locale, string> = { en: 'EN', de: 'DE', fr: 'FR', es: 'ES', pl: 'PL' };
+const native: Record<Locale, string> = {
+  en: 'English',
+  de: 'Deutsch',
+  fr: 'Français',
+  es: 'Español',
+  pl: 'Polski',
 };
-
-const wrapCls =
-  variant === 'menu'
-    ? 'flex flex-wrap gap-3 text-body'
-    : 'flex items-center gap-1 text-small font-mono';
 ---
 
-<nav class={`lang-switcher ${wrapCls} ${extra}`.trim()} aria-label="Language">
-  {
-    locales.map((loc) => {
-      const isActive = loc === current;
-      const href = localizedPath(loc, subPath);
-      return (
-        <a
-          href={href}
-          hreflang={loc}
-          lang={loc}
-          data-lang-switch={loc}
-          aria-current={isActive ? 'true' : undefined}
-          class={`lang-link rounded-sm px-2 py-1 uppercase tracking-overline transition-colors duration-fast ease-out ${
-            isActive
-              ? 'text-lagoon-400 font-bold'
-              : 'text-sand-300 hover:text-sand-100'
-          }`}
-        >
-          {labels[loc]}
-        </a>
-      );
-    })
+{
+  variant === 'menu' ? (
+    /* ---- Footer / mobile: soft pills row ---- */
+    <nav class={`lang-switcher flex flex-wrap gap-2 ${extra}`.trim()} aria-label="Language">
+      {locales.map((loc) => {
+        const isActive = loc === current;
+        return (
+          <a
+            href={localizedPath(loc, subPath)}
+            hreflang={loc}
+            lang={loc}
+            data-lang-switch={loc}
+            aria-current={isActive ? 'true' : undefined}
+            class={`rounded-pill border px-3 py-1.5 text-small transition-colors duration-fast ease-out ${
+              isActive
+                ? 'border-coral-600 text-coral-600 font-semibold'
+                : 'border-line text-sand-200 hover:border-sand-300 hover:text-sand-100'
+            }`}
+          >
+            {native[loc]}
+          </a>
+        );
+      })}
+    </nav>
+  ) : (
+    /* ---- Desktop nav: dropdown button ---- */
+    <div class={`lang-switcher relative ${extra}`.trim()} data-lang-dd>
+      <button
+        type="button"
+        data-lang-trigger
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-label={`Change language — current: ${native[current]}`}
+        class="lang-trigger group flex items-center gap-2 rounded-pill border border-line px-3 py-2 text-small text-sand-100 transition-colors duration-fast ease-out hover:border-sand-300 hover:text-coral-600 focus-visible:outline-none"
+      >
+        <svg class="h-4 w-4 opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9.25" />
+          <path d="M2.75 12h18.5" />
+          <path d="M12 2.75c2.4 2.5 3.6 5.7 3.6 9.25S14.4 18.75 12 21.25c-2.4-2.5-3.6-5.7-3.6-9.25S9.6 5.25 12 2.75Z" />
+        </svg>
+        <span class="font-mono uppercase tracking-overline">{code[current]}</span>
+        <svg class="lang-chevron h-3.5 w-3.5 transition-transform duration-base ease-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+
+      <div
+        class="lang-menu absolute right-0 top-full z-50 mt-3 min-w-[12rem] overflow-hidden rounded-md border border-line bg-ink-700 p-2 shadow-soft"
+        role="menu"
+        data-lang-menu
+        aria-label="Language"
+      >
+        {locales.map((loc) => {
+          const isActive = loc === current;
+          return (
+            <a
+              href={localizedPath(loc, subPath)}
+              hreflang={loc}
+              lang={loc}
+              role="menuitem"
+              data-lang-switch={loc}
+              aria-current={isActive ? 'true' : undefined}
+              class={`flex items-center justify-between gap-6 rounded-sm px-3 py-2 text-small transition-colors duration-fast ease-out ${
+                isActive
+                  ? 'text-coral-600 font-semibold'
+                  : 'text-sand-200 hover:bg-ink-900 hover:text-sand-100'
+              }`}
+            >
+              <span class="flex items-center gap-2.5">
+                <span
+                  class={`h-1.5 w-1.5 rounded-pill transition-colors ${isActive ? 'bg-coral-600' : 'bg-transparent'}`}
+                  aria-hidden="true"
+                />
+                {native[loc]}
+              </span>
+              <span class="font-mono text-overline uppercase tracking-overline text-sand-300">
+                {code[loc]}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  )
+}
+
+<style>
+  /* Dropdown open/close — subtle, with reduced-motion fallback. */
+  .lang-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transform-origin: top right;
+    transition:
+      opacity var(--dur-fast) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out),
+      visibility var(--dur-fast) var(--ease-out);
   }
-</nav>
+  .lang-switcher.is-open .lang-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .lang-switcher.is-open .lang-chevron {
+    transform: rotate(180deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lang-menu {
+      transition: opacity var(--dur-fast) linear, visibility var(--dur-fast) linear;
+      transform: none;
+    }
+    .lang-switcher.is-open .lang-menu {
+      transform: none;
+    }
+  }
+</style>
 
 <script>
-  // Fire language_switch on click (before navigation). Defensive: analytics
-  // may be absent until consent — optional chaining keeps this inert.
+  // --- Dropdown behaviour (desktop nav variant) ---
+  document.querySelectorAll<HTMLElement>('[data-lang-dd]').forEach((dd) => {
+    const trigger = dd.querySelector<HTMLButtonElement>('[data-lang-trigger]');
+    const menu = dd.querySelector<HTMLElement>('[data-lang-menu]');
+    if (!trigger || !menu) return;
+
+    const items = Array.from(menu.querySelectorAll<HTMLAnchorElement>('a[role="menuitem"]'));
+
+    const open = () => {
+      dd.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+    const close = () => {
+      dd.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+    const toggle = () => (dd.classList.contains('is-open') ? close() : open());
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggle();
+    });
+
+    // Keyboard: open + focus active/first item on ArrowDown; close on Escape.
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open();
+        (items.find((a) => a.getAttribute('aria-current') === 'true') || items[0])?.focus();
+      }
+    });
+    menu.addEventListener('keydown', (e) => {
+      const idx = items.indexOf(document.activeElement as HTMLAnchorElement);
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        items[Math.min(idx + 1, items.length - 1)]?.focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (idx <= 0) trigger.focus();
+        else items[idx - 1]?.focus();
+      } else if (e.key === 'Escape') {
+        close();
+        trigger.focus();
+      }
+    });
+
+    // Close on outside click / Escape from trigger.
+    document.addEventListener('click', (e) => {
+      if (!dd.contains(e.target as Node)) close();
+    });
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  });
+
+  // --- Analytics on any locale link (both variants) ---
   document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach((a) => {
     a.addEventListener('click', () => {
       const lang = a.getAttribute('data-lang-switch');
