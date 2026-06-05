@@ -1,0 +1,66 @@
+---
+// =========================================================================
+// ContactSection.astro — "The invitation" chapter (dark).
+// Soft lead-gen close: editorial copy on the left, form on the right.
+// Wraps ContactForm. Section id="contact" is the anchor for every CTA.
+// =========================================================================
+import { getLocaleFromUrl, useTranslations } from '../i18n/utils';
+import { site } from '../data/site';
+import ContactForm from './ContactForm.astro';
+
+const lang = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const isReal = (v: string) => !!v && !v.startsWith('[[');
+const email = site.contact.email;
+const phone = site.contact.phone;
+---
+
+<section id="contact" class="section scroll-mt-24 bg-ink-800">
+  <div class="shell shell-wide grid gap-10 lg:grid-cols-12 lg:gap-12">
+    {/* Left: invitation copy */}
+    <div class="lg:col-span-5" data-reveal data-reveal-stagger>
+      <p class="overline mb-6" data-reveal-item>{t('contact.overline')}</p>
+      <h2 class="font-display text-h1 text-sand-100" data-reveal-item>
+        {t('contact.title')}
+      </h2>
+      <p class="prose-measure mt-6 text-body-l text-sand-300" data-reveal-item>
+        {t('contact.lead')}
+      </p>
+
+      {
+        (isReal(email) || isReal(phone)) && (
+          <ul class="mt-8 flex flex-col gap-2 text-small text-sand-300" data-reveal-item>
+            {isReal(email) && (
+              <li>
+                <a
+                  href={`mailto:${email}`}
+                  class="transition-colors duration-fast hover:text-lagoon-400"
+                >
+                  {email}
+                </a>
+              </li>
+            )}
+            {isReal(phone) && (
+              <li>
+                <a
+                  href={`tel:${phone.replace(/\s+/g, '')}`}
+                  class="transition-colors duration-fast hover:text-lagoon-400"
+                >
+                  {phone}
+                </a>
+              </li>
+            )}
+          </ul>
+        )
+      }
+    </div>
+
+    {/* Right: form card */}
+    <div class="lg:col-span-7" data-reveal data-reveal-delay="0.15">
+      <div class="rounded-lg border border-line bg-ink-900/40 p-6 sm:p-8">
+        <ContactForm />
+      </div>
+    </div>
+  </div>
+</section>

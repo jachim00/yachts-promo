@@ -1,0 +1,6 @@
+# MARÉ — yachts-promo
+User-agent: *
+Allow: /
+
+# Sitemap is emitted by @astrojs/sitemap at the site root.
+Sitemap: https://Jachim00.github.io/yachts-promo/sitemap-index.xml

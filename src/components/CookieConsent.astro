@@ -1,0 +1,453 @@
+---
+// =========================================================================
+// CookieConsent.astro — GDPR/RODO banner + settings modal (Builder Systems).
+//
+// Renders:
+//  - a bottom-sliding banner (text + Accept all / Reject all / Settings),
+//  - a settings dialog (role="dialog", aria-modal) with 3 categories:
+//      Necessary (always on, disabled toggle) / Analytics (default off) /
+//      Marketing (default off), plus Accept all / Reject all / Save choices.
+//
+// All UI copy comes from i18n cookie.* via useTranslations.
+// Behaviour lives in the client script below, which imports the logic from
+// src/scripts/consent.ts and boots analytics from src/scripts/analytics.ts.
+// The modal supports focus-trap, Esc to close, and reopens on the
+// 'open-cookie-settings' CustomEvent (dispatched by Footer / legal pages).
+// =========================================================================
+import type { Locale } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+{/* ---------- Banner (hidden until JS decides it should show) ---------- */}
+<div
+  id="cookie-banner"
+  class="cc-banner"
+  role="region"
+  aria-label={t('cookie.modal.title')}
+  data-state="hidden"
+  hidden
+>
+  <div class="cc-banner__inner shell">
+    <p class="cc-banner__text">{t('cookie.banner.text')}</p>
+    <div class="cc-banner__actions">
+      <button type="button" class="cc-btn cc-btn--ghost" data-cc="settings">
+        {t('cookie.banner.settings')}
+      </button>
+      <button type="button" class="cc-btn cc-btn--ghost" data-cc="reject-all">
+        {t('cookie.banner.reject')}
+      </button>
+      <button type="button" class="cc-btn cc-btn--primary" data-cc="accept-all">
+        {t('cookie.banner.accept')}
+      </button>
+    </div>
+  </div>
+</div>
+
+{/* ---------- Settings modal ---------- */}
+<div id="cookie-modal" class="cc-modal" data-state="closed" hidden>
+  <div class="cc-modal__overlay" data-cc="close-overlay"></div>
+  <div
+    class="cc-modal__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cc-modal-title"
+    aria-describedby="cc-modal-desc"
+    tabindex="-1"
+  >
+    <h2 id="cc-modal-title" class="cc-modal__title">{t('cookie.modal.title')}</h2>
+    <p id="cc-modal-desc" class="cc-modal__intro">{t('cookie.banner.text')}</p>
+
+    <ul class="cc-cats" role="list">
+      {/* Necessary — always on */}
+      <li class="cc-cat">
+        <div class="cc-cat__head">
+          <span class="cc-cat__name">{t('cookie.modal.necessary')}</span>
+          <span class="cc-toggle cc-toggle--locked" aria-hidden="true">
+            <span class="cc-toggle__dot"></span>
+          </span>
+          <span class="sr-only">{t('cookie.modal.necessary')} — {t('cookie.modal.save')}</span>
+        </div>
+        <p class="cc-cat__desc">{t('cookie.modal.descNecessary')}</p>
+      </li>
+
+      {/* Analytics — default off */}
+      <li class="cc-cat">
+        <label class="cc-cat__head">
+          <span class="cc-cat__name">{t('cookie.modal.analytics')}</span>
+          <span class="cc-toggle">
+            <input type="checkbox" class="cc-toggle__input" data-cc-cat="analytics" />
+            <span class="cc-toggle__dot"></span>
+          </span>
+        </label>
+        <p class="cc-cat__desc">{t('cookie.modal.descAnalytics')}</p>
+      </li>
+
+      {/* Marketing — default off */}
+      <li class="cc-cat">
+        <label class="cc-cat__head">
+          <span class="cc-cat__name">{t('cookie.modal.marketing')}</span>
+          <span class="cc-toggle">
+            <input type="checkbox" class="cc-toggle__input" data-cc-cat="marketing" />
+            <span class="cc-toggle__dot"></span>
+          </span>
+        </label>
+        <p class="cc-cat__desc">{t('cookie.modal.descMarketing')}</p>
+      </li>
+    </ul>
+
+    <div class="cc-modal__actions">
+      <button type="button" class="cc-btn cc-btn--ghost" data-cc="reject-all">
+        {t('cookie.modal.rejectAll')}
+      </button>
+      <button type="button" class="cc-btn cc-btn--ghost" data-cc="accept-all">
+        {t('cookie.modal.acceptAll')}
+      </button>
+      <button type="button" class="cc-btn cc-btn--primary" data-cc="save">
+        {t('cookie.modal.save')}
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ---- Banner ---- */
+  .cc-banner {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 80;
+    background: color-mix(in srgb, var(--ink-800) 94%, transparent);
+    border-top: 1px solid var(--line);
+    backdrop-filter: blur(10px);
+    transform: translateY(110%);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .cc-banner[data-state='shown'] {
+    transform: translateY(0);
+  }
+  .cc-banner__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4) var(--space-6);
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-4);
+  }
+  .cc-banner__text {
+    margin: 0;
+    flex: 1 1 30ch;
+    max-width: 68ch;
+    font-size: var(--fs-small);
+    color: var(--sand-200);
+  }
+  .cc-banner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  /* ---- Buttons ---- */
+  .cc-btn {
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    font-weight: 600;
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition:
+      background var(--dur-fast) var(--ease-out),
+      box-shadow var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+  .cc-btn--primary {
+    background: var(--coral-500);
+    color: var(--ink-900);
+  }
+  .cc-btn--primary:hover {
+    background: var(--coral-600);
+    box-shadow: var(--glow-coral);
+  }
+  .cc-btn--ghost {
+    background: transparent;
+    color: var(--sand-100);
+    border-color: var(--line);
+  }
+  .cc-btn--ghost:hover {
+    border-color: var(--lagoon-400);
+    color: var(--lagoon-400);
+  }
+
+  /* ---- Modal ---- */
+  .cc-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: grid;
+    place-items: center;
+    padding: var(--space-4);
+  }
+  .cc-modal[data-state='closed'] {
+    display: none;
+  }
+  .cc-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 20, 26, 0.72);
+    backdrop-filter: blur(4px);
+  }
+  .cc-modal__dialog {
+    position: relative;
+    width: min(560px, 100%);
+    max-height: min(86vh, 720px);
+    overflow-y: auto;
+    background: var(--ink-700);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: var(--space-7);
+  }
+  .cc-modal__title {
+    margin: 0 0 var(--space-3);
+    font-size: var(--fs-h3);
+    color: var(--sand-100);
+  }
+  .cc-modal__intro {
+    margin: 0 0 var(--space-6);
+    font-size: var(--fs-small);
+    color: var(--sand-300);
+  }
+
+  /* ---- Categories ---- */
+  .cc-cats {
+    list-style: none;
+    margin: 0 0 var(--space-6);
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .cc-cat {
+    padding: var(--space-4);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--ink-800) 60%, transparent);
+  }
+  .cc-cat__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    cursor: pointer;
+  }
+  .cc-cat__name {
+    font-weight: 600;
+    color: var(--sand-100);
+  }
+  .cc-cat__desc {
+    margin: var(--space-2) 0 0;
+    font-size: var(--fs-small);
+    color: var(--sand-300);
+  }
+
+  /* ---- Toggle ---- */
+  .cc-toggle {
+    position: relative;
+    flex: 0 0 auto;
+    width: 44px;
+    height: 24px;
+    border-radius: var(--radius-pill);
+    background: var(--ink-900);
+    border: 1px solid var(--line);
+    transition: background var(--dur-fast) var(--ease-out);
+  }
+  .cc-toggle__input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .cc-toggle__dot {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--slate-500);
+    transition:
+      transform var(--dur-fast) var(--ease-out),
+      background var(--dur-fast) var(--ease-out);
+  }
+  .cc-toggle__input:checked ~ .cc-toggle__dot {
+    transform: translateX(20px);
+    background: var(--ink-900);
+  }
+  .cc-toggle:has(.cc-toggle__input:checked) {
+    background: var(--lagoon-500);
+    border-color: var(--lagoon-500);
+  }
+  .cc-toggle__input:focus-visible ~ .cc-toggle__dot {
+    outline: 2px solid var(--lagoon-400);
+    outline-offset: 2px;
+  }
+  /* Locked (necessary) toggle — visually "on", non-interactive. */
+  .cc-toggle--locked {
+    background: var(--lagoon-500);
+    border-color: var(--lagoon-500);
+    opacity: 0.7;
+  }
+  .cc-toggle--locked .cc-toggle__dot {
+    transform: translateX(20px);
+    background: var(--ink-900);
+  }
+
+  .cc-modal__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 640px) {
+    .cc-banner__actions,
+    .cc-modal__actions {
+      width: 100%;
+    }
+    .cc-btn {
+      flex: 1 1 auto;
+    }
+  }
+</style>
+
+<script>
+  import {
+    initConsent,
+    hasDecided,
+    getStoredConsent,
+    saveConsent,
+    acceptAll,
+    rejectAll,
+    OPEN_SETTINGS_EVENT,
+  } from '../scripts/consent';
+  // Importing analytics self-initializes the window.yachtsAnalytics API and the
+  // consent-driven GA4 loader.
+  import '../scripts/analytics';
+
+  const banner = document.getElementById('cookie-banner');
+  const modal = document.getElementById('cookie-modal');
+  if (banner && modal) {
+    const dialog = modal.querySelector<HTMLElement>('.cc-modal__dialog');
+    const analyticsInput = modal.querySelector<HTMLInputElement>('[data-cc-cat="analytics"]');
+    const marketingInput = modal.querySelector<HTMLInputElement>('[data-cc-cat="marketing"]');
+    let lastFocused: HTMLElement | null = null;
+
+    const showBanner = () => {
+      banner.hidden = false;
+      // next frame so the slide-in transition runs
+      requestAnimationFrame(() => banner.setAttribute('data-state', 'shown'));
+    };
+    const hideBanner = () => {
+      banner.setAttribute('data-state', 'hidden');
+      banner.hidden = true;
+    };
+
+    const syncToggles = () => {
+      const stored = getStoredConsent();
+      if (analyticsInput) analyticsInput.checked = stored?.analytics ?? false;
+      if (marketingInput) marketingInput.checked = stored?.marketing ?? false;
+    };
+
+    const focusable = () =>
+      Array.from(
+        modal.querySelectorAll<HTMLElement>(
+          'button, [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((el) => el.offsetParent !== null || el === dialog);
+
+    const onKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const items = focusable();
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    const openModal = () => {
+      syncToggles();
+      lastFocused = document.activeElement as HTMLElement;
+      modal.hidden = false;
+      modal.setAttribute('data-state', 'open');
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('keydown', onKeydown, true);
+      dialog?.focus();
+    };
+    const closeModal = () => {
+      modal.setAttribute('data-state', 'closed');
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKeydown, true);
+      lastFocused?.focus();
+    };
+
+    // ---- Wire buttons (delegation on document for banner + modal) ----
+    document.addEventListener('click', (e) => {
+      const el = (e.target as HTMLElement)?.closest<HTMLElement>('[data-cc]');
+      if (!el) return;
+      const action = el.dataset.cc;
+      switch (action) {
+        case 'accept-all':
+          acceptAll();
+          hideBanner();
+          closeModal();
+          break;
+        case 'reject-all':
+          rejectAll();
+          hideBanner();
+          closeModal();
+          break;
+        case 'settings':
+          openModal();
+          break;
+        case 'save':
+          saveConsent({
+            necessary: true,
+            analytics: analyticsInput?.checked ?? false,
+            marketing: marketingInput?.checked ?? false,
+          });
+          hideBanner();
+          closeModal();
+          break;
+        case 'close-overlay':
+          closeModal();
+          break;
+      }
+    });
+
+    // Footer / legal pages dispatch this to (re)open the settings modal.
+    window.addEventListener(OPEN_SETTINGS_EVENT, () => openModal());
+
+    // ---- Boot ----
+    initConsent(); // re-assert prior choice into Consent Mode + emit event
+    syncToggles();
+    if (!hasDecided()) showBanner();
+  }
+</script>

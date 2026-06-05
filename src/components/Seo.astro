@@ -1,0 +1,130 @@
+---
+// =========================================================================
+// Seo.astro — full SEO head (Builder Systems).
+// Renders ONLY <head> tags (meta / link / JSON-LD) into BaseLayout's named
+// <slot name="head" />. NEVER add <head>/<body> markup.
+//
+// NOTE: BaseLayout already emits <title> and <meta name="description"> from
+// the page props, so we intentionally DO NOT repeat <title> here (avoids
+// duplicate tags). We add: OG + Twitter, canonical, hreflang for all 5
+// locales + x-default, and JSON-LD (Organization always; optional Product/
+// Vehicle passed via `jsonLd`).
+//
+// BASE_URL / base technique mirrors restauracja-different/src/components/Seo.astro:
+// absolute URLs are built from Astro.site (origin) + base-aware localized paths.
+// =========================================================================
+import type { Locale } from '../i18n/utils';
+import { locales, localizedPath } from '../i18n/utils';
+import { site as siteData } from '../data/site';
+
+interface Props {
+  lang: Locale;
+  title: string;
+  description: string;
+  /** Locale-less path of the page, e.g. '' | 'fleet/aurora' | 'privacy'. */
+  canonicalPath?: string;
+  /** OG image path relative to /public (defaults to site.ogImage). */
+  ogImage?: string;
+  /** Optional JSON-LD (Product / Vehicle) merged alongside Organization. */
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  lang,
+  title,
+  description,
+  canonicalPath = '',
+  ogImage,
+  jsonLd,
+} = Astro.props;
+
+// Origin from astro.config `site` (e.g. https://Jachim00.github.io). Strip any
+// trailing slash so we can concatenate base-aware absolute paths cleanly.
+const origin = Astro.site ? Astro.site.toString().replace(/\/+$/, '') : '';
+
+/** Absolute URL for a given locale's version of the current page. */
+const absoluteFor = (locale: Locale): string => `${origin}${localizedPath(locale, canonicalPath)}`;
+
+const canonical = absoluteFor(lang);
+
+// hreflang alternates for every supported locale + x-default (-> en).
+const alternates = locales.map((locale) => ({
+  hreflang: locale,
+  href: absoluteFor(locale),
+}));
+const xDefaultHref = absoluteFor('en');
+
+// OG image — relative path joined to base, then made absolute.
+const ogRel = (ogImage ?? siteData.ogImage).replace(/^\/+/, '');
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const ogImageAbsolute = origin ? `${origin}${base}/${ogRel}` : `${base}/${ogRel}`;
+
+// og:locale codes per language.
+const ogLocaleMap: Record<Locale, string> = {
+  en: 'en_US',
+  de: 'de_DE',
+  fr: 'fr_FR',
+  es: 'es_ES',
+  pl: 'pl_PL',
+};
+
+// ---- JSON-LD: Organization (always) + optional Product/Vehicle ----
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: siteData.brand,
+  slogan: siteData.tagline,
+  url: origin ? `${origin}${base}/` : base,
+  logo: ogImageAbsolute,
+  email: siteData.contact.email,
+  telephone: siteData.contact.phone,
+  sameAs: [
+    siteData.social.instagram,
+    siteData.social.facebook,
+    siteData.social.youtube,
+    siteData.social.linkedin,
+  ].filter((u) => u && !u.includes('[[')),
+};
+---
+
+{/* Canonical (base-aware, absolute when site origin is known) */}
+{origin && <link rel="canonical" href={canonical} />}
+
+<meta name="robots" content="index,follow" />
+
+{/* hreflang alternates — all locales + x-default */}
+{
+  origin &&
+    alternates.map((alt) => (
+      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+    ))
+}
+{origin && <link rel="alternate" hreflang="x-default" href={xDefaultHref} />}
+
+{/* Open Graph */}
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteData.brand} />
+<meta property="og:locale" content={ogLocaleMap[lang]} />
+{
+  locales
+    .filter((l) => l !== lang)
+    .map((l) => <meta property="og:locale:alternate" content={ogLocaleMap[l]} />)
+}
+{origin && <meta property="og:url" content={canonical} />}
+<meta property="og:image" content={ogImageAbsolute} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+{/* Twitter Card */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageAbsolute} />
+
+{/* Structured data — Organization (always) */}
+<script type="application/ld+json" is:inline set:html={JSON.stringify(organizationLd)} />
+
+{/* Structured data — optional per-page (Product / Vehicle) */}
+{jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}

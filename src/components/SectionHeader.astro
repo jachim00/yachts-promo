@@ -1,0 +1,57 @@
+---
+// =========================================================================
+// SectionHeader.astro — overline (mono) + display heading + optional lead.
+// Pure presentational. Caller passes already-translated strings.
+// Alignment + heading level are configurable; defaults suit dark sections.
+// =========================================================================
+interface Props {
+  overline?: string;
+  title: string;
+  lead?: string;
+  /** Heading tag for correct document outline. */
+  as?: 'h1' | 'h2' | 'h3';
+  align?: 'left' | 'center';
+  /** Tone of the text — dark sections (default) vs light "intermission". */
+  tone?: 'dark' | 'light';
+  class?: string;
+  /** Wrap children in a reveal animation hook (handled by animations.ts). */
+  reveal?: boolean;
+}
+
+const {
+  overline,
+  title,
+  lead,
+  as = 'h2',
+  align = 'left',
+  tone = 'dark',
+  class: extra = '',
+  reveal = true,
+} = Astro.props;
+
+const Heading = as;
+
+const titleColor = tone === 'light' ? 'text-ink-900' : 'text-sand-100';
+const leadColor = tone === 'light' ? 'text-ink-700' : 'text-sand-300';
+const alignCls = align === 'center' ? 'mx-auto text-center items-center' : 'items-start';
+const headingSize = as === 'h1' ? 'text-h1' : 'text-h2';
+const revealAttr = reveal ? '' : undefined;
+---
+
+<header
+  class={`section-header flex flex-col gap-5 ${alignCls} ${extra}`.trim()}
+  data-reveal={revealAttr}
+  data-reveal-stagger
+>
+  {overline && <p class="overline" data-reveal-item>{overline}</p>}
+  <Heading class={`font-display ${headingSize} ${titleColor} max-w-[18ch]`} data-reveal-item>
+    {title}
+  </Heading>
+  {
+    lead && (
+      <p class={`text-body-l ${leadColor} max-w-measure`} data-reveal-item>
+        {lead}
+      </p>
+    )
+  }
+</header>

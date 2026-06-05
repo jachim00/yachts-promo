@@ -1,0 +1,230 @@
+/* =========================================================================
+   MARE — "Stories the sea remembers"  ·  global design system (tokens)
+   Single source of truth for design tokens. Every value here is also
+   mirrored in tailwind.config.mjs (theme.extend) so the same scale is
+   reachable both as CSS custom properties (var(--…)) and Tailwind classes
+   (text-ink-900, bg-coral-500, p-6, rounded-lg, shadow-soft, …).
+   Layout MUST use only this scale — no magic pixels.
+   ========================================================================= */
+
+/* ---- Font faces (Google Fonts, latin + latin-ext, font-display: swap) ----
+   Loaded via <link> in BaseLayout for fastest first paint; we keep the
+   @font-face here documented for clarity. The preconnect + stylesheet links
+   live in BaseLayout.astro <head>. */
+
+:root {
+  /* ---------- Colors: bases (depth / ocean) ---------- */
+  --ink-900: #06141a; /* primary background */
+  --ink-800: #0b2128;
+  --ink-700: #102e36; /* surfaces / cards */
+  --ink-600: #18424c;
+  /* ---------- Light / paper ---------- */
+  --sand-100: #f5efe3; /* main light text / light sections */
+  --sand-200: #e9dec9;
+  --sand-300: #d6c5a3; /* muted text on dark */
+  /* ---------- Accent 1 — coral (attention / CTA) ---------- */
+  --coral-500: #ff6a45;
+  --coral-600: #e8552f; /* hover */
+  /* ---------- Accent 2 — lagoon (interactions / highlight) ---------- */
+  --lagoon-400: #34e0c4;
+  --lagoon-500: #16c7aa;
+  /* ---------- Neutrals ---------- */
+  --slate-500: #6e8893; /* helper text on dark */
+  --line: rgba(245, 239, 227, 0.12); /* subtle lines / borders */
+  /* ---------- Gradients ---------- */
+  --grad-hero: linear-gradient(
+    180deg,
+    rgba(6, 20, 26, 0) 0%,
+    rgba(6, 20, 26, 0.55) 55%,
+    rgba(6, 20, 26, 0.92) 100%
+  );
+  --grad-accent: linear-gradient(120deg, var(--coral-500), var(--lagoon-400));
+
+  /* ---------- Typography: families ---------- */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* ---------- Typography: fluid scale (clamp) ---------- */
+  --fs-display: clamp(3rem, 8vw, 7rem); /* line-height 1.02 */
+  --fs-h1: clamp(2.5rem, 5vw, 4.5rem); /* 1.05 */
+  --fs-h2: clamp(2rem, 4vw, 3.25rem); /* 1.1 */
+  --fs-h3: clamp(1.5rem, 2.5vw, 2rem); /* 1.15 */
+  --fs-body-l: 1.25rem; /* 1.6 */
+  --fs-body: 1.0625rem; /* 1.65 */
+  --fs-small: 0.9375rem; /* 1.55 */
+  --fs-overline: 0.8125rem; /* uppercase, letter-spacing .18em, mono */
+
+  /* ---------- Spacing scale (8pt base — the ONLY allowed values) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 160px;
+  --space-12: 192px;
+  /* Vertical section padding (desktop) */
+  --section-pad: clamp(96px, 12vw, 192px);
+  /* Side gutter */
+  --gutter: clamp(20px, 5vw, 64px);
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* ---------- Shadows / glow ---------- */
+  --shadow-soft: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+  --glow-coral: 0 0 0 1px rgba(255, 106, 69, 0.4), 0 12px 40px -8px rgba(255, 106, 69, 0.35);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 200ms;
+  --dur-base: 400ms;
+  --dur-slow: 700ms;
+  --dur-cine: 1100ms;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--ink-900);
+    color: var(--sand-100);
+    /* Lenis sets this when active; native is the fallback. */
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    background: var(--ink-900);
+    color: var(--sand-100);
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: 1.08;
+    font-weight: 500;
+  }
+
+  a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+  }
+
+  ::selection {
+    background: var(--coral-500);
+    color: var(--ink-900);
+  }
+
+  /* Visible focus — accessibility foundation. */
+  :focus-visible {
+    outline: 2px solid var(--lagoon-400);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Content max line length helper. */
+  .prose-measure {
+    max-width: 68ch;
+  }
+}
+
+@layer components {
+  /* ---- Skip link (keyboard navigation) ---- */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+  }
+  .skip-link:focus {
+    left: var(--space-4);
+    top: var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-sm);
+    background: var(--coral-500);
+    color: var(--ink-900);
+    font-weight: 600;
+  }
+
+  /* ---- Content shell / container ---- */
+  .shell {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  .shell-wide {
+    max-width: 1440px;
+  }
+
+  /* ---- Section vertical rhythm ---- */
+  .section {
+    padding-block: var(--section-pad);
+  }
+
+  /* ---- Overline / kicker (mono) ---- */
+  .overline {
+    font-family: var(--font-mono);
+    font-size: var(--fs-overline);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--lagoon-400);
+  }
+}
+
+/* =========================================================================
+   Accessibility helpers
+   ========================================================================= */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================================
+   Reduced-motion: global guard for any animation layers added by other agents.
+   Each animation (Lenis / GSAP / reveals) also guards individually, but this
+   is a final safety net.
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

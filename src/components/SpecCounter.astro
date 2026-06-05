@@ -1,0 +1,47 @@
+---
+// =========================================================================
+// SpecCounter.astro — a single animated spec figure.
+// Spec values arrive as strings like "14.2 m", "320 nm", "2× 180 kW hybrid".
+// We split into a leading numeric part (animated) + a unit/suffix (static).
+// When the value has no leading number (e.g. "Silent electric") we just print
+// it. animations.ts counts the [data-counter] from 0 → target on viewport.
+// Non-JS / reduced-motion: the final value is rendered inline as the default.
+// =========================================================================
+interface Props {
+  /** i18n label (already translated). */
+  label: string;
+  /** Raw spec value from yachts.ts. */
+  value: string;
+}
+
+const { label, value } = Astro.props;
+
+// Parse "14.2 m" -> num '14.2'; "2× 180 kW" -> num null (prefix non-numeric).
+const match = /^(\d+(?:[.,]\d+)?)/.exec(value.trim());
+const num = match ? match[1] : null;
+const decimals = num && num.includes('.') ? num.split('.')[1].length : 0;
+---
+
+<div class="spec-counter flex flex-col gap-2" data-reveal-item>
+  <dt class="font-mono text-overline uppercase tracking-overline text-slate-500">{label}</dt>
+  <dd class="font-display text-h3 text-sand-100">
+    {
+      num !== null ? (
+        <>
+          <span data-counter={num} data-counter-decimals={decimals}>
+            {value}
+          </span>
+        </>
+      ) : (
+        <span>{value}</span>
+      )
+    }
+  </dd>
+</div>
+
+<style>
+  /* While counting we want a stable width; mono digits help avoid jitter. */
+  [data-counter] {
+    font-variant-numeric: tabular-nums;
+  }
+</style>

@@ -1,0 +1,220 @@
+{
+  "nav": {
+    "manifesto": "Manifest",
+    "fleet": "Flota",
+    "experiences": "Doświadczenia",
+    "craft": "Rzemiosło",
+    "contact": "Kontakt",
+    "cta": "Rozpocznij historię",
+    "menuOpen": "Otwórz menu",
+    "menuClose": "Zamknij menu",
+    "language": "Język",
+    "skipToContent": "Przejdź do treści"
+  },
+  "hero": {
+    "headline": "Morze nie sprzedaje marzeń. Ono je przechowuje.",
+    "sub": "Odkryj flotę stworzoną nie po to, by ją mieć — lecz by nią żyć.",
+    "ctaPrimary": "Rozpocznij historię",
+    "ctaGhost": "Poznaj flotę",
+    "scrollCue": "Przewiń, aby rozpocząć"
+  },
+  "manifesto": {
+    "overline": "Nasza filozofia",
+    "title": "Nie budujemy łodzi. Budujemy horyzonty.",
+    "lead": "Każdy kadłub to zaproszenie: by zwolnić, by się spotkać, by gonić światło. To mobilność na wodzie zaprojektowana wokół życia, którym naprawdę chcesz żyć."
+  },
+  "fleet": {
+    "overline": "Flota",
+    "title": "Trzy charaktery. Jeden horyzont.",
+    "viewYacht": "Odkryj",
+    "cardCta": "Zobacz ten jacht"
+  },
+  "experiences": {
+    "overline": "Życie na pokładzie",
+    "title": "Jak rozwija się dzień na wodzie.",
+    "scenes": {
+      "firstLight": {
+        "title": "Pierwsze światło",
+        "body": "Zanim świat się obudzi, woda należy do ciebie. Kawa na dziobie, horyzont zmieniający barwę z atramentu w złoto."
+      },
+      "gathering": {
+        "title": "Spotkanie",
+        "body": "Przyjaciele schodzą się na pokład, muzyka rośnie, deska staje się sceną. Popołudnie rozciąga się w coś, co warto zapamiętać."
+      },
+      "longWay": {
+        "title": "Długa droga do domu",
+        "body": "Bez pośpiechu, bez wytyczonej trasy. Tylko brzeg przesuwający się obok i cichy luksus tego, że nie trzeba być nigdzie."
+      },
+      "stillness": {
+        "title": "Wyciszenie",
+        "body": "Silniki milczą, światła przygaszone. Ten rodzaj spokoju, który znajdziesz dopiero wtedy, gdy ląd cię puści."
+      }
+    }
+  },
+  "craft": {
+    "overline": "Rzemiosło",
+    "title": "Zbudowane, by ufać. Zaprojektowane, by czuć.",
+    "points": [
+      "Materiały premium dobrane tak samo pod dłoń, jak pod oko.",
+      "Certyfikat CE [[PLACEHOLDER]] — zbudowany zgodnie z normą, dopracowany daleko poza nią.",
+      "Cichy napęd, który pozwala mówić wodzie.",
+      "Dbałość o detal wszędzie, nawet tam, gdzie nikt jej nie zobaczy."
+    ]
+  },
+  "testimonials": {
+    "overline": "Głosy",
+    "title": "Ci, którzy już odbili od brzegu.",
+    "items": [
+      {
+        "quote": "Kupiliśmy łódź i odnaleźliśmy rytm. Poranki są teraz wolniejsze i w jakiś sposób to jest właśnie wszystko.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Aurora owner]]"
+      },
+      {
+        "quote": "Pierwszego weekendu na pokładzie cała dwunastka patrzyła na zachód słońca i nikt nie sięgnął po telefon.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Festa owner]]"
+      },
+      {
+        "quote": "Cisza, zdatna do żeglugi — nie przesadzali. To jedyne miejsce, w którym mój umysł wreszcie odpoczywa.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Sérénité owner]]"
+      }
+    ]
+  },
+  "contact": {
+    "overline": "Zaproszenie",
+    "title": "Opowiedz nam historię, którą chcesz przeżyć.",
+    "lead": "Bez presji, bez sprzedażowych formułek. Po prostu rozmowa o tym, co możliwe.",
+    "ctaButton": "Rozpocznij rozmowę",
+    "form": {
+      "name": "Twoje imię",
+      "email": "Adres e-mail",
+      "message": "Opowiedz nam trochę o historii, którą masz w głowie",
+      "consent": "Wyrażam zgodę na kontakt w sprawie mojego zapytania i przeczytałem(am) politykę prywatności.",
+      "submit": "Rozpocznij rozmowę",
+      "success": "Dziękujemy. Twoja wiadomość jest już w drodze — wkrótce się odezwiemy.",
+      "error": "Coś poszło nie tak przy wysyłce. Spróbuj ponownie lub napisz do nas bezpośrednio."
+    }
+  },
+  "footer": {
+    "tagline": "Historie, które morze pamięta.",
+    "nav": "Odkrywaj",
+    "legal": "Informacje prawne",
+    "cookieSettings": "Ustawienia cookies",
+    "rights": "Wszelkie prawa zastrzeżone."
+  },
+  "cookie": {
+    "banner": {
+      "text": "Używamy plików cookie, aby rozumieć, jak korzystasz ze strony, i ulepszać Twoje doświadczenie. Pliki inne niż niezbędne pozostają wyłączone, dopóki ich nie zaakceptujesz.",
+      "accept": "Akceptuj wszystkie",
+      "reject": "Odrzuć wszystkie",
+      "settings": "Ustawienia"
+    },
+    "modal": {
+      "title": "Preferencje cookies",
+      "necessary": "Niezbędne",
+      "analytics": "Analityczne",
+      "marketing": "Marketingowe",
+      "save": "Zapisz wybór",
+      "acceptAll": "Akceptuj wszystkie",
+      "rejectAll": "Odrzuć wszystkie",
+      "descNecessary": "Wymagane do działania strony. Nie można ich wyłączyć i nie przechowują danych osobowych poza tym, co niezbędne.",
+      "descAnalytics": "Pomagają nam zrozumieć, jak odwiedzający korzystają ze strony, abyśmy mogli ulepszać doświadczenie. Domyślnie wyłączone.",
+      "descMarketing": "Wykorzystywane, by uczynić ewentualne przyszłe reklamy bardziej trafnymi. Domyślnie wyłączone."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Polityka prywatności",
+      "lastUpdated": "Ostatnia aktualizacja: [[PLACEHOLDER — date]]",
+      "intro": "Niniejsza polityka prywatności wyjaśnia, w jaki sposób [[COMPANY_NAME]] przetwarza dane osobowe zbierane za pośrednictwem tej witryny, zgodnie z RODO.",
+      "controllerTitle": "Administrator danych",
+      "controllerBody": "Administratorem Twoich danych osobowych jest [[COMPANY_NAME]], [[COMPANY_ADDRESS]], [[COMPANY_TAX_ID]]. Kontakt: [[COMPANY_EMAIL]].",
+      "dataTitle": "Jakie dane zbieramy",
+      "dataBody": "Gdy korzystasz z formularza kontaktowego, przetwarzamy podane przez Ciebie imię, adres e-mail oraz treść wiadomości. Anonimowe dane o korzystaniu przetwarzamy wyłącznie wtedy, gdy wyrazisz zgodę na pliki analityczne.",
+      "purposeTitle": "Po co je przetwarzamy",
+      "purposeBody": "Aby odpowiedzieć na Twoje zapytanie (prawnie uzasadniony interes / czynności przed zawarciem umowy) oraz — za Twoją zgodą — by mierzyć i ulepszać witrynę.",
+      "rightsTitle": "Twoje prawa",
+      "rightsBody": "Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia i przenoszenia, a także prawo do sprzeciwu wobec przetwarzania. Aby skorzystać z tych praw, skontaktuj się: [[COMPANY_EMAIL]]. Możesz również wnieść skargę do organu nadzorczego [[SUPERVISORY_AUTHORITY]].",
+      "retentionTitle": "Okres przechowywania",
+      "retentionBody": "Dane z zapytania przechowujemy tylko tak długo, jak to konieczne do obsługi Twojej sprawy i wynikającej z niej relacji, a następnie je usuwamy. [[PLACEHOLDER — retention period]]"
+    },
+    "cookies": {
+      "title": "Polityka cookies",
+      "lastUpdated": "Ostatnia aktualizacja: [[PLACEHOLDER — date]]",
+      "intro": "Niniejsza polityka cookies opisuje pliki cookie i podobne technologie używane na tej witrynie prowadzonej przez [[COMPANY_NAME]].",
+      "whatTitle": "Czym są cookies",
+      "whatBody": "Pliki cookie to niewielkie pliki tekstowe przechowywane na Twoim urządzeniu. Używamy ich, by witryna działała, a za Twoją zgodą — by rozumieć sposób korzystania z niej.",
+      "categoriesTitle": "Kategorie, których używamy",
+      "necessaryTitle": "Cookies niezbędne",
+      "necessaryBody": "Zawsze aktywne. Zapisują Twój wybór dotyczący zgody i utrzymują działanie witryny. [[PLACEHOLDER — list of necessary cookies]]",
+      "analyticsTitle": "Cookies analityczne",
+      "analyticsBody": "Domyślnie wyłączone. Za Twoją zgodą Google Analytics 4 pomaga nam mierzyć ruch i ulepszać witrynę. [[PLACEHOLDER — list of analytics cookies]]",
+      "marketingTitle": "Cookies marketingowe",
+      "marketingBody": "Domyślnie wyłączone. Zarezerwowane na potrzeby ewentualnego przyszłego pomiaru reklam. [[PLACEHOLDER — list of marketing cookies]]",
+      "manageTitle": "Zarządzanie wyborem",
+      "manageBody": "Możesz zmienić lub wycofać zgodę w dowolnym momencie poprzez link „Ustawienia cookies” w stopce."
+    }
+  },
+  "yachts": {
+    "aurora": {
+      "tagline": "Dla tych, którzy gonią pierwsze światło.",
+      "story": "Jacht dla par i samotnych żeglarzy goniących horyzont — duże zasięgi, ciche poranki, kawa o świcie na dziobie. Aurora jest stworzona na godziny, zanim ktokolwiek inny się obudzi, gdy morze należy tylko do ciebie.",
+      "idealFor": "Samotne rejsy o świcie · weekendowe eskapady we dwoje · dłuższe wyprawy wzdłuż wybrzeża."
+    },
+    "festa": {
+      "tagline": "Tam, gdzie dzień zmienia się w święto.",
+      "story": "Przestronny pokład-scena na dni ze znajomymi i rodziną — kąpiele, muzyka, śmiech, zachody słońca. Festa jest zbudowana na spotkania, które zamieniają zwykłe popołudnie we wspomnienie warte zachowania.",
+      "idealFor": "Świętowanie ze znajomymi · rodzinne dni na wodzie · pływające wydarzenia."
+    },
+    "serenite": {
+      "tagline": "Cisza, zdatna do żeglugi.",
+      "story": "Ucieczka i miejsce na wyciszenie — leżanki, szept elektrycznego napędu, intymny luksus. Sérénité to cisza pomiędzy wszystkim innym, zaprojektowana na chwile, które chcesz zatrzymać.",
+      "idealFor": "Relaks i wyciszenie · romantyczne wieczory · joga i wellness na wodzie."
+    }
+  },
+  "yachtsCommon": {
+    "loa": "Długość całkowita",
+    "beam": "Szerokość",
+    "draft": "Zanurzenie",
+    "guests": "Goście",
+    "cabins": "Kabiny",
+    "range": "Zasięg",
+    "speed": "Prędkość maksymalna",
+    "propulsion": "Napęd",
+    "sundeck": "Pokład słoneczny",
+    "idealFor": "Idealny do",
+    "specsTitle": "Specyfikacja",
+    "specsNote": "Dane są orientacyjne i mogą się różnić w zależności od konfiguracji.",
+    "galleryTitle": "Galeria",
+    "galleryPrev": "Poprzednie zdjęcie",
+    "galleryNext": "Następne zdjęcie",
+    "backToFleet": "Powrót do floty",
+    "enquireCta": "Zapytaj o ten jacht"
+  },
+  "tabs": {
+    "deck": "Pokład",
+    "interior": "Wnętrze",
+    "propulsion": "Napęd",
+    "equipment": "Wyposażenie"
+  },
+  "meta": {
+    "home": {
+      "title": "MARÉ — Historie, które morze pamięta",
+      "description": "Kinowa flota zbudowana nie po to, by ją mieć, lecz by nią żyć. Odkryj MARÉ — jachty zaprojektowane wokół życia, którego pragniesz na wodzie."
+    },
+    "fleet": {
+      "title": "{name} — MARÉ",
+      "description": "Poznaj {name}: {tagline} Odkryj historię, specyfikację i galerię tego jachtu MARÉ."
+    },
+    "privacy": {
+      "title": "Polityka prywatności — MARÉ",
+      "description": "Jak MARÉ przetwarza dane osobowe zbierane za pośrednictwem tej witryny, zgodnie z RODO."
+    },
+    "cookies": {
+      "title": "Polityka cookies — MARÉ",
+      "description": "Pliki cookie i podobne technologie używane w witrynie MARÉ oraz sposób zarządzania wyborem."
+    }
+  }
+}

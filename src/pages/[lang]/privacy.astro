@@ -1,0 +1,143 @@
+---
+// =========================================================================
+// /[lang]/privacy — Privacy Policy (GDPR/RODO). Builder Systems.
+// Localized for all 5 locales via getStaticPaths. Copy comes from i18n
+// legal.privacy.*, with [[PLACEHOLDER]] fields (company, address, tax id,
+// email, supervisory authority, retention) to be filled before launch.
+// Mounts <Seo slot="head" /> and exposes a "Cookie settings" trigger that
+// dispatches the 'open-cookie-settings' event handled by CookieConsent.
+// =========================================================================
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Seo from '../../components/Seo.astro';
+import { locales, useTranslations, getLocaleFromUrl, localizedPath } from '../../i18n/utils';
+import type { Locale } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = getLocaleFromUrl(Astro.url) as Locale;
+const t = useTranslations(lang);
+
+const sections = [
+  { title: t('legal.privacy.controllerTitle'), body: t('legal.privacy.controllerBody') },
+  { title: t('legal.privacy.dataTitle'), body: t('legal.privacy.dataBody') },
+  { title: t('legal.privacy.purposeTitle'), body: t('legal.privacy.purposeBody') },
+  { title: t('legal.privacy.rightsTitle'), body: t('legal.privacy.rightsBody') },
+  { title: t('legal.privacy.retentionTitle'), body: t('legal.privacy.retentionBody') },
+];
+---
+
+<BaseLayout lang={lang} title={t('meta.privacy.title')} description={t('meta.privacy.description')}>
+  <Seo
+    slot="head"
+    lang={lang}
+    title={t('meta.privacy.title')}
+    description={t('meta.privacy.description')}
+    canonicalPath="privacy"
+  />
+
+  <main id="main" class="legal section">
+    <div class="shell">
+      <a class="legal__back" href={localizedPath(lang, '')}>{t('yachtsCommon.backToFleet')}</a>
+
+      <header class="legal__header">
+        <p class="overline">{t('footer.legal')}</p>
+        <h1 class="legal__title">{t('legal.privacy.title')}</h1>
+        <p class="legal__updated">{t('legal.privacy.lastUpdated')}</p>
+      </header>
+
+      <p class="legal__intro prose-measure">{t('legal.privacy.intro')}</p>
+
+      {
+        sections.map((s) => (
+          <section class="legal__section">
+            <h2 class="legal__h2">{s.title}</h2>
+            <p class="legal__body prose-measure">{s.body}</p>
+          </section>
+        ))
+      }
+
+      <p class="legal__cookie-link">
+        <button type="button" class="legal__cookie-btn" data-cc="settings">
+          {t('footer.cookieSettings')}
+        </button>
+        <span aria-hidden="true"> · </span>
+        <a href={localizedPath(lang, 'cookies')}>{t('legal.cookies.title')}</a>
+      </p>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .legal {
+    color: var(--sand-100);
+  }
+  .legal__back {
+    display: inline-block;
+    margin-bottom: var(--space-7);
+    font-family: var(--font-mono);
+    font-size: var(--fs-overline);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--lagoon-400);
+    text-decoration: none;
+  }
+  .legal__back:hover {
+    text-decoration: underline;
+  }
+  .legal__header {
+    margin-bottom: var(--space-7);
+  }
+  .legal__title {
+    margin: var(--space-2) 0 var(--space-3);
+    font-size: var(--fs-h1);
+    color: var(--sand-100);
+  }
+  .legal__updated {
+    margin: 0;
+    font-size: var(--fs-small);
+    color: var(--slate-500);
+  }
+  .legal__intro {
+    font-size: var(--fs-body-l);
+    color: var(--sand-200);
+    margin-bottom: var(--space-8);
+  }
+  .legal__section {
+    margin-bottom: var(--space-7);
+  }
+  .legal__h2 {
+    font-size: var(--fs-h3);
+    color: var(--sand-100);
+    margin: 0 0 var(--space-3);
+  }
+  .legal__body {
+    color: var(--sand-300);
+    margin: 0;
+  }
+  .legal__cookie-link {
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--line);
+    font-size: var(--fs-small);
+    color: var(--sand-300);
+  }
+  .legal__cookie-btn {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: var(--lagoon-400);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .legal__cookie-btn:hover {
+    color: var(--lagoon-500);
+  }
+</style>
+
+{/* The "Cookie settings" button reuses the data-cc="settings" hook that
+    CookieConsent (mounted globally via BaseLayout) listens for through
+    document-level delegation — no page-level script needed. */}

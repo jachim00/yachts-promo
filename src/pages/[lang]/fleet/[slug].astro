@@ -1,0 +1,200 @@
+---
+// =========================================================================
+// /[lang]/fleet/[slug] — yacht detail (Builder Frontend).
+// Data-driven from yachts.ts; getStaticPaths = 5 locales × 3 yachts.
+// Chapters: hero/story → SpecGrid (animated counters) → Tabs → Gallery → CTA.
+// Mounts <Seo slot="head"/> with a Product JSON-LD built from the yacht data.
+// Nav/Footer are Builder Frontend components; motion via animations.ts island.
+// =========================================================================
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Seo from '../../../components/Seo.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import Button from '../../../components/Button.astro';
+import SpecGrid from '../../../components/SpecGrid.astro';
+import Tabs from '../../../components/Tabs.astro';
+import Gallery from '../../../components/Gallery.astro';
+import { locales, useTranslations, getLocaleFromUrl, localizedPath, withBase } from '../../../i18n/utils';
+import type { Locale } from '../../../i18n/utils';
+import { yachts, getYacht } from '../../../data/yachts';
+import { site } from '../../../data/site';
+
+export function getStaticPaths() {
+  // 5 locales × 3 slugs.
+  return locales.flatMap((lang) =>
+    yachts.map((yacht) => ({
+      params: { lang, slug: yacht.slug },
+      props: { slug: yacht.slug },
+    }))
+  );
+}
+
+const { slug } = Astro.props as { slug: string };
+const lang = getLocaleFromUrl(Astro.url) as Locale;
+const t = useTranslations(lang);
+
+const yacht = getYacht(slug)!; // guaranteed by getStaticPaths
+
+const tagline = t(`yachts.${yacht.slug}.tagline`);
+const story = t(`yachts.${yacht.slug}.story`);
+const idealFor = t(`yachts.${yacht.slug}.idealFor`);
+
+// Per-page meta (en.json uses {name}/{tagline} tokens we interpolate here).
+const metaTitle = t('meta.fleet.title').replace('{name}', yacht.name);
+const metaDescription = t('meta.fleet.description')
+  .replace('{name}', yacht.name)
+  .replace('{tagline}', tagline);
+
+const heroImg = withBase(yacht.heroPlaceholder);
+
+// Product JSON-LD (section 11) handed to Seo.
+const jsonLd: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: yacht.name,
+  description: story,
+  brand: { '@type': 'Brand', name: site.brand },
+  category: 'Yacht',
+  image: heroImg,
+  // site.url already ends with the base ("…/yachts-promo"); append the
+  // locale-prefixed sub-path so the canonical product URL is absolute.
+  url: `${site.url.replace(/\/+$/, '')}/${lang}/fleet/${yacht.slug}`,
+  additionalProperty: Object.entries(yacht.spec)
+    .filter(([, v]) => typeof v === 'string' && v)
+    .map(([k, v]) => ({
+      '@type': 'PropertyValue',
+      name: t(`yachtsCommon.${k}`),
+      value: v,
+    })),
+};
+
+const backHref = localizedPath(lang, '') + '#fleet';
+const enquireHref = localizedPath(lang, '') + '#contact';
+---
+
+<BaseLayout lang={lang} title={metaTitle} description={metaDescription}>
+  <Seo
+    slot="head"
+    lang={lang}
+    title={metaTitle}
+    description={metaDescription}
+    canonicalPath={`fleet/${yacht.slug}`}
+    ogImage={yacht.heroPlaceholder}
+    jsonLd={jsonLd}
+  />
+
+  <Nav onHome={false} />
+
+  <main id="main">
+    {/* ---- Hero / story ---- */}
+    <section class="relative flex min-h-[80svh] items-end overflow-hidden bg-ink-900">
+      <div class="absolute inset-0 -z-10" data-hero-bg>
+        <div
+          class="absolute inset-0"
+          style="background-image: radial-gradient(120% 80% at 75% 15%, rgba(52,224,196,0.16), transparent 55%), radial-gradient(120% 90% at 15% 95%, rgba(255,106,69,0.18), transparent 50%), linear-gradient(180deg,#0b2128,#06141a 75%);"
+          aria-hidden="true"
+        >
+        </div>
+        <img
+          src={heroImg}
+          alt={`${yacht.name} — ${tagline}`}
+          loading="eager"
+          decoding="async"
+          onerror="this.remove()"
+          onload="this.classList.add('is-loaded')"
+          class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-cine [&.is-loaded]:opacity-100"
+        />
+        <div class="absolute inset-0 bg-grad-hero" aria-hidden="true"></div>
+      </div>
+
+      <div class="shell shell-wide relative z-10 pb-section pt-32">
+        <a
+          href={backHref}
+          class="mb-7 inline-flex items-center gap-2 font-mono text-overline uppercase tracking-overline text-lagoon-400 transition-colors hover:text-lagoon-500"
+        >
+          <svg
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          {t('yachtsCommon.backToFleet')}
+        </a>
+
+        <p class="overline mb-5">{yacht.name}</p>
+        <h1 class="font-display text-display text-sand-100 max-w-[16ch]">{tagline}</h1>
+      </div>
+    </section>
+
+    {/* ---- Story + ideal-for ---- */}
+    <section class="section bg-ink-900">
+      <div class="shell shell-wide grid gap-9 lg:grid-cols-12">
+        <div class="lg:col-span-7" data-reveal>
+          <p class="prose-measure text-body-l text-sand-200">{story}</p>
+        </div>
+        <aside class="lg:col-span-5" data-reveal data-reveal-delay="0.1">
+          <div class="rounded-lg border border-line bg-ink-700 p-7">
+            <h2 class="overline mb-4">{t('yachtsCommon.idealFor')}</h2>
+            <p class="text-body text-sand-100">{idealFor}</p>
+            <div class="mt-7">
+              <Button variant="primary" href={enquireHref} ctaLocation={`fleet-${yacht.slug}-aside`}>
+                {t('yachtsCommon.enquireCta')}
+              </Button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    {/* ---- Specifications (animated counters) ---- */}
+    <section class="section bg-ink-800">
+      <div class="shell shell-wide">
+        <SpecGrid spec={yacht.spec} />
+      </div>
+    </section>
+
+    {/* ---- Tabs: Deck / Interior / Propulsion / Equipment ---- */}
+    <section class="section bg-ink-900">
+      <div class="shell shell-wide">
+        <Tabs yacht={yacht} idBase={`tabs-${yacht.slug}`} />
+      </div>
+    </section>
+
+    {/* ---- Gallery ---- */}
+    <section class="section bg-ink-800">
+      <div class="shell shell-wide">
+        <Gallery images={yacht.gallery} name={yacht.name} />
+      </div>
+    </section>
+
+    {/* ---- Closing CTA ---- */}
+    <section class="section bg-ink-900">
+      <div class="shell shell-wide flex flex-col items-start gap-7 rounded-lg border border-line bg-ink-700 p-9 sm:p-10" data-reveal data-reveal-stagger>
+        <p class="overline" data-reveal-item>{t('contact.overline')}</p>
+        <h2 class="font-display text-h1 text-sand-100 max-w-[20ch]" data-reveal-item>
+          {t('contact.title')}
+        </h2>
+        <p class="prose-measure text-body-l text-sand-300" data-reveal-item>{t('contact.lead')}</p>
+        <div data-reveal-item>
+          <Button variant="primary" href={enquireHref} ctaLocation={`fleet-${yacht.slug}-cta`}>
+            {t('contact.ctaButton')}
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  {/* Motion island — counters, reveals, parallax for this page. */}
+  <script>
+    import '../../../scripts/animations.ts';
+  </script>
+</BaseLayout>

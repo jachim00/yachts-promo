@@ -1,0 +1,55 @@
+---
+// =========================================================================
+// SpecGrid.astro — yacht specification grid of animated counters.
+// Data-driven from a YachtSpec (yachts.ts). Labels via yachtsCommon.*.
+// Only renders fields that are present (optional fields are skipped).
+// Wraps SpecCounter for each figure.
+// =========================================================================
+import { getLocaleFromUrl, useTranslations } from '../i18n/utils';
+import type { YachtSpec } from '../data/yachts';
+import SpecCounter from './SpecCounter.astro';
+
+interface Props {
+  spec: YachtSpec;
+}
+
+const { spec } = Astro.props;
+const lang = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Fixed display order; each entry maps a spec key to its yachtsCommon label key.
+const order: Array<{ key: keyof YachtSpec; labelKey: string }> = [
+  { key: 'loa', labelKey: 'yachtsCommon.loa' },
+  { key: 'beam', labelKey: 'yachtsCommon.beam' },
+  { key: 'draft', labelKey: 'yachtsCommon.draft' },
+  { key: 'guests', labelKey: 'yachtsCommon.guests' },
+  { key: 'cabins', labelKey: 'yachtsCommon.cabins' },
+  { key: 'range', labelKey: 'yachtsCommon.range' },
+  { key: 'speed', labelKey: 'yachtsCommon.speed' },
+  { key: 'sundeck', labelKey: 'yachtsCommon.sundeck' },
+  { key: 'propulsion', labelKey: 'yachtsCommon.propulsion' },
+];
+
+const rows = order
+  .map(({ key, labelKey }) => ({ value: spec[key], label: t(labelKey) }))
+  .filter((r): r is { value: string; label: string } => typeof r.value === 'string' && !!r.value);
+---
+
+<section class="spec-grid">
+  <header class="mb-8 flex flex-col gap-3">
+    <h2 class="overline">{t('yachtsCommon.specsTitle')}</h2>
+  </header>
+
+  <dl
+    class="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4"
+    data-reveal
+    data-reveal-stagger
+    data-spec-grid
+  >
+    {rows.map((row) => <SpecCounter label={row.label} value={row.value} />)}
+  </dl>
+
+  <p class="mt-8 font-mono text-overline uppercase tracking-overline text-slate-500">
+    {t('yachtsCommon.specsNote')}
+  </p>
+</section>

@@ -1,0 +1,167 @@
+---
+// =========================================================================
+// Tabs.astro — accessible tabbed panels for the yacht detail page.
+// Sections: Deck / Interior / Propulsion / Equipment (tabs.* i18n).
+// WAI-ARIA tabs pattern: role=tablist/tab/tabpanel, aria-selected, roving
+// tabindex, ArrowLeft/Right + Home/End keyboard support.
+//
+// Panel content is data-light: we surface the relevant spec line(s) and a
+// short descriptive note built from existing i18n strings, so no new keys are
+// invented. Each panel falls back gracefully when a spec field is absent.
+// =========================================================================
+import { getLocaleFromUrl, useTranslations } from '../i18n/utils';
+import type { Yacht } from '../data/yachts';
+
+interface Props {
+  yacht: Yacht;
+  /** Unique id base so multiple Tabs instances never collide. */
+  idBase?: string;
+}
+
+const { yacht, idBase = 'tabs' } = Astro.props;
+const lang = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const spec = yacht.spec;
+
+// Build the four panels from existing data + i18n. Each "rows" entry reuses
+// yachtsCommon.* labels so everything stays translated and contract-safe.
+const panels = [
+  {
+    key: 'deck',
+    label: t('tabs.deck'),
+    rows: [
+      spec.sundeck && { label: t('yachtsCommon.sundeck'), value: spec.sundeck },
+      spec.guests && { label: t('yachtsCommon.guests'), value: spec.guests },
+      spec.beam && { label: t('yachtsCommon.beam'), value: spec.beam },
+    ].filter(Boolean) as Array<{ label: string; value: string }>,
+  },
+  {
+    key: 'interior',
+    label: t('tabs.interior'),
+    rows: [
+      spec.cabins && { label: t('yachtsCommon.cabins'), value: spec.cabins },
+      spec.guests && { label: t('yachtsCommon.guests'), value: spec.guests },
+      spec.loa && { label: t('yachtsCommon.loa'), value: spec.loa },
+    ].filter(Boolean) as Array<{ label: string; value: string }>,
+  },
+  {
+    key: 'propulsion',
+    label: t('tabs.propulsion'),
+    rows: [
+      spec.propulsion && { label: t('yachtsCommon.propulsion'), value: spec.propulsion },
+      spec.speed && { label: t('yachtsCommon.speed'), value: spec.speed },
+      spec.range && { label: t('yachtsCommon.range'), value: spec.range },
+    ].filter(Boolean) as Array<{ label: string; value: string }>,
+  },
+  {
+    key: 'equipment',
+    label: t('tabs.equipment'),
+    rows: [
+      spec.draft && { label: t('yachtsCommon.draft'), value: spec.draft },
+      spec.loa && { label: t('yachtsCommon.loa'), value: spec.loa },
+      spec.propulsion && { label: t('yachtsCommon.propulsion'), value: spec.propulsion },
+    ].filter(Boolean) as Array<{ label: string; value: string }>,
+  },
+];
+---
+
+<section class="tabs" data-tabs>
+  <div
+    class="flex flex-wrap gap-2 border-b border-line"
+    role="tablist"
+    aria-label={t('yachtsCommon.specsTitle')}
+  >
+    {
+      panels.map((panel, i) => (
+        <button
+          type="button"
+          role="tab"
+          id={`${idBase}-tab-${panel.key}`}
+          aria-controls={`${idBase}-panel-${panel.key}`}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          tabindex={i === 0 ? '0' : '-1'}
+          data-tab
+          class="tab relative -mb-px px-5 py-3 text-small font-medium text-slate-500 transition-colors duration-fast ease-out hover:text-sand-100 aria-selected:text-sand-100"
+        >
+          {panel.label}
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="pt-7">
+    {
+      panels.map((panel, i) => (
+        <div
+          role="tabpanel"
+          id={`${idBase}-panel-${panel.key}`}
+          aria-labelledby={`${idBase}-tab-${panel.key}`}
+          tabindex="0"
+          data-tabpanel
+          hidden={i !== 0}
+          class="tabpanel focus-visible:outline-none"
+        >
+          <dl class="grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+            {panel.rows.map((row) => (
+              <div class="flex flex-col gap-1 border-t border-line pt-4">
+                <dt class="font-mono text-overline uppercase tracking-overline text-slate-500">
+                  {row.label}
+                </dt>
+                <dd class="text-body text-sand-100">{row.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .tab[aria-selected='true']::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--lagoon-400);
+    border-radius: 2px;
+  }
+</style>
+
+<script>
+  // Each [data-tabs] block is independent (the page may hold several).
+  document.querySelectorAll<HTMLElement>('[data-tabs]').forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-tab]'));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('[data-tabpanel]'));
+
+    const select = (index: number, focus = true) => {
+      tabs.forEach((tab, i) => {
+        const selected = i === index;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        if (selected && focus) tab.focus();
+      });
+      panels.forEach((panel, i) => {
+        panel.hidden = i !== index;
+      });
+    };
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(i, false));
+      tab.addEventListener('keydown', (e) => {
+        let next = -1;
+        if (e.key === 'ArrowRight') next = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = tabs.length - 1;
+        if (next >= 0) {
+          e.preventDefault();
+          select(next);
+        }
+      });
+    });
+  });
+</script>

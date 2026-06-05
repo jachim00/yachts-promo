@@ -1,0 +1,122 @@
+---
+// =========================================================================
+// ExperienceScroll.astro — "A life aboard" chapter.
+// Cinematic horizontal scroll of 4 scenes. animations.ts pins this section
+// and scrubs the track sideways as the user scrolls vertically.
+//
+// Progressive enhancement / a11y: without JS (or under reduced-motion) the
+// [data-exp-track] simply stacks the panels vertically (CSS below), so the
+// content is always readable and keyboard-reachable.
+// =========================================================================
+import { getLocaleFromUrl, useTranslations } from '../i18n/utils';
+import SectionHeader from './SectionHeader.astro';
+
+const lang = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// 4 scenes — keys fixed by the i18n contract.
+const scenes = [
+  { key: 'firstLight', accent: 'rgba(255,106,69,0.18)' },
+  { key: 'gathering', accent: 'rgba(52,224,196,0.18)' },
+  { key: 'longWay', accent: 'rgba(110,136,147,0.20)' },
+  { key: 'stillness', accent: 'rgba(22,199,170,0.16)' },
+] as const;
+---
+
+<section
+  id="experiences"
+  data-experience
+  class="exp scroll-mt-24 bg-ink-800"
+>
+  <div class="shell shell-wide pt-section">
+    <SectionHeader overline={t('experiences.overline')} title={t('experiences.title')} as="h2" />
+  </div>
+
+  {/* Pinned viewport — animations.ts sets the horizontal scrub. */}
+  <div class="exp-pin mt-10" data-exp-pin>
+    <div class="exp-track" data-exp-track>
+      {
+        scenes.map((scene, i) => (
+          <article
+            class="exp-panel"
+            data-exp-panel
+            style={`--accent:${scene.accent};`}
+            aria-roledescription="scene"
+          >
+            <div class="exp-panel-inner shell">
+              <span class="font-mono text-overline uppercase tracking-overline text-lagoon-400">
+                {String(i + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')}
+              </span>
+              <h3 class="mt-5 font-display text-h1 text-sand-100">
+                {t(`experiences.scenes.${scene.key}.title`)}
+              </h3>
+              <p class="mt-5 max-w-measure text-body-l text-sand-300">
+                {t(`experiences.scenes.${scene.key}.body`)}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ---- Default (no-JS / reduced-motion): vertical stack, always readable ---- */
+  .exp-track {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .exp-panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 70svh;
+    padding-block: var(--space-8);
+    background-image: radial-gradient(120% 90% at 30% 20%, var(--accent), transparent 60%);
+  }
+  .exp-panel::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ---- Enhanced (JS + motion ok): horizontal pinned track ----
+     animations.ts adds .is-pinned to the section; we flip to a row whose
+     width is N * 100vw and let GSAP translate it. */
+  :global([data-experience].is-pinned) .exp-pin {
+    overflow: hidden;
+  }
+  :global([data-experience].is-pinned) .exp-track {
+    flex-direction: row;
+    gap: 0;
+    width: max-content;
+    will-change: transform;
+  }
+  :global([data-experience].is-pinned) .exp-panel {
+    width: 100vw;
+    min-height: 100svh;
+    padding-block: 0;
+  }
+  :global([data-experience].is-pinned) .exp-panel::after {
+    inset-inline: auto 0;
+    inset-block: 0;
+    width: 1px;
+    height: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global([data-experience].is-pinned) .exp-track {
+      flex-direction: column !important;
+      width: auto !important;
+    }
+    :global([data-experience].is-pinned) .exp-panel {
+      width: auto !important;
+      min-height: 70svh !important;
+    }
+  }
+</style>

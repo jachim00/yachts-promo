@@ -1,0 +1,303 @@
+---
+// =========================================================================
+// ContactForm.astro — lead-gen form.
+//  - posts to site.formEndpoint (Web3Forms/Formspree placeholder) via fetch
+//  - client-side validation with aria-describedby error messaging + aria-live
+//  - fires generate_lead on success (defensive analytics)
+//  - graceful: if endpoint is an unfilled placeholder we still validate and
+//    show the success state without a network round-trip.
+// All labels/messages via t() under contact.form.*.
+// =========================================================================
+import { getLocaleFromUrl, useTranslations, localizedPath } from '../i18n/utils';
+import { site } from '../data/site';
+import Button from './Button.astro';
+
+const lang = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const endpoint = site.formEndpoint;
+const privacyHref = localizedPath(lang, 'privacy');
+---
+
+<form
+  class="contact-form flex flex-col gap-6"
+  data-contact-form
+  data-endpoint={endpoint}
+  novalidate
+>
+  {/* Honeypot (spam) — visually hidden, must stay empty. */}
+  <input
+    type="text"
+    name="_gotcha"
+    tabindex="-1"
+    autocomplete="off"
+    class="sr-only"
+    aria-hidden="true"
+  />
+
+  <div class="grid gap-6 sm:grid-cols-2">
+    {/* Name */}
+    <div class="field flex flex-col gap-2">
+      <label for="cf-name" class="text-small font-medium text-sand-100">
+        {t('contact.form.name')}
+      </label>
+      <input
+        id="cf-name"
+        name="name"
+        type="text"
+        required
+        autocomplete="name"
+        aria-describedby="cf-name-err"
+        class="field-input"
+      />
+      <p id="cf-name-err" class="field-error" data-error hidden></p>
+    </div>
+
+    {/* Email */}
+    <div class="field flex flex-col gap-2">
+      <label for="cf-email" class="text-small font-medium text-sand-100">
+        {t('contact.form.email')}
+      </label>
+      <input
+        id="cf-email"
+        name="email"
+        type="email"
+        required
+        autocomplete="email"
+        aria-describedby="cf-email-err"
+        class="field-input"
+      />
+      <p id="cf-email-err" class="field-error" data-error hidden></p>
+    </div>
+  </div>
+
+  {/* Message */}
+  <div class="field flex flex-col gap-2">
+    <label for="cf-message" class="text-small font-medium text-sand-100">
+      {t('contact.form.message')}
+    </label>
+    <textarea
+      id="cf-message"
+      name="message"
+      rows="5"
+      required
+      aria-describedby="cf-message-err"
+      class="field-input resize-y"></textarea>
+    <p id="cf-message-err" class="field-error" data-error hidden></p>
+  </div>
+
+  {/* Consent */}
+  <div class="field flex flex-col gap-2">
+    <label class="flex items-start gap-3 text-small text-sand-300">
+      <input
+        id="cf-consent"
+        name="consent"
+        type="checkbox"
+        required
+        aria-describedby="cf-consent-err"
+        class="mt-1 h-4 w-4 shrink-0 accent-coral-500"
+      />
+      <span>
+        {t('contact.form.consent')}
+        <a href={privacyHref} class="ml-1 text-lagoon-400 underline underline-offset-2">
+          {t('legal.privacy.title')}
+        </a>
+      </span>
+    </label>
+    <p id="cf-consent-err" class="field-error pl-7" data-error hidden></p>
+  </div>
+
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+    <Button variant="primary" type="submit" ctaLocation="contact-form" class="sm:w-auto">
+      {t('contact.form.submit')}
+    </Button>
+    {/* Status region for SR + visual feedback */}
+    <p
+      class="form-status text-small"
+      data-form-status
+      role="status"
+      aria-live="polite"
+    >
+    </p>
+  </div>
+</form>
+
+<style>
+  .field-input {
+    width: 100%;
+    background: var(--ink-700);
+    color: var(--sand-100);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: 1.5;
+    transition:
+      border-color var(--dur-fast) var(--ease-out),
+      box-shadow var(--dur-fast) var(--ease-out);
+  }
+  .field-input::placeholder {
+    color: var(--slate-500);
+  }
+  .field-input:focus {
+    outline: none;
+    border-color: var(--lagoon-400);
+    box-shadow: 0 0 0 3px rgba(52, 224, 196, 0.18);
+  }
+  .field-input[aria-invalid='true'] {
+    border-color: var(--coral-500);
+    box-shadow: 0 0 0 3px rgba(255, 106, 69, 0.18);
+  }
+  .field-error {
+    color: var(--coral-500);
+    font-size: var(--fs-small);
+    line-height: 1.4;
+  }
+  .form-status[data-state='error'] {
+    color: var(--coral-500);
+  }
+  .form-status[data-state='success'] {
+    color: var(--lagoon-400);
+  }
+</style>
+
+<script
+  is:inline
+  define:vars={{
+    messages: {
+      required: {
+        name: t('contact.form.name'),
+        email: t('contact.form.email'),
+        message: t('contact.form.message'),
+        consent: t('contact.form.consent'),
+      },
+      success: t('contact.form.success'),
+      error: t('contact.form.error'),
+    },
+  }}
+>
+  const form = document.querySelector('[data-contact-form]');
+  if (form) {
+    const endpoint = form.getAttribute('data-endpoint') || '';
+    const statusEl = form.querySelector('[data-form-status]');
+
+    const fields = [
+      { name: 'name', el: form.querySelector('#cf-name'), err: form.querySelector('#cf-name-err') },
+      {
+        name: 'email',
+        el: form.querySelector('#cf-email'),
+        err: form.querySelector('#cf-email-err'),
+      },
+      {
+        name: 'message',
+        el: form.querySelector('#cf-message'),
+        err: form.querySelector('#cf-message-err'),
+      },
+      {
+        name: 'consent',
+        el: form.querySelector('#cf-consent'),
+        err: form.querySelector('#cf-consent-err'),
+      },
+    ];
+
+    const setError = (f, msg) => {
+      if (!f.el || !f.err) return;
+      if (msg) {
+        f.err.textContent = msg;
+        f.err.hidden = false;
+        f.el.setAttribute('aria-invalid', 'true');
+      } else {
+        f.err.textContent = '';
+        f.err.hidden = true;
+        f.el.removeAttribute('aria-invalid');
+      }
+    };
+
+    const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+    const validate = () => {
+      let firstInvalid = null;
+      for (const f of fields) {
+        let msg = '';
+        if (f.name === 'consent') {
+          if (!f.el.checked) msg = '!';
+        } else {
+          const val = (f.el.value || '').trim();
+          if (!val) msg = '!';
+          else if (f.name === 'email' && !emailOk(val)) msg = '!';
+        }
+        // Localized message: "<Field> —" style; keep it short + clear.
+        if (msg) {
+          const label =
+            f.name === 'consent'
+              ? messages.required.consent
+              : messages.required[f.name];
+          setError(f, label);
+          if (!firstInvalid) firstInvalid = f.el;
+        } else {
+          setError(f, '');
+        }
+      }
+      return firstInvalid;
+    };
+
+    // Live-clear errors as the user fixes them.
+    fields.forEach((f) =>
+      f.el?.addEventListener('input', () => {
+        if (f.el.getAttribute('aria-invalid') === 'true') validate();
+      })
+    );
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (statusEl) {
+        statusEl.textContent = '';
+        statusEl.removeAttribute('data-state');
+      }
+
+      // Honeypot
+      if (form.querySelector('[name="_gotcha"]')?.value) return;
+
+      const firstInvalid = validate();
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+
+      const data = new FormData(form);
+      const showSuccess = () => {
+        if (statusEl) {
+          statusEl.textContent = messages.success;
+          statusEl.setAttribute('data-state', 'success');
+        }
+        form.reset();
+        window.yachtsAnalytics?.track?.('generate_lead', { form: 'contact' });
+      };
+      const showError = () => {
+        if (statusEl) {
+          statusEl.textContent = messages.error;
+          statusEl.setAttribute('data-state', 'error');
+        }
+      };
+
+      // Unfilled placeholder endpoint → skip network, show success (demo mode).
+      if (!endpoint || endpoint.startsWith('[[')) {
+        showSuccess();
+        return;
+      }
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: data,
+        });
+        if (res.ok) showSuccess();
+        else showError();
+      } catch {
+        showError();
+      }
+    });
+  }
+</script>

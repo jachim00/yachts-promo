@@ -1,0 +1,115 @@
+---
+// =========================================================================
+// Button.astro — design-system button (section 6).
+// Variants:
+//   primary : coral fill + glow (the main CTA)
+//   ghost   : lagoon outline, transparent fill (secondary)
+//   text    : inline text with an animated arrow (tertiary)
+// Renders as <a> when `href` is given, otherwise <button>.
+// Desktop "magnetic" hover is added by the global JS island (data-magnetic),
+// and is automatically inert under prefers-reduced-motion / touch.
+// All visible labels come from the caller (already translated via t()).
+// =========================================================================
+type Variant = 'primary' | 'ghost' | 'text';
+
+interface Props {
+  variant?: Variant;
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  /** Forwarded to analytics: dispatches cta_click with this location. */
+  ctaLocation?: string;
+  /** Extra classes from the caller. */
+  class?: string;
+  id?: string;
+  ariaLabel?: string;
+  /** Disable magnetic hover for this instance. */
+  magnetic?: boolean;
+  download?: boolean;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  variant = 'primary',
+  href,
+  type = 'button',
+  ctaLocation,
+  class: extra = '',
+  id,
+  ariaLabel,
+  magnetic = true,
+  target,
+  rel,
+} = Astro.props;
+
+const base =
+  'btn group relative inline-flex items-center justify-center gap-3 font-sans font-semibold tracking-tight transition-all duration-base ease-out select-none cursor-pointer disabled:opacity-50 disabled:pointer-events-none';
+
+const byVariant: Record<Variant, string> = {
+  primary:
+    'rounded-pill bg-coral-500 text-ink-900 px-7 py-4 text-small hover:bg-coral-600 hover:shadow-glow-coral focus-visible:shadow-glow-coral',
+  ghost:
+    'rounded-pill border border-lagoon-400/60 text-sand-100 px-7 py-4 text-small hover:border-lagoon-400 hover:text-lagoon-400 hover:bg-lagoon-400/5',
+  text: 'text-sand-100 text-small hover:text-lagoon-400 px-0 py-2',
+};
+
+const cls = `${base} ${byVariant[variant]} ${extra}`.trim();
+const isLink = typeof href === 'string';
+const Tag = isLink ? 'a' : 'button';
+---
+
+<Tag
+  id={id}
+  class={cls}
+  href={isLink ? href : undefined}
+  type={isLink ? undefined : type}
+  target={target}
+  rel={rel}
+  aria-label={ariaLabel}
+  data-magnetic={magnetic ? '' : undefined}
+  data-cta-location={ctaLocation}
+>
+  <span class="btn-label relative z-10 inline-flex items-center gap-2">
+    <slot />
+    {
+      variant === 'text' && (
+        <svg
+          class="btn-arrow h-4 w-4 transition-transform duration-base ease-out group-hover:translate-x-1"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      )
+    }
+  </span>
+</Tag>
+
+<style>
+  /* Magnetic translate is driven inline by JS; we only smooth it here. */
+  .btn[data-magnetic] {
+    will-change: transform;
+  }
+</style>
+
+<script>
+  // cta_click analytics: defensive — analytics may not be loaded (no consent).
+  // The element carries data-cta-location; only fire when it is present.
+  if (!(window as any).__yachtsCtaBound) {
+    (window as any).__yachtsCtaBound = true;
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement | null;
+      const btn = target?.closest('[data-cta-location]') as HTMLElement | null;
+      if (!btn) return;
+      const location = btn.getAttribute('data-cta-location');
+      if (!location) return;
+      (window as any).yachtsAnalytics?.track?.('cta_click', { location });
+    });
+  }
+</script>

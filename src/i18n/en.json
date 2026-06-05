@@ -1,0 +1,220 @@
+{
+  "nav": {
+    "manifesto": "Manifesto",
+    "fleet": "Fleet",
+    "experiences": "Experiences",
+    "craft": "Craftsmanship",
+    "contact": "Contact",
+    "cta": "Begin the story",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "language": "Language",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "headline": "The sea doesn't sell dreams. It keeps them.",
+    "sub": "Discover a fleet built not to be owned — but to be lived.",
+    "ctaPrimary": "Begin the story",
+    "ctaGhost": "Meet the fleet",
+    "scrollCue": "Scroll to begin"
+  },
+  "manifesto": {
+    "overline": "Our philosophy",
+    "title": "We don't build boats. We build horizons.",
+    "lead": "Every hull is an invitation: to slow down, to gather, to chase the light. This is water mobility designed around the life you want to live."
+  },
+  "fleet": {
+    "overline": "The fleet",
+    "title": "Three characters. One horizon.",
+    "viewYacht": "Discover",
+    "cardCta": "View this yacht"
+  },
+  "experiences": {
+    "overline": "A life aboard",
+    "title": "How the day unfolds on the water.",
+    "scenes": {
+      "firstLight": {
+        "title": "First light",
+        "body": "Before the world wakes, the water is yours. Coffee on the bow, the horizon turning from ink to gold."
+      },
+      "gathering": {
+        "title": "The gathering",
+        "body": "Friends arrive, music rises, the deck becomes a stage. The afternoon stretches into something worth remembering."
+      },
+      "longWay": {
+        "title": "The long way home",
+        "body": "No rush, no route. Just the coastline drifting by and the quiet luxury of having nowhere to be."
+      },
+      "stillness": {
+        "title": "Stillness",
+        "body": "Engines silent, lights low. The kind of calm you can only find when the land lets go."
+      }
+    }
+  },
+  "craft": {
+    "overline": "Craftsmanship",
+    "title": "Built to be trusted. Designed to be felt.",
+    "points": [
+      "Premium materials chosen for the hand as much as the eye.",
+      "CE certification [[PLACEHOLDER]] — engineered to standard, refined beyond it.",
+      "Quiet propulsion that lets the water speak.",
+      "Detail honoured everywhere, even where it is never seen."
+    ]
+  },
+  "testimonials": {
+    "overline": "Voices",
+    "title": "The people who already cast off.",
+    "items": [
+      {
+        "quote": "We bought a boat and found a rhythm. Mornings are slower now, and somehow that is everything.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Aurora owner]]"
+      },
+      {
+        "quote": "The first weekend aboard, twelve of us watched the sun go down and nobody reached for a phone.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Festa owner]]"
+      },
+      {
+        "quote": "Silence, made seaworthy — they were not exaggerating. It is the only place my mind finally rests.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Sérénité owner]]"
+      }
+    ]
+  },
+  "contact": {
+    "overline": "The invitation",
+    "title": "Tell us the story you want to live.",
+    "lead": "No pressure, no sales pitch. Just a conversation about what's possible.",
+    "ctaButton": "Start the conversation",
+    "form": {
+      "name": "Your name",
+      "email": "Email address",
+      "message": "Tell us a little about the story you have in mind",
+      "consent": "I agree to be contacted about my enquiry and have read the privacy policy.",
+      "submit": "Start the conversation",
+      "success": "Thank you. Your message is on its way — we'll be in touch soon.",
+      "error": "Something went wrong sending your message. Please try again or email us directly."
+    }
+  },
+  "footer": {
+    "tagline": "Stories the sea remembers.",
+    "nav": "Explore",
+    "legal": "Legal",
+    "cookieSettings": "Cookie settings",
+    "rights": "All rights reserved."
+  },
+  "cookie": {
+    "banner": {
+      "text": "We use cookies to understand how the site is used and to improve your experience. Non-essential cookies stay off until you accept them.",
+      "accept": "Accept all",
+      "reject": "Reject all",
+      "settings": "Settings"
+    },
+    "modal": {
+      "title": "Cookie preferences",
+      "necessary": "Necessary",
+      "analytics": "Analytics",
+      "marketing": "Marketing",
+      "save": "Save choices",
+      "acceptAll": "Accept all",
+      "rejectAll": "Reject all",
+      "descNecessary": "Required for the site to function. These cannot be switched off and store no personal data beyond what is essential.",
+      "descAnalytics": "Help us understand how visitors use the site, so we can improve the experience. Off by default.",
+      "descMarketing": "Used to make any future advertising more relevant. Off by default."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: [[PLACEHOLDER — date]]",
+      "intro": "This Privacy Policy explains how [[COMPANY_NAME]] processes personal data collected through this website, in accordance with the GDPR.",
+      "controllerTitle": "Data controller",
+      "controllerBody": "The controller of your personal data is [[COMPANY_NAME]], [[COMPANY_ADDRESS]], [[COMPANY_TAX_ID]]. Contact: [[COMPANY_EMAIL]].",
+      "dataTitle": "What data we collect",
+      "dataBody": "When you use the contact form we process the name, email address and message content you provide. We also process anonymous usage data only if you consent to analytics cookies.",
+      "purposeTitle": "Why we process it",
+      "purposeBody": "To respond to your enquiry (legitimate interest / steps prior to a contract) and, with consent, to measure and improve the website.",
+      "rightsTitle": "Your rights",
+      "rightsBody": "You have the right to access, rectify, erase, restrict and port your data, and to object to processing. To exercise these rights contact [[COMPANY_EMAIL]]. You may also lodge a complaint with the supervisory authority [[SUPERVISORY_AUTHORITY]].",
+      "retentionTitle": "Retention",
+      "retentionBody": "Enquiry data is kept only as long as needed to handle your request and any resulting relationship, then deleted. [[PLACEHOLDER — retention period]]"
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "lastUpdated": "Last updated: [[PLACEHOLDER — date]]",
+      "intro": "This Cookie Policy describes the cookies and similar technologies used on this website operated by [[COMPANY_NAME]].",
+      "whatTitle": "What are cookies",
+      "whatBody": "Cookies are small text files stored on your device. We use them to keep the site working and, with your consent, to understand usage.",
+      "categoriesTitle": "Categories we use",
+      "necessaryTitle": "Necessary cookies",
+      "necessaryBody": "Always active. Store your cookie consent choice and keep the site functioning. [[PLACEHOLDER — list of necessary cookies]]",
+      "analyticsTitle": "Analytics cookies",
+      "analyticsBody": "Off by default. With consent, Google Analytics 4 helps us measure traffic and improve the site. [[PLACEHOLDER — list of analytics cookies]]",
+      "marketingTitle": "Marketing cookies",
+      "marketingBody": "Off by default. Reserved for any future advertising measurement. [[PLACEHOLDER — list of marketing cookies]]",
+      "manageTitle": "Managing your choices",
+      "manageBody": "You can change or withdraw your consent at any time via the \"Cookie settings\" link in the footer."
+    }
+  },
+  "yachts": {
+    "aurora": {
+      "tagline": "For those who chase the first light.",
+      "story": "A yacht for couples and solo sailors chasing the horizon — long ranges, quiet mornings, coffee at dawn on the bow. Aurora is made for the hours before anyone else is awake, when the sea belongs to you alone.",
+      "idealFor": "Solo dawn voyages · weekend escapes for two · longer journeys along the coast."
+    },
+    "festa": {
+      "tagline": "Where the day turns into a celebration.",
+      "story": "A spacious deck-as-stage for days with friends and family — swims, music, laughter, sunsets. Festa is built for the gatherings that turn an ordinary afternoon into a memory worth keeping.",
+      "idealFor": "Celebrations with friends · family days on the water · floating events."
+    },
+    "serenite": {
+      "tagline": "Silence, made seaworthy.",
+      "story": "An escape and a place to be still — daybeds, the hush of electric propulsion, intimate luxury. Sérénité is the quiet between everything else, designed for the moments you want to last.",
+      "idealFor": "Rest and stillness · romantic evenings · yoga and wellness on the water."
+    }
+  },
+  "yachtsCommon": {
+    "loa": "Length overall",
+    "beam": "Beam",
+    "draft": "Draft",
+    "guests": "Guests",
+    "cabins": "Cabins",
+    "range": "Range",
+    "speed": "Top speed",
+    "propulsion": "Propulsion",
+    "sundeck": "Sundeck",
+    "idealFor": "Ideal for",
+    "specsTitle": "Specifications",
+    "specsNote": "Figures are indicative and may vary by configuration.",
+    "galleryTitle": "Gallery",
+    "galleryPrev": "Previous image",
+    "galleryNext": "Next image",
+    "backToFleet": "Back to the fleet",
+    "enquireCta": "Enquire about this yacht"
+  },
+  "tabs": {
+    "deck": "Deck",
+    "interior": "Interior",
+    "propulsion": "Propulsion",
+    "equipment": "Equipment"
+  },
+  "meta": {
+    "home": {
+      "title": "MARÉ — Stories the sea remembers",
+      "description": "A cinematic fleet built not to be owned, but to be lived. Discover MARÉ — yachts designed around the life you want on the water."
+    },
+    "fleet": {
+      "title": "{name} — MARÉ",
+      "description": "Meet {name}: {tagline} Explore the story, specifications and gallery of this MARÉ yacht."
+    },
+    "privacy": {
+      "title": "Privacy Policy — MARÉ",
+      "description": "How MARÉ processes personal data collected through this website, in line with the GDPR."
+    },
+    "cookies": {
+      "title": "Cookie Policy — MARÉ",
+      "description": "The cookies and similar technologies used on the MARÉ website, and how to manage your choices."
+    }
+  }
+}

@@ -1,0 +1,63 @@
+---
+// =========================================================================
+// [lang]/index.astro — the cinematic one-page (Builder Frontend final).
+// Replaces the Foundation stub: this is page CONTENT, the one Foundation file
+// Builder Frontend is allowed to take over.
+//
+// Order of chapters (section 5):
+//   Hero → Manifesto → FleetTeaser → ExperienceScroll → Craft →
+//   Testimonials → ContactSection
+// Wrapped in BaseLayout; <Seo slot="head"/> + <CookieConsent/> are Systems
+// components consumed as-is. Nav/Footer are Builder Frontend's own.
+// getStaticPaths returns all 5 locales.
+// =========================================================================
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Seo from '../../components/Seo.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import Manifesto from '../../components/Manifesto.astro';
+import FleetTeaser from '../../components/FleetTeaser.astro';
+import ExperienceScroll from '../../components/ExperienceScroll.astro';
+import Craft from '../../components/Craft.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import { locales, useTranslations, getLocaleFromUrl } from '../../i18n/utils';
+import type { Locale } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = getLocaleFromUrl(Astro.url) as Locale;
+const t = useTranslations(lang);
+---
+
+<BaseLayout lang={lang} title={t('meta.home.title')} description={t('meta.home.description')}>
+  <Seo
+    slot="head"
+    lang={lang}
+    title={t('meta.home.title')}
+    description={t('meta.home.description')}
+    canonicalPath=""
+  />
+
+  <Nav onHome={true} />
+
+  <main id="main">
+    <Hero />
+    <Manifesto />
+    <FleetTeaser />
+    <ExperienceScroll />
+    <Craft />
+    <Testimonials />
+    <ContactSection />
+  </main>
+
+  <Footer />
+
+  {/* Motion island — loaded only here (home needs hero/exp/reveals/counters). */}
+  <script>
+    import '../../scripts/animations.ts';
+  </script>
+</BaseLayout>

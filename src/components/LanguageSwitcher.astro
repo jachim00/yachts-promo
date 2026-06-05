@@ -1,0 +1,79 @@
+---
+// =========================================================================
+// LanguageSwitcher.astro — 5-locale switcher.
+// Preserves the CURRENT sub-page (locale-less path) when switching, so a
+// visitor on /fr/fleet/aurora lands on /de/fleet/aurora, etc.
+// Emits `language_switch` via window.yachtsAnalytics (defensive optional call).
+// All paths via localizedPath() so the deploy base is always respected.
+// =========================================================================
+import { locales, getLocaleFromUrl, localizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/utils';
+
+interface Props {
+  /** Visual variant — compact pills (nav) vs inline list (footer / mobile). */
+  variant?: 'inline' | 'menu';
+  class?: string;
+}
+
+const { variant = 'inline', class: extra = '' } = Astro.props;
+
+const current = getLocaleFromUrl(Astro.url);
+
+// Derive the locale-less sub-path of the page we are on, so we can rebuild it
+// under each target locale. Strip base + leading locale segment.
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+let path = Astro.url.pathname;
+if (base && path.startsWith(base)) path = path.slice(base.length);
+const segments = path.split('/').filter(Boolean);
+if (segments.length && locales.includes(segments[0] as Locale)) segments.shift();
+const subPath = segments.join('/'); // '' on the home page
+
+const labels: Record<Locale, string> = {
+  en: 'EN',
+  de: 'DE',
+  fr: 'FR',
+  es: 'ES',
+  pl: 'PL',
+};
+
+const wrapCls =
+  variant === 'menu'
+    ? 'flex flex-wrap gap-3 text-body'
+    : 'flex items-center gap-1 text-small font-mono';
+---
+
+<nav class={`lang-switcher ${wrapCls} ${extra}`.trim()} aria-label="Language">
+  {
+    locales.map((loc) => {
+      const isActive = loc === current;
+      const href = localizedPath(loc, subPath);
+      return (
+        <a
+          href={href}
+          hreflang={loc}
+          lang={loc}
+          data-lang-switch={loc}
+          aria-current={isActive ? 'true' : undefined}
+          class={`lang-link rounded-sm px-2 py-1 uppercase tracking-overline transition-colors duration-fast ease-out ${
+            isActive
+              ? 'text-lagoon-400 font-bold'
+              : 'text-sand-300 hover:text-sand-100'
+          }`}
+        >
+          {labels[loc]}
+        </a>
+      );
+    })
+  }
+</nav>
+
+<script>
+  // Fire language_switch on click (before navigation). Defensive: analytics
+  // may be absent until consent — optional chaining keeps this inert.
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach((a) => {
+    a.addEventListener('click', () => {
+      const lang = a.getAttribute('data-lang-switch');
+      if (lang) (window as any).yachtsAnalytics?.track?.('language_switch', { lang });
+    });
+  });
+</script>

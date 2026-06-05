@@ -1,0 +1,220 @@
+{
+  "nav": {
+    "manifesto": "Philosophie",
+    "fleet": "Flotte",
+    "experiences": "Erlebnisse",
+    "craft": "Handwerk",
+    "contact": "Kontakt",
+    "cta": "Die Geschichte beginnen",
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schließen",
+    "language": "Sprache",
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "hero": {
+    "headline": "Das Meer verkauft keine Träume. Es bewahrt sie.",
+    "sub": "Entdecke eine Flotte, die nicht besessen, sondern gelebt werden will.",
+    "ctaPrimary": "Die Geschichte beginnen",
+    "ctaGhost": "Die Flotte entdecken",
+    "scrollCue": "Scrollen zum Beginnen"
+  },
+  "manifesto": {
+    "overline": "Unsere Philosophie",
+    "title": "Wir bauen keine Boote. Wir bauen Horizonte.",
+    "lead": "Jeder Rumpf ist eine Einladung: zu entschleunigen, zusammenzukommen, dem Licht zu folgen. Das ist Mobilität auf dem Wasser, entworfen um das Leben, das du wirklich leben willst."
+  },
+  "fleet": {
+    "overline": "Die Flotte",
+    "title": "Drei Charaktere. Ein Horizont.",
+    "viewYacht": "Entdecken",
+    "cardCta": "Diese Yacht ansehen"
+  },
+  "experiences": {
+    "overline": "Ein Leben an Bord",
+    "title": "Wie sich der Tag auf dem Wasser entfaltet.",
+    "scenes": {
+      "firstLight": {
+        "title": "Erstes Licht",
+        "body": "Bevor die Welt erwacht, gehört das Wasser dir. Kaffee am Bug, der Horizont wechselt von Tinte zu Gold."
+      },
+      "gathering": {
+        "title": "Das Beisammensein",
+        "body": "Freunde kommen an, die Musik steigt, das Deck wird zur Bühne. Der Nachmittag dehnt sich zu etwas, das in Erinnerung bleibt."
+      },
+      "longWay": {
+        "title": "Der lange Weg nach Hause",
+        "body": "Keine Eile, keine Route. Nur die Küste, die vorbeizieht, und der stille Luxus, nirgendwo sein zu müssen."
+      },
+      "stillness": {
+        "title": "Stille",
+        "body": "Maschinen verstummt, Lichter gedämpft. Die Art von Ruhe, die du nur findest, wenn das Land dich loslässt."
+      }
+    }
+  },
+  "craft": {
+    "overline": "Handwerk",
+    "title": "Gebaut, um zu vertrauen. Gestaltet, um zu spüren.",
+    "points": [
+      "Hochwertige Materialien, gewählt für die Hand ebenso wie für das Auge.",
+      "CE-Zertifizierung [[PLACEHOLDER]] — nach Norm gebaut, weit darüber hinaus verfeinert.",
+      "Leiser Antrieb, der das Wasser sprechen lässt.",
+      "Detailtreue überall, selbst dort, wo sie niemand sieht."
+    ]
+  },
+  "testimonials": {
+    "overline": "Stimmen",
+    "title": "Die Menschen, die bereits abgelegt haben.",
+    "items": [
+      {
+        "quote": "Wir haben ein Boot gekauft und einen Rhythmus gefunden. Die Morgen sind jetzt langsamer, und irgendwie ist das alles.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Aurora owner]]"
+      },
+      {
+        "quote": "Am ersten Wochenende an Bord sahen wir zu zwölft die Sonne untergehen, und niemand griff zum Telefon.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Festa owner]]"
+      },
+      {
+        "quote": "Stille, hochseetauglich gemacht — sie haben nicht übertrieben. Es ist der einzige Ort, an dem mein Kopf endlich zur Ruhe kommt.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Sérénité owner]]"
+      }
+    ]
+  },
+  "contact": {
+    "overline": "Die Einladung",
+    "title": "Erzähl uns, welche Geschichte du leben willst.",
+    "lead": "Kein Druck, kein Verkaufsgespräch. Nur ein Gespräch darüber, was möglich ist.",
+    "ctaButton": "Das Gespräch beginnen",
+    "form": {
+      "name": "Dein Name",
+      "email": "E-Mail-Adresse",
+      "message": "Erzähl uns ein wenig von der Geschichte, die dir vorschwebt",
+      "consent": "Ich stimme zu, zu meiner Anfrage kontaktiert zu werden, und habe die Datenschutzerklärung gelesen.",
+      "submit": "Das Gespräch beginnen",
+      "success": "Danke. Deine Nachricht ist unterwegs — wir melden uns bald.",
+      "error": "Beim Senden ist etwas schiefgelaufen. Bitte versuche es erneut oder schreibe uns direkt."
+    }
+  },
+  "footer": {
+    "tagline": "Geschichten, an die sich das Meer erinnert.",
+    "nav": "Entdecken",
+    "legal": "Rechtliches",
+    "cookieSettings": "Cookie-Einstellungen",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "cookie": {
+    "banner": {
+      "text": "Wir verwenden Cookies, um zu verstehen, wie die Website genutzt wird, und um dein Erlebnis zu verbessern. Nicht notwendige Cookies bleiben deaktiviert, bis du ihnen zustimmst.",
+      "accept": "Alle akzeptieren",
+      "reject": "Alle ablehnen",
+      "settings": "Einstellungen"
+    },
+    "modal": {
+      "title": "Cookie-Einstellungen",
+      "necessary": "Notwendig",
+      "analytics": "Analyse",
+      "marketing": "Marketing",
+      "save": "Auswahl speichern",
+      "acceptAll": "Alle akzeptieren",
+      "rejectAll": "Alle ablehnen",
+      "descNecessary": "Für das Funktionieren der Website erforderlich. Diese können nicht deaktiviert werden und speichern keine personenbezogenen Daten über das Notwendige hinaus.",
+      "descAnalytics": "Helfen uns zu verstehen, wie Besucher die Website nutzen, damit wir das Erlebnis verbessern können. Standardmäßig deaktiviert.",
+      "descMarketing": "Werden verwendet, um künftige Werbung relevanter zu gestalten. Standardmäßig deaktiviert."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "lastUpdated": "Zuletzt aktualisiert: [[PLACEHOLDER — date]]",
+      "intro": "Diese Datenschutzerklärung erläutert, wie [[COMPANY_NAME]] personenbezogene Daten verarbeitet, die über diese Website erhoben werden, im Einklang mit der DSGVO.",
+      "controllerTitle": "Verantwortlicher",
+      "controllerBody": "Verantwortlicher für deine personenbezogenen Daten ist [[COMPANY_NAME]], [[COMPANY_ADDRESS]], [[COMPANY_TAX_ID]]. Kontakt: [[COMPANY_EMAIL]].",
+      "dataTitle": "Welche Daten wir erheben",
+      "dataBody": "Wenn du das Kontaktformular nutzt, verarbeiten wir den Namen, die E-Mail-Adresse und den Nachrichteninhalt, die du angibst. Anonyme Nutzungsdaten verarbeiten wir nur, wenn du Analyse-Cookies zustimmst.",
+      "purposeTitle": "Warum wir sie verarbeiten",
+      "purposeBody": "Um deine Anfrage zu beantworten (berechtigtes Interesse / Schritte vor einem Vertragsschluss) und, mit deiner Einwilligung, um die Website zu messen und zu verbessern.",
+      "rightsTitle": "Deine Rechte",
+      "rightsBody": "Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung und Übertragbarkeit deiner Daten sowie das Recht, der Verarbeitung zu widersprechen. Zur Ausübung dieser Rechte kontaktiere [[COMPANY_EMAIL]]. Du kannst auch eine Beschwerde bei der Aufsichtsbehörde [[SUPERVISORY_AUTHORITY]] einreichen.",
+      "retentionTitle": "Speicherdauer",
+      "retentionBody": "Anfragedaten werden nur so lange aufbewahrt, wie es zur Bearbeitung deines Anliegens und einer daraus entstehenden Beziehung erforderlich ist, und danach gelöscht. [[PLACEHOLDER — retention period]]"
+    },
+    "cookies": {
+      "title": "Cookie-Richtlinie",
+      "lastUpdated": "Zuletzt aktualisiert: [[PLACEHOLDER — date]]",
+      "intro": "Diese Cookie-Richtlinie beschreibt die Cookies und ähnlichen Technologien, die auf dieser von [[COMPANY_NAME]] betriebenen Website verwendet werden.",
+      "whatTitle": "Was sind Cookies",
+      "whatBody": "Cookies sind kleine Textdateien, die auf deinem Gerät gespeichert werden. Wir nutzen sie, damit die Website funktioniert und, mit deiner Einwilligung, um die Nutzung zu verstehen.",
+      "categoriesTitle": "Verwendete Kategorien",
+      "necessaryTitle": "Notwendige Cookies",
+      "necessaryBody": "Immer aktiv. Speichern deine Cookie-Entscheidung und halten die Website funktionsfähig. [[PLACEHOLDER — list of necessary cookies]]",
+      "analyticsTitle": "Analyse-Cookies",
+      "analyticsBody": "Standardmäßig deaktiviert. Mit deiner Einwilligung hilft uns Google Analytics 4, den Verkehr zu messen und die Website zu verbessern. [[PLACEHOLDER — list of analytics cookies]]",
+      "marketingTitle": "Marketing-Cookies",
+      "marketingBody": "Standardmäßig deaktiviert. Vorbehalten für künftige Werbemessung. [[PLACEHOLDER — list of marketing cookies]]",
+      "manageTitle": "Deine Auswahl verwalten",
+      "manageBody": "Du kannst deine Einwilligung jederzeit über den Link „Cookie-Einstellungen“ in der Fußzeile ändern oder widerrufen."
+    }
+  },
+  "yachts": {
+    "aurora": {
+      "tagline": "Für alle, die dem ersten Licht entgegenfahren.",
+      "story": "Eine Yacht für Paare und Solo-Segler, die dem Horizont folgen — große Reichweiten, stille Morgen, Kaffee bei Sonnenaufgang am Bug. Aurora ist für die Stunden gemacht, bevor jemand anderes wach ist, wenn das Meer dir ganz allein gehört.",
+      "idealFor": "Solo-Törns im Morgengrauen · Wochenend-Auszeiten zu zweit · längere Reisen entlang der Küste."
+    },
+    "festa": {
+      "tagline": "Wo der Tag zum Fest wird.",
+      "story": "Ein weitläufiges Deck als Bühne für Tage mit Freunden und Familie — Bäder, Musik, Lachen, Sonnenuntergänge. Festa ist für die Zusammenkünfte gebaut, die einen gewöhnlichen Nachmittag in eine Erinnerung verwandeln, die es wert ist, bewahrt zu werden.",
+      "idealFor": "Feiern mit Freunden · Familientage auf dem Wasser · schwimmende Events."
+    },
+    "serenite": {
+      "tagline": "Stille, hochseetauglich gemacht.",
+      "story": "Ein Rückzugsort und ein Ort, um still zu werden — Liegen, das Flüstern des Elektroantriebs, intimer Luxus. Sérénité ist die Stille zwischen allem anderen, gestaltet für die Momente, die du festhalten willst.",
+      "idealFor": "Ruhe und Stille · romantische Abende · Yoga und Wellness auf dem Wasser."
+    }
+  },
+  "yachtsCommon": {
+    "loa": "Länge über alles",
+    "beam": "Breite",
+    "draft": "Tiefgang",
+    "guests": "Gäste",
+    "cabins": "Kabinen",
+    "range": "Reichweite",
+    "speed": "Höchstgeschwindigkeit",
+    "propulsion": "Antrieb",
+    "sundeck": "Sonnendeck",
+    "idealFor": "Ideal für",
+    "specsTitle": "Spezifikationen",
+    "specsNote": "Angaben sind Richtwerte und können je nach Konfiguration variieren.",
+    "galleryTitle": "Galerie",
+    "galleryPrev": "Vorheriges Bild",
+    "galleryNext": "Nächstes Bild",
+    "backToFleet": "Zurück zur Flotte",
+    "enquireCta": "Zu dieser Yacht anfragen"
+  },
+  "tabs": {
+    "deck": "Deck",
+    "interior": "Innenraum",
+    "propulsion": "Antrieb",
+    "equipment": "Ausstattung"
+  },
+  "meta": {
+    "home": {
+      "title": "MARÉ — Geschichten, an die sich das Meer erinnert",
+      "description": "Eine kinoreife Flotte, gebaut nicht zum Besitzen, sondern zum Leben. Entdecke MARÉ — Yachten, entworfen um das Leben, das du auf dem Wasser führen willst."
+    },
+    "fleet": {
+      "title": "{name} — MARÉ",
+      "description": "Lerne {name} kennen: {tagline} Entdecke die Geschichte, die Spezifikationen und die Galerie dieser MARÉ-Yacht."
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung — MARÉ",
+      "description": "Wie MARÉ personenbezogene Daten verarbeitet, die über diese Website erhoben werden, im Einklang mit der DSGVO."
+    },
+    "cookies": {
+      "title": "Cookie-Richtlinie — MARÉ",
+      "description": "Die Cookies und ähnlichen Technologien, die auf der MARÉ-Website verwendet werden, und wie du deine Auswahl verwaltest."
+    }
+  }
+}

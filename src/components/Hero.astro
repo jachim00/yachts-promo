@@ -1,0 +1,196 @@
+---
+// =========================================================================
+// Hero.astro — full-screen cinematic prologue.
+//  - background <video> (muted/autoplay/loop) with poster + elegant gradient
+//    placeholder when no real media exists yet (paths via withBase()).
+//  - --grad-hero overlay for legibility.
+//  - headline split into LINES that reveal on load (animations.ts; CSS fallback
+//    keeps it visible without JS / under reduced-motion).
+//  - primary + ghost CTAs and an animated scroll cue.
+// All copy via t(); CTAs anchor to in-page chapters.
+// =========================================================================
+import { getLocaleFromUrl, useTranslations, withBase } from '../i18n/utils';
+import { site } from '../data/site';
+import Button from './Button.astro';
+
+const lang = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Placeholder media slots — files may not exist; the gradient art shows through.
+const poster = withBase('media/hero-poster.jpg');
+const videoMp4 = withBase('media/hero.mp4');
+const videoWebm = withBase('media/hero.webm');
+
+// Split the headline into lines for the staggered reveal. We split on the
+// sentence boundary so each clause animates separately; falls back to one line.
+const headline = t('hero.headline');
+const lines = headline.includes('. ')
+  ? headline.split(/(?<=\.)\s+/).filter(Boolean)
+  : [headline];
+---
+
+<section
+  id="hero"
+  data-hero
+  class="relative flex min-h-[100svh] w-full items-end overflow-hidden bg-ink-900"
+>
+  {/* Background media + placeholder art */}
+  <div class="absolute inset-0 -z-10" data-hero-bg>
+    {/* Elegant gradient placeholder (always present; sits under the video). */}
+    <div
+      class="absolute inset-0 bg-ink-900"
+      style="background-image: radial-gradient(120% 80% at 70% 10%, rgba(52,224,196,0.18), transparent 55%), radial-gradient(120% 90% at 20% 90%, rgba(255,106,69,0.20), transparent 50%), linear-gradient(180deg, #0b2128 0%, #06141a 70%);"
+      aria-hidden="true"
+    >
+    </div>
+
+    {/* Real video when supplied; poster is the immediate fallback. */}
+    <video
+      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-cine"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      poster={poster}
+      data-hero-video
+      aria-hidden="true"
+    >
+      <source src={videoWebm} type="video/webm" />
+      <source src={videoMp4} type="video/mp4" />
+    </video>
+
+    {/* Cinematic legibility overlay */}
+    <div class="absolute inset-0 bg-grad-hero" aria-hidden="true"></div>
+  </div>
+
+  {/* PLACEHOLDER NOTE (dev-only marker, hidden visually) */}
+  <span class="sr-only">Placeholder hero — replace /public/media/hero.* and hero-poster.jpg.</span>
+
+  <div class="shell shell-wide relative z-10 pb-section pt-32">
+    <p class="overline mb-6" data-hero-overline>{site.tagline}</p>
+
+    <h1 class="hero-headline font-display text-display text-sand-100">
+      {
+        lines.map((line, i) => (
+          <span class="hero-line block overflow-hidden">
+            <span class="hero-line-inner block" style={`--i:${i}`}>
+              {line}
+            </span>
+          </span>
+        ))
+      }
+    </h1>
+
+    <p class="mt-6 max-w-measure text-body-l text-sand-300" data-hero-sub>
+      {t('hero.sub')}
+    </p>
+
+    <div class="mt-9 flex flex-wrap items-center gap-4" data-hero-cta>
+      <Button variant="primary" href="#contact" ctaLocation="hero">
+        {t('hero.ctaPrimary')}
+      </Button>
+      <Button variant="ghost" href="#fleet" ctaLocation="hero-fleet">
+        {t('hero.ctaGhost')}
+      </Button>
+    </div>
+  </div>
+
+  {/* Scroll cue */}
+  <a
+    href="#manifesto"
+    class="scroll-cue group absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-slate-500 transition-colors duration-fast hover:text-sand-100"
+    aria-label={t('hero.scrollCue')}
+  >
+    <span class="font-mono text-overline uppercase tracking-overline">{t('hero.scrollCue')}</span>
+    <span class="scroll-cue-track relative block h-9 w-px overflow-hidden bg-line">
+      <span class="scroll-cue-dot absolute left-1/2 top-0 block h-2 w-2 -translate-x-1/2 rounded-pill bg-lagoon-400"></span>
+    </span>
+  </a>
+</section>
+
+<style>
+  /* Headline line reveal — CSS keyframe as a graceful default; animations.ts
+     may take over with GSAP. Without JS this still plays once. */
+  .hero-line-inner {
+    transform: translateY(110%);
+    animation: heroLineUp var(--dur-cine) var(--ease-out) forwards;
+    animation-delay: calc(200ms + var(--i) * 140ms);
+  }
+  [data-hero-sub],
+  [data-hero-cta],
+  [data-hero-overline] {
+    opacity: 0;
+    animation: heroFade var(--dur-slow) var(--ease-out) forwards;
+  }
+  [data-hero-overline] {
+    animation-delay: 120ms;
+  }
+  [data-hero-sub] {
+    animation-delay: 700ms;
+  }
+  [data-hero-cta] {
+    animation-delay: 860ms;
+  }
+
+  @keyframes heroLineUp {
+    to {
+      transform: translateY(0);
+    }
+  }
+  @keyframes heroFade {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Scroll cue dot loop */
+  .scroll-cue-dot {
+    animation: cueDrop 1.8s var(--ease-inout) infinite;
+  }
+  @keyframes cueDrop {
+    0% {
+      transform: translate(-50%, -120%);
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, 380%);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-line-inner,
+    [data-hero-sub],
+    [data-hero-cta],
+    [data-hero-overline] {
+      animation: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+    .scroll-cue-dot {
+      animation: none !important;
+    }
+  }
+</style>
+
+<script>
+  // Reveal the video only once it can actually play, so we never flash a broken
+  // poster/blank frame over the gradient when media is a placeholder/missing.
+  const video = document.querySelector<HTMLVideoElement>('[data-hero-video]');
+  if (video) {
+    const show = () => video.classList.add('opacity-100');
+    video.addEventListener('canplay', show, { once: true });
+    // If sources 404 (placeholder), keep the gradient — do nothing on error.
+    video.addEventListener('error', () => video.remove(), { once: true });
+    // video_play analytics (defensive)
+    video.addEventListener(
+      'play',
+      () => (window as any).yachtsAnalytics?.track?.('video_play', { id: 'hero' }),
+      { once: true }
+    );
+  }
+</script>

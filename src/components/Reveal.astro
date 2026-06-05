@@ -1,0 +1,56 @@
+---
+// =========================================================================
+// Reveal.astro — scroll-reveal wrapper (opacity + translateY, optional stagger).
+// It only emits markup + data-attributes; the motion is driven by
+// src/scripts/animations.ts (GSAP/ScrollTrigger) on pages that load it.
+//
+// Fallback safety: a CSS rule reveals content if JS never runs and when
+// prefers-reduced-motion is set, so nothing is ever permanently hidden.
+// =========================================================================
+interface Props {
+  /** Render-as element. */
+  as?: keyof HTMLElementTagNameMap;
+  /** Stagger direct [data-reveal-item] children instead of the block itself. */
+  stagger?: boolean;
+  /** Per-item / block delay in seconds (passed to GSAP). */
+  delay?: number;
+  class?: string;
+  id?: string;
+}
+
+const { as = 'div', stagger = false, delay, class: extra = '', id } = Astro.props;
+const Tag = as as any;
+---
+
+<Tag
+  id={id}
+  class={`reveal ${extra}`.trim()}
+  data-reveal
+  data-reveal-stagger={stagger ? '' : undefined}
+  data-reveal-delay={delay !== undefined ? String(delay) : undefined}
+>
+  <slot />
+</Tag>
+
+<style is:global>
+  /* Initial hidden state ONLY when motion is allowed AND JS is present.
+     The .js-anim flag is added by animations.ts before it pins elements,
+     guaranteeing no flash-of-hidden-content on no-JS / reduced-motion. */
+  html.js-anim [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    will-change: opacity, transform;
+  }
+  html.js-anim [data-reveal][data-reveal-stagger] > [data-reveal-item] {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: opacity, transform;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js-anim [data-reveal],
+    html.js-anim [data-reveal][data-reveal-stagger] > [data-reveal-item] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>

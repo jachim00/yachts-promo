@@ -1,0 +1,103 @@
+---
+// =========================================================================
+// LAYOUT CONTRACT — BaseLayout.
+// Every page wraps its content in <BaseLayout lang=… title=… description=…>.
+// Pages inject SEO head tags through the named "head" slot:
+//   <BaseLayout lang={lang} ...>
+//     <Seo slot="head" ... />
+//     ...page content...
+//   </BaseLayout>
+//
+// Responsibilities owned here (do not duplicate elsewhere):
+//  - <html lang> + charset/viewport
+//  - Google Consent Mode v2 default = DENY, injected BEFORE anything else
+//  - Font preconnect + stylesheet (Fraunces / Plus Jakarta Sans / Space Mono)
+//  - Skip link + #main landmark target
+//  - Lenis smooth-scroll init (guarded by prefers-reduced-motion)
+//  - <slot name="head" /> for Seo, default <slot /> for content
+//  - <CookieConsent /> mount (stub today; Builder Systems fills it)
+// =========================================================================
+import '../styles/global.css';
+import type { Locale } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
+import CookieConsent from '../components/CookieConsent.astro';
+
+interface Props {
+  lang: Locale;
+  title?: string;
+  description?: string;
+}
+
+const { lang, title, description } = Astro.props;
+const t = useTranslations(lang);
+
+const pageTitle = title ?? t('meta.home.title');
+const pageDescription = description ?? t('meta.home.description');
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    {/*
+      Google Consent Mode v2 — default DENY for all non-essential storage.
+      MUST run before any analytics/gtag or third-party script. Section 10.
+      Builder Systems' analytics.ts later calls gtag('consent','update',…)
+      after the visitor accepts in the cookie banner.
+    */}
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      });
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#06141A" />
+
+    {/* Fonts — preconnect + latin & latin-ext subsets, font-display: swap. */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    />
+
+    {/* SEO and structured data injected by pages via <Seo slot="head" />. */}
+    <slot name="head" />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">{t('nav.skipToContent')}</a>
+
+    <slot />
+
+    {/* Cookie consent (banner + settings modal). Stub today. */}
+    <CookieConsent lang={lang} />
+
+    {/*
+      Lenis smooth scroll — global island. Disabled under prefers-reduced-motion
+      so the native scroll remains. We call the shared initLenis() from
+      src/scripts/lenis.ts (instead of inlining a second instance) so the handle
+      lives on window.__lenis and animations.ts can sync ScrollTrigger to the
+      SAME smoothed scroll position. initLenis() is idempotent and returns null
+      under reduced motion, so this is safe and creates exactly one RAF loop.
+    */}
+    <script>
+      import { initLenis } from '../scripts/lenis';
+      initLenis();
+    </script>
+  </body>
+</html>

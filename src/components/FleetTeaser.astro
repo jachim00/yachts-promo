@@ -1,0 +1,37 @@
+---
+// =========================================================================
+// FleetTeaser.astro — "The fleet" chapter (dark).
+// Maps the yachts[] data into YachtCards (3 characters).
+// =========================================================================
+import { getLocaleFromUrl, useTranslations } from '../i18n/utils';
+import { yachts } from '../data/yachts';
+import SectionHeader from './SectionHeader.astro';
+import YachtCard from './YachtCard.astro';
+
+const lang = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="fleet" class="section scroll-mt-24 bg-ink-900">
+  <div class="shell shell-wide">
+    <SectionHeader overline={t('fleet.overline')} title={t('fleet.title')} as="h2" />
+
+    <div
+      class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      data-reveal
+      data-reveal-stagger
+    >
+      {yachts.map((yacht, i) => <YachtCard yacht={yacht} index={i} />)}
+    </div>
+  </div>
+</section>
+
+<script>
+  // view_yacht analytics (defensive) when a card is activated.
+  document.querySelectorAll<HTMLElement>('[data-view-yacht]').forEach((card) => {
+    card.addEventListener('click', () => {
+      const yacht_name = card.getAttribute('data-view-yacht');
+      if (yacht_name) (window as any).yachtsAnalytics?.track?.('view_yacht', { yacht_name });
+    });
+  });
+</script>

@@ -1,0 +1,184 @@
+---
+// =========================================================================
+// Footer.astro — contact (site.ts), social, language switcher, legal links,
+// and a "Cookie settings" trigger that dispatches the 'open-cookie-settings'
+// CustomEvent the CookieConsent component (Systems) listens for.
+// Contact values come from site.ts (placeholders until Systems fills them);
+// we render them gracefully and skip obviously-unfilled placeholders.
+// =========================================================================
+import { getLocaleFromUrl, useTranslations, localizedPath } from '../i18n/utils';
+import { site } from '../data/site';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+const lang = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const year = new Date().getFullYear();
+
+// A value is "real" when it isn't a [[PLACEHOLDER]] token.
+const isReal = (v: string) => !!v && !v.startsWith('[[');
+
+const email = site.contact.email;
+const phone = site.contact.phone;
+const address = site.contact.address;
+
+const socials = [
+  { key: 'instagram', label: 'Instagram', url: site.social.instagram },
+  { key: 'facebook', label: 'Facebook', url: site.social.facebook },
+  { key: 'youtube', label: 'YouTube', url: site.social.youtube },
+  { key: 'linkedin', label: 'LinkedIn', url: site.social.linkedin },
+].filter((s) => isReal(s.url));
+
+const legalLinks = [
+  { href: localizedPath(lang, 'privacy'), label: t('legal.privacy.title') },
+  { href: localizedPath(lang, 'cookies'), label: t('legal.cookies.title') },
+];
+
+const navLinks = [
+  { href: localizedPath(lang, '') + '#manifesto', label: t('nav.manifesto') },
+  { href: localizedPath(lang, '') + '#fleet', label: t('nav.fleet') },
+  { href: localizedPath(lang, '') + '#experiences', label: t('nav.experiences') },
+  { href: localizedPath(lang, '') + '#craft', label: t('nav.craft') },
+  { href: localizedPath(lang, '') + '#contact', label: t('nav.contact') },
+];
+---
+
+<footer class="border-t border-line bg-ink-800">
+  <div class="shell shell-wide grid gap-10 py-9 md:grid-cols-2 lg:grid-cols-4">
+    {/* Brand + tagline */}
+    <div class="flex flex-col gap-4 lg:col-span-1">
+      <a
+        href={localizedPath(lang, '')}
+        class="font-display text-h3 leading-none text-sand-100"
+        aria-label="MARÉ — home"
+      >
+        MAR<span class="text-coral-500">É</span>
+      </a>
+      <p class="max-w-[28ch] text-small text-slate-500">{t('footer.tagline')}</p>
+      {
+        socials.length > 0 && (
+          <ul class="mt-2 flex flex-wrap gap-4">
+            {socials.map((s) => (
+              <li>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-small text-sand-300 transition-colors duration-fast hover:text-lagoon-400"
+                >
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+
+    {/* Explore nav */}
+    <nav aria-label="Footer" class="flex flex-col gap-4">
+      <h2 class="overline">{t('footer.nav')}</h2>
+      <ul class="flex flex-col gap-3">
+        {
+          navLinks.map((l) => (
+            <li>
+              <a
+                href={l.href}
+                class="text-small text-sand-300 transition-colors duration-fast hover:text-sand-100"
+              >
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    {/* Contact */}
+    <div class="flex flex-col gap-4">
+      <h2 class="overline">{t('nav.contact')}</h2>
+      <ul class="flex flex-col gap-3 text-small text-sand-300">
+        {
+          isReal(email) && (
+            <li>
+              <a
+                href={`mailto:${email}`}
+                class="transition-colors duration-fast hover:text-lagoon-400"
+              >
+                {email}
+              </a>
+            </li>
+          )
+        }
+        {
+          isReal(phone) && (
+            <li>
+              <a
+                href={`tel:${phone.replace(/\s+/g, '')}`}
+                class="transition-colors duration-fast hover:text-lagoon-400"
+              >
+                {phone}
+              </a>
+            </li>
+          )
+        }
+        {isReal(address) && <li class="max-w-[28ch] not-italic">{address}</li>}
+        {
+          !isReal(email) && !isReal(phone) && !isReal(address) && (
+            <li class="text-slate-500">{t('contact.lead')}</li>
+          )
+        }
+      </ul>
+    </div>
+
+    {/* Legal + language + cookie settings */}
+    <div class="flex flex-col gap-4">
+      <h2 class="overline">{t('footer.legal')}</h2>
+      <ul class="flex flex-col gap-3 text-small text-sand-300">
+        {
+          legalLinks.map((l) => (
+            <li>
+              <a href={l.href} class="transition-colors duration-fast hover:text-sand-100">
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+        <li>
+          <button
+            type="button"
+            data-cookie-settings
+            class="text-left text-small text-sand-300 underline-offset-4 transition-colors duration-fast hover:text-sand-100 hover:underline"
+          >
+            {t('footer.cookieSettings')}
+          </button>
+        </li>
+      </ul>
+      <div class="mt-2">
+        <LanguageSwitcher variant="menu" />
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-line">
+    <div
+      class="shell shell-wide flex flex-col gap-2 py-5 text-small text-slate-500 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} {site.brand}. {t('footer.rights')}</p>
+      <p class="text-slate-500">
+        <span aria-hidden="true">·</span>
+        {site.tagline}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Re-open the cookie settings modal. CookieConsent (Systems) listens for
+  // this exact event name. Defensive: harmless if no listener is attached yet.
+  document.querySelectorAll<HTMLButtonElement>('[data-cookie-settings]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('open-cookie-settings'));
+    });
+  });
+</script>

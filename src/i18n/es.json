@@ -1,0 +1,220 @@
+{
+  "nav": {
+    "manifesto": "Filosofía",
+    "fleet": "Flota",
+    "experiences": "Experiencias",
+    "craft": "Artesanía",
+    "contact": "Contacto",
+    "cta": "Comenzar la historia",
+    "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú",
+    "language": "Idioma",
+    "skipToContent": "Saltar al contenido"
+  },
+  "hero": {
+    "headline": "El mar no vende sueños. Los guarda.",
+    "sub": "Descubre una flota creada no para poseerse, sino para vivirse.",
+    "ctaPrimary": "Comenzar la historia",
+    "ctaGhost": "Conocer la flota",
+    "scrollCue": "Desplázate para empezar"
+  },
+  "manifesto": {
+    "overline": "Nuestra filosofía",
+    "title": "No construimos barcos. Construimos horizontes.",
+    "lead": "Cada casco es una invitación: a ir más despacio, a reunirse, a perseguir la luz. Una movilidad sobre el agua pensada en torno a la vida que de verdad quieres vivir."
+  },
+  "fleet": {
+    "overline": "La flota",
+    "title": "Tres caracteres. Un horizonte.",
+    "viewYacht": "Descubrir",
+    "cardCta": "Ver este yate"
+  },
+  "experiences": {
+    "overline": "Una vida a bordo",
+    "title": "Cómo se despliega el día en el agua.",
+    "scenes": {
+      "firstLight": {
+        "title": "Primera luz",
+        "body": "Antes de que el mundo despierte, el agua es tuya. Un café en la proa, el horizonte pasando de la tinta al oro."
+      },
+      "gathering": {
+        "title": "El encuentro",
+        "body": "Llegan los amigos, sube la música, la cubierta se convierte en escenario. La tarde se alarga hasta volverse algo digno de recordar."
+      },
+      "longWay": {
+        "title": "El largo camino a casa",
+        "body": "Sin prisa, sin rumbo fijo. Solo la costa deslizándose y el lujo silencioso de no tener que estar en ningún sitio."
+      },
+      "stillness": {
+        "title": "La calma",
+        "body": "Motores en silencio, luces tenues. Esa serenidad que solo encuentras cuando la tierra por fin te suelta."
+      }
+    }
+  },
+  "craft": {
+    "overline": "Artesanía",
+    "title": "Hecho para confiar. Diseñado para sentir.",
+    "points": [
+      "Materiales premium elegidos tanto para la mano como para la vista.",
+      "Certificación CE [[PLACEHOLDER]] — construido según la norma, refinado mucho más allá de ella.",
+      "Una propulsión silenciosa que deja hablar al agua.",
+      "El detalle cuidado en todas partes, incluso donde nunca se ve."
+    ]
+  },
+  "testimonials": {
+    "overline": "Voces",
+    "title": "Las personas que ya zarparon.",
+    "items": [
+      {
+        "quote": "Compramos un barco y encontramos un ritmo. Las mañanas son ahora más lentas y, de algún modo, eso lo es todo.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Aurora owner]]"
+      },
+      {
+        "quote": "El primer fin de semana a bordo, doce de nosotros vimos ponerse el sol y nadie tocó el teléfono.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Festa owner]]"
+      },
+      {
+        "quote": "Silencio, hecho navegable — no exageraban. Es el único lugar donde mi mente por fin descansa.",
+        "author": "[[PLACEHOLDER — owner name]]",
+        "role": "[[PLACEHOLDER — Sérénité owner]]"
+      }
+    ]
+  },
+  "contact": {
+    "overline": "La invitación",
+    "title": "Cuéntanos la historia que quieres vivir.",
+    "lead": "Sin presión, sin discurso de ventas. Solo una conversación sobre lo que es posible.",
+    "ctaButton": "Iniciar la conversación",
+    "form": {
+      "name": "Tu nombre",
+      "email": "Correo electrónico",
+      "message": "Cuéntanos un poco sobre la historia que tienes en mente",
+      "consent": "Acepto ser contactado(a) sobre mi consulta y he leído la política de privacidad.",
+      "submit": "Iniciar la conversación",
+      "success": "Gracias. Tu mensaje está en camino — te responderemos pronto.",
+      "error": "Algo salió mal al enviar tu mensaje. Inténtalo de nuevo o escríbenos directamente."
+    }
+  },
+  "footer": {
+    "tagline": "Historias que el mar recuerda.",
+    "nav": "Explorar",
+    "legal": "Legal",
+    "cookieSettings": "Configuración de cookies",
+    "rights": "Todos los derechos reservados."
+  },
+  "cookie": {
+    "banner": {
+      "text": "Usamos cookies para entender cómo se utiliza el sitio y mejorar tu experiencia. Las cookies no esenciales permanecen desactivadas hasta que las aceptes.",
+      "accept": "Aceptar todas",
+      "reject": "Rechazar todas",
+      "settings": "Configuración"
+    },
+    "modal": {
+      "title": "Preferencias de cookies",
+      "necessary": "Necesarias",
+      "analytics": "Analíticas",
+      "marketing": "Marketing",
+      "save": "Guardar opciones",
+      "acceptAll": "Aceptar todas",
+      "rejectAll": "Rechazar todas",
+      "descNecessary": "Imprescindibles para que el sitio funcione. No se pueden desactivar y no almacenan datos personales más allá de lo esencial.",
+      "descAnalytics": "Nos ayudan a entender cómo usan el sitio los visitantes, para mejorar la experiencia. Desactivadas por defecto.",
+      "descMarketing": "Se utilizan para hacer más relevante cualquier publicidad futura. Desactivadas por defecto."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de privacidad",
+      "lastUpdated": "Última actualización: [[PLACEHOLDER — date]]",
+      "intro": "Esta política de privacidad explica cómo [[COMPANY_NAME]] trata los datos personales recogidos a través de este sitio web, de conformidad con el RGPD.",
+      "controllerTitle": "Responsable del tratamiento",
+      "controllerBody": "El responsable del tratamiento de tus datos personales es [[COMPANY_NAME]], [[COMPANY_ADDRESS]], [[COMPANY_TAX_ID]]. Contacto: [[COMPANY_EMAIL]].",
+      "dataTitle": "Qué datos recopilamos",
+      "dataBody": "Cuando utilizas el formulario de contacto tratamos el nombre, la dirección de correo electrónico y el contenido del mensaje que facilitas. Solo tratamos datos de uso anónimos si consientes las cookies analíticas.",
+      "purposeTitle": "Por qué los tratamos",
+      "purposeBody": "Para responder a tu consulta (interés legítimo / pasos previos a un contrato) y, con tu consentimiento, para medir y mejorar el sitio web.",
+      "rightsTitle": "Tus derechos",
+      "rightsBody": "Tienes derecho a acceder, rectificar, suprimir, limitar y portar tus datos, así como a oponerte al tratamiento. Para ejercer estos derechos contacta con [[COMPANY_EMAIL]]. También puedes presentar una reclamación ante la autoridad de control [[SUPERVISORY_AUTHORITY]].",
+      "retentionTitle": "Conservación",
+      "retentionBody": "Los datos de la consulta se conservan solo el tiempo necesario para atender tu solicitud y la relación que de ella derive, y después se eliminan. [[PLACEHOLDER — retention period]]"
+    },
+    "cookies": {
+      "title": "Política de cookies",
+      "lastUpdated": "Última actualización: [[PLACEHOLDER — date]]",
+      "intro": "Esta política de cookies describe las cookies y tecnologías similares utilizadas en este sitio web operado por [[COMPANY_NAME]].",
+      "whatTitle": "Qué son las cookies",
+      "whatBody": "Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo. Las usamos para mantener el sitio en funcionamiento y, con tu consentimiento, para entender su uso.",
+      "categoriesTitle": "Categorías que usamos",
+      "necessaryTitle": "Cookies necesarias",
+      "necessaryBody": "Siempre activas. Guardan tu elección de consentimiento y mantienen el sitio en funcionamiento. [[PLACEHOLDER — list of necessary cookies]]",
+      "analyticsTitle": "Cookies analíticas",
+      "analyticsBody": "Desactivadas por defecto. Con tu consentimiento, Google Analytics 4 nos ayuda a medir el tráfico y mejorar el sitio. [[PLACEHOLDER — list of analytics cookies]]",
+      "marketingTitle": "Cookies de marketing",
+      "marketingBody": "Desactivadas por defecto. Reservadas para cualquier medición publicitaria futura. [[PLACEHOLDER — list of marketing cookies]]",
+      "manageTitle": "Gestionar tus opciones",
+      "manageBody": "Puedes cambiar o retirar tu consentimiento en cualquier momento a través del enlace «Configuración de cookies» del pie de página."
+    }
+  },
+  "yachts": {
+    "aurora": {
+      "tagline": "Para quienes persiguen la primera luz.",
+      "story": "Un yate para parejas y navegantes en solitario que persiguen el horizonte — largas autonomías, mañanas silenciosas, café al amanecer en la proa. Aurora está hecho para las horas anteriores a que despierte cualquier otra persona, cuando el mar te pertenece solo a ti.",
+      "idealFor": "Travesías en solitario al amanecer · escapadas de fin de semana en pareja · viajes más largos a lo largo de la costa."
+    },
+    "festa": {
+      "tagline": "Donde el día se convierte en celebración.",
+      "story": "Una amplia cubierta-escenario para días con amigos y familia — baños, música, risas, atardeceres. Festa está construido para los encuentros que convierten una tarde cualquiera en un recuerdo que merece guardarse.",
+      "idealFor": "Celebraciones con amigos · días en familia sobre el agua · eventos flotantes."
+    },
+    "serenite": {
+      "tagline": "Silencio, hecho navegable.",
+      "story": "Un refugio y un lugar para detenerse — tumbonas, el susurro de la propulsión eléctrica, un lujo íntimo. Sérénité es el silencio entre todo lo demás, diseñado para los momentos que quieres que duren.",
+      "idealFor": "Descanso y calma · veladas románticas · yoga y bienestar sobre el agua."
+    }
+  },
+  "yachtsCommon": {
+    "loa": "Eslora total",
+    "beam": "Manga",
+    "draft": "Calado",
+    "guests": "Invitados",
+    "cabins": "Camarotes",
+    "range": "Autonomía",
+    "speed": "Velocidad máxima",
+    "propulsion": "Propulsión",
+    "sundeck": "Solárium",
+    "idealFor": "Ideal para",
+    "specsTitle": "Especificaciones",
+    "specsNote": "Las cifras son orientativas y pueden variar según la configuración.",
+    "galleryTitle": "Galería",
+    "galleryPrev": "Imagen anterior",
+    "galleryNext": "Imagen siguiente",
+    "backToFleet": "Volver a la flota",
+    "enquireCta": "Consultar sobre este yate"
+  },
+  "tabs": {
+    "deck": "Cubierta",
+    "interior": "Interior",
+    "propulsion": "Propulsión",
+    "equipment": "Equipamiento"
+  },
+  "meta": {
+    "home": {
+      "title": "MARÉ — Historias que el mar recuerda",
+      "description": "Una flota cinematográfica creada no para poseerse, sino para vivirse. Descubre MARÉ — yates diseñados en torno a la vida que quieres sobre el agua."
+    },
+    "fleet": {
+      "title": "{name} — MARÉ",
+      "description": "Conoce {name}: {tagline} Explora la historia, las especificaciones y la galería de este yate MARÉ."
+    },
+    "privacy": {
+      "title": "Política de privacidad — MARÉ",
+      "description": "Cómo MARÉ trata los datos personales recogidos a través de este sitio web, conforme al RGPD."
+    },
+    "cookies": {
+      "title": "Política de cookies — MARÉ",
+      "description": "Las cookies y tecnologías similares utilizadas en el sitio web de MARÉ, y cómo gestionar tus opciones."
+    }
+  }
+}
