@@ -27,3 +27,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# Source images (40 generated PNGs) kept locally for swaps, not deployed
+_media-source/
