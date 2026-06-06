@@ -40,7 +40,7 @@ export function isLocale(value: string): value is Locale {
 }
 
 /**
- * Resolve a dotted key (e.g. 'experiences.scenes.firstLight.title') against a
+ * Resolve a dotted key (e.g. 'how.steps.inflate.title') against a
  * dictionary object. Returns the string value or undefined if any segment is
  * missing or the leaf is not a string.
  */

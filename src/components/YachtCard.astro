@@ -24,6 +24,14 @@ const tagline = t(`yachts.${yacht.slug}.tagline`);
 const href = localizedPath(lang, `fleet/${yacht.slug}`);
 const img = withBase(yacht.heroPlaceholder);
 
+// Per-model alt text (decorative card, but give it a meaningful description).
+const altKeyMap: Record<string, string> = {
+  festa: 'media.alt.modelFesta',
+  aurora: 'media.alt.modelAurora',
+  serenite: 'media.alt.modelSerenite',
+};
+const cardAlt = t(altKeyMap[yacht.slug] ?? '');
+
 // Distinct LIGHT tint per card for visual variety — warm beige/cream washes
 // (placeholder art that shows through until a real <img> loads).
 const tints = [
@@ -50,7 +58,7 @@ const tint = tints[index % tints.length];
     </div>
     <img
       src={img}
-      alt=""
+      alt={cardAlt}
       loading="lazy"
       decoding="async"
       onerror="this.remove()"

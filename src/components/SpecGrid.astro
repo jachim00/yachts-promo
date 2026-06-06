@@ -1,9 +1,14 @@
 ---
 // =========================================================================
-// SpecGrid.astro — yacht specification grid of animated counters.
+// SpecGrid.astro — yacht specification grid of animated figures.
 // Data-driven from a YachtSpec (yachts.ts). Labels via yachtsCommon.*.
 // Only renders fields that are present (optional fields are skipped).
 // Wraps SpecCounter for each figure.
+//
+// For the inflatable-platform product the grid surfaces the CONCISE figures
+// (dimensions / capacity / weight / pressure / inflation time). The long
+// descriptive fields (material / drive / included) are shown in the Tabs
+// component below, not as oversized counters here.
 // =========================================================================
 import { getLocaleFromUrl, useTranslations } from '../i18n/utils';
 import type { YachtSpec } from '../data/yachts';
@@ -17,17 +22,15 @@ const { spec } = Astro.props;
 const lang = getLocaleFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Fixed display order; each entry maps a spec key to its yachtsCommon label key.
+// Concise figures only (long prose lives in Tabs: material/drive/included).
 const order: Array<{ key: keyof YachtSpec; labelKey: string }> = [
-  { key: 'loa', labelKey: 'yachtsCommon.loa' },
-  { key: 'beam', labelKey: 'yachtsCommon.beam' },
-  { key: 'draft', labelKey: 'yachtsCommon.draft' },
-  { key: 'guests', labelKey: 'yachtsCommon.guests' },
-  { key: 'cabins', labelKey: 'yachtsCommon.cabins' },
-  { key: 'range', labelKey: 'yachtsCommon.range' },
-  { key: 'speed', labelKey: 'yachtsCommon.speed' },
-  { key: 'sundeck', labelKey: 'yachtsCommon.sundeck' },
-  { key: 'propulsion', labelKey: 'yachtsCommon.propulsion' },
+  { key: 'deckLengthInflated', labelKey: 'yachtsCommon.deckLengthInflated' },
+  { key: 'beamInflated', labelKey: 'yachtsCommon.beamInflated' },
+  { key: 'capacity', labelKey: 'yachtsCommon.capacity' },
+  { key: 'totalWeight', labelKey: 'yachtsCommon.totalWeight' },
+  { key: 'packedSize', labelKey: 'yachtsCommon.packedSize' },
+  { key: 'workingPressure', labelKey: 'yachtsCommon.workingPressure' },
+  { key: 'inflationTime', labelKey: 'yachtsCommon.inflationTime' },
 ];
 
 const rows = order

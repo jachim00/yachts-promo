@@ -2,7 +2,7 @@
   "nav": {
     "manifesto": "Philosophie",
     "fleet": "Flotte",
-    "experiences": "Expériences",
+    "how": "Comment ça marche",
     "craft": "Savoir-faire",
     "contact": "Contact",
     "cta": "Commencer l'histoire",
@@ -12,53 +12,53 @@
     "skipToContent": "Aller au contenu"
   },
   "hero": {
-    "headline": "La mer ne vend pas de rêves. Elle les garde.",
-    "sub": "Découvrez une flotte conçue non pour être possédée, mais pour être vécue.",
+    "headline": "La mer, partout où vous l'emmenez.",
+    "sub": "Un yacht gonflable premium, façonné dans une armure drop-stitch et un PVC double couche. Gonflez-le à la pompe en quelques minutes, pliez-le dans votre coffre — sans marina, sans remorque, sans limites.",
     "ctaPrimary": "Commencer l'histoire",
     "ctaGhost": "Découvrir la flotte",
     "scrollCue": "Faites défiler pour commencer"
   },
   "manifesto": {
     "overline": "Notre philosophie",
-    "title": "Nous ne construisons pas des bateaux. Nous bâtissons des horizons.",
-    "lead": "Chaque coque est une invitation : à ralentir, à se réunir, à courir après la lumière. Une mobilité sur l'eau pensée autour de la vie que vous voulez vraiment vivre."
+    "title": "Nous ne construisons pas des bateaux. Nous construisons une liberté que l'on emporte.",
+    "lead": "Sans marina. Sans remorque. Sans frais d'hivernage. Juste une coque drop-stitch, ferme sous la main, qui se range dans votre voiture et se déploie partout où il y a de l'eau. La navigation, enfin libérée."
   },
   "fleet": {
     "overline": "La flotte",
-    "title": "Trois caractères. Un horizon.",
+    "title": "Trois plateformes. Une promesse : on plie, on gonfle, on part.",
     "viewYacht": "Découvrir",
-    "cardCta": "Voir ce yacht"
+    "cardCta": "Découvrir cette plateforme"
   },
-  "experiences": {
-    "overline": "Une vie à bord",
-    "title": "Comment la journée se déploie sur l'eau.",
-    "scenes": {
-      "firstLight": {
-        "title": "Première lumière",
-        "body": "Avant que le monde ne s'éveille, l'eau est à vous. Un café à la proue, l'horizon qui passe de l'encre à l'or."
+  "how": {
+    "overline": "Comment ça marche",
+    "title": "Du coffre de votre voiture à l'eau libre — en quelques minutes.",
+    "steps": {
+      "inflate": {
+        "label": "Gonfler",
+        "title": "Gonfler",
+        "body": "Déroulez-le, branchez la pompe haute pression et regardez un simple sac souple devenir un yacht ferme. Quelques minutes, aucun outil."
       },
-      "gathering": {
-        "title": "Le rassemblement",
-        "body": "Les amis arrivent, la musique monte, le pont devient une scène. L'après-midi s'étire en un moment dont on se souviendra."
+      "castoff": {
+        "label": "Larguer les amarres",
+        "title": "Larguer les amarres",
+        "body": "Sur l'eau, il se comporte comme une coque rigide : stable, silencieux, sûr. Ajoutez la motorisation électrique silencieuse, ou votre propre hors-bord."
       },
-      "longWay": {
-        "title": "Le long chemin du retour",
-        "body": "Aucune hâte, aucun itinéraire. Seulement la côte qui défile et le luxe tranquille de n'avoir nulle part où être."
-      },
-      "stillness": {
-        "title": "Le calme",
-        "body": "Moteurs éteints, lumières basses. Ce calme que l'on ne trouve que lorsque la terre vous laisse enfin partir."
+      "pack": {
+        "label": "Plier",
+        "title": "Plier",
+        "body": "Dégonflez, roulez-le dans ses sacs de transport, et il rentre avec vous dans la voiture. Sans marina, sans remorque — il se range dans un placard."
       }
     }
   },
   "craft": {
-    "overline": "Savoir-faire",
-    "title": "Conçu pour inspirer confiance. Pensé pour être ressenti.",
+    "overline": "Conçu pour durer",
+    "title": "Une armure qui flotte.",
     "points": [
-      "Des matériaux haut de gamme choisis pour la main autant que pour l'œil.",
-      "Certification CE [[PLACEHOLDER]] — construit selon la norme, affiné bien au-delà.",
-      "Une propulsion silencieuse qui laisse parler l'eau.",
-      "Le détail honoré partout, même là où il ne se voit jamais."
+      "Un cœur Fusion drop-stitch — des milliers de fils qui verrouillent la coque et la rendent ferme dès qu'elle atteint sa pression de service.",
+      "PVC double couche, 0,5 + 0,9 mm [[PLACEHOLDER]] — pensé pour résister aux perforations, au soleil et au sel.",
+      "Sellerie résistante aux UV et à l'eau (type Silvertex), qui reste souple saison après saison.",
+      "Accastillage en aluminium et acier inoxydable, choisi pour résister à la corrosion partout où cela compte.",
+      "Certification CE [[PLACEHOLDER]] — conçu selon la norme, affiné bien au-delà."
     ]
   },
   "testimonials": {
@@ -66,17 +66,17 @@
     "title": "Celles et ceux qui ont déjà largué les amarres.",
     "items": [
       {
-        "quote": "Nous avons acheté un bateau et trouvé un rythme. Les matins sont plus lents désormais, et d'une certaine façon, c'est tout ce qui compte.",
+        "quote": "Nous avons plié le bateau entier dans le break et l'avons mis à l'eau sur le lac en vingt minutes. Stable, silencieux, pas une goutte de carburant.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Aurora owner]]"
       },
       {
-        "quote": "Le premier week-end à bord, nous étions douze à regarder le soleil se coucher et personne n'a touché à son téléphone.",
+        "quote": "Sans marina, sans remorque, sans frais d'hivernage. On roule simplement jusqu'à l'eau, on gonfle, et la journée commence.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Festa owner]]"
       },
       {
-        "quote": "Le silence rendu marin — ils n'exagéraient pas. C'est le seul endroit où mon esprit se repose enfin.",
+        "quote": "Sur l'eau, on dirait une coque rigide — on oublie qu'il se plie dans deux sacs. Le silence, c'est ce à quoi je ne m'attendais pas.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Sérénité owner]]"
       }
@@ -85,20 +85,27 @@
   "contact": {
     "overline": "L'invitation",
     "title": "Dites-nous l'histoire que vous voulez vivre.",
-    "lead": "Aucune pression, aucun argumentaire. Juste une conversation sur ce qui est possible.",
+    "lead": "Sans pression, sans argumentaire de vente — juste une conversation sur la plateforme qui correspond à votre eau.",
     "ctaButton": "Commencer la conversation",
     "form": {
       "name": "Votre nom",
       "email": "Adresse e-mail",
+      "model": "La plateforme qui vous intéresse",
       "message": "Parlez-nous un peu de l'histoire que vous imaginez",
       "consent": "J'accepte d'être contacté(e) au sujet de ma demande et j'ai lu la politique de confidentialité.",
       "submit": "Commencer la conversation",
       "success": "Merci. Votre message est en route — nous vous répondrons bientôt.",
-      "error": "Une erreur est survenue lors de l'envoi. Veuillez réessayer ou nous écrire directement."
+      "error": "Une erreur est survenue lors de l'envoi. Veuillez réessayer ou nous écrire directement.",
+      "modelOptions": {
+        "festa": "Festa",
+        "aurora": "Aurora",
+        "serenite": "Sérénité",
+        "undecided": "Je ne sais pas encore"
+      }
     }
   },
   "footer": {
-    "tagline": "Les histoires dont la mer se souvient.",
+    "tagline": "La mer, partout où vous l'emmenez.",
     "nav": "Explorer",
     "legal": "Mentions légales",
     "cookieSettings": "Paramètres des cookies",
@@ -158,32 +165,36 @@
     }
   },
   "yachts": {
-    "aurora": {
-      "tagline": "Pour celles et ceux qui courent après la première lumière.",
-      "story": "Un yacht pour les couples et les navigateurs solitaires qui poursuivent l'horizon — longues autonomies, matins silencieux, café à l'aube sur l'étrave. Aurora est fait pour les heures qui précèdent le réveil de tous, quand la mer n'appartient qu'à vous.",
-      "idealFor": "Navigations solitaires à l'aube · escapades d'un week-end à deux · voyages plus longs le long de la côte."
-    },
     "festa": {
+      "label": "La plateforme-scène",
       "tagline": "Là où le jour se transforme en fête.",
-      "story": "Un vaste pont-scène pour les journées entre amis et en famille — baignades, musique, rires, couchers de soleil. Festa est conçu pour les rassemblements qui transforment un après-midi ordinaire en un souvenir que l'on garde précieusement.",
-      "idealFor": "Célébrations entre amis · journées en famille sur l'eau · événements flottants."
+      "story": "La plateforme des grands jours, entre amis et en famille. Gonflez un vaste pont-soleil ferme, avec toboggan intégré, bains de soleil et échelle de bain — puis passez l'après-midi à nager, vous prélasser et célébrer. Quand la lumière décline, tout se range dans la voiture.",
+      "idealFor": "Journées entre amis · baignades en famille · fêtes au fil de l'eau · farniente sur le pont-soleil."
+    },
+    "aurora": {
+      "label": "Allez partout",
+      "tagline": "Le bateau qui va là où s'arrêtent les routes.",
+      "story": "La plateforme la plus compacte et la plus légère à transporter de la flotte. Elle tient dans le coffre, se gonfle en quelques minutes et se met à l'eau depuis n'importe quelle rive — lacs, criques cachées, endroits sans cale de mise à l'eau. Là où s'arrêtent les routes, Aurora commence.",
+      "idealFor": "Lacs et criques cachées · mise à l'eau sans cale · escapades en solo ou à deux · voyager léger."
     },
     "serenite": {
-      "tagline": "Le silence, rendu marin.",
-      "story": "Une évasion et un lieu pour s'apaiser — bains de soleil, le murmure de la propulsion électrique, un luxe intime. Sérénité est le silence entre tout le reste, pensé pour les instants que vous voulez faire durer.",
-      "idealFor": "Repos et apaisement · soirées romantiques · yoga et bien-être sur l'eau."
+      "label": "Un refuge sur l'eau",
+      "tagline": "Le silence, rendu transportable.",
+      "story": "La configuration détente : bains de soleil matelassés, une motorisation électrique silencieuse et rien d'autre que l'eau autour de vous. Jetez l'ancre dans une crique paisible, coupez tout, et laissez la plateforme devenir la pièce la plus calme que vous possédez — puis pliez-la.",
+      "idealFor": "Repos et quiétude · soirées romantiques · navigation électrique silencieuse · bien-être sur l'eau."
     }
   },
   "yachtsCommon": {
-    "loa": "Longueur hors tout",
-    "beam": "Largeur",
-    "draft": "Tirant d'eau",
-    "guests": "Invités",
-    "cabins": "Cabines",
-    "range": "Autonomie",
-    "speed": "Vitesse maximale",
-    "propulsion": "Propulsion",
-    "sundeck": "Bain de soleil",
+    "deckLengthInflated": "Longueur (gonflé)",
+    "beamInflated": "Largeur (gonflé)",
+    "packedSize": "Dimensions plié",
+    "totalWeight": "Poids total",
+    "capacity": "Capacité",
+    "workingPressure": "Pression de service",
+    "inflationTime": "Temps de gonflage",
+    "material": "Matériau",
+    "drive": "Motorisation",
+    "included": "Dans le coffret",
     "idealFor": "Idéal pour",
     "specsTitle": "Spécifications",
     "specsNote": "Les chiffres sont indicatifs et peuvent varier selon la configuration.",
@@ -191,22 +202,47 @@
     "galleryPrev": "Image précédente",
     "galleryNext": "Image suivante",
     "backToFleet": "Retour à la flotte",
-    "enquireCta": "Se renseigner sur ce yacht"
+    "enquireCta": "Renseignez-vous sur cette plateforme"
   },
   "tabs": {
     "deck": "Pont",
-    "interior": "Intérieur",
-    "propulsion": "Propulsion",
-    "equipment": "Équipement"
+    "material": "Matériau",
+    "drive": "Motorisation",
+    "transport": "Transport"
+  },
+  "media": {
+    "alt": {
+      "heroMain": "Un yacht gonflable premium en drop-stitch glissant sur une eau libre et calme à l'heure dorée",
+      "heroOverhead": "Vue aérienne de la plateforme gonflable ancrée au-dessus d'une eau turquoise cristalline",
+      "atmosphereDawn": "Un paysage marin paisible aux premières lueurs, avec le yacht gonflable en silhouette lointaine",
+      "stepInflate": "Une personne raccordant une pompe électrique haute pression à la plateforme drop-stitch à moitié gonflée, sur le rivage",
+      "stepCastoff": "Le yacht entièrement gonflé quittant les hauts-fonds vers l'eau libre, tandis qu'une personne monte à bord",
+      "stepPack": "La plateforme dégonflée roulée dans deux sacs de transport et chargée dans le coffre d'une voiture",
+      "materialMacro": "Coupe macro du tissu drop-stitch haute pression entre deux couches de PVC enduit",
+      "valvePump": "Gros plan sur la valve de gonflage haute pression et la pompe électrique, sur la coque blanc mat",
+      "deckDetail": "Détail du pont faux-teck rejoignant une sellerie marine grise matelassée et un anneau en D inoxydable",
+      "modelFesta": "MARÉ Festa — la grande plateforme gonflable festive, avec toboggan intégré, sur une eau turquoise",
+      "modelAurora": "MARÉ Aurora — le bateau gonflable compact et facile à transporter, sur un lac de montagne paisible",
+      "modelSerenite": "MARÉ Sérénité — la plateforme détente aux bains de soleil matelassés, ancrée dans une crique tranquille",
+      "friendsSunset": "Des amis qui se détendent et célèbrent sur la plateforme gonflable, sur une eau calme au coucher du soleil",
+      "familySlide": "Une famille sur le yacht gonflable, un enfant glissant du toboggan intégré vers la mer",
+      "coupleRelax": "Un couple allongé sur les bains de soleil matelassés de la plateforme, dans une crique tranquille à l'aube",
+      "swimLadder": "Un nageur remontant l'échelle de bain inoxydable jusqu'à la plateforme de bain en faux-teck",
+      "sideProfile": "Profil latéral épuré du yacht gonflable entier, flottant sur une eau calme aux reflets bleu-vert",
+      "bowDetail": "Plan rapproché de la proue, de l'ouverture ovale et des poignées grises sur la coque drop-stitch",
+      "archDetail": "L'arceau gonflable gris de la plateforme se découpant sur un ciel d'heure bleue",
+      "cockpitTopdown": "Vue plongeante sur le cockpit ouvert, avec son pont faux-teck et ses assises grises matelassées",
+      "ogDefault": "MARÉ — un yacht gonflable et transportable premium, sur une eau bleu-vert à l'heure dorée"
+    }
   },
   "meta": {
     "home": {
-      "title": "MARÉ — Les histoires dont la mer se souvient",
-      "description": "Une flotte cinématographique conçue non pour être possédée, mais pour être vécue. Découvrez MARÉ — des yachts pensés autour de la vie que vous voulez sur l'eau."
+      "title": "MARÉ — Yachts gonflables et transportables, à emmener partout",
+      "description": "MARÉ conçoit des yachts gonflables premium en drop-stitch et PVC double couche. Gonflez-les en quelques minutes, pliez-les dans votre voiture — un bateau transportable, sans marina et sans remorque."
     },
     "fleet": {
-      "title": "{name} — MARÉ",
-      "description": "Rencontrez {name} : {tagline} Explorez l'histoire, les spécifications et la galerie de ce yacht MARÉ."
+      "title": "{name} — yacht gonflable MARÉ",
+      "description": "Découvrez {name} : {tagline} Une plateforme gonflable en drop-stitch, transportable, que vous pliez dans votre voiture. Explorez l'histoire, les spécifications et la galerie."
     },
     "privacy": {
       "title": "Politique de confidentialité — MARÉ",

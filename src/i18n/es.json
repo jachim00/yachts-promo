@@ -2,7 +2,7 @@
   "nav": {
     "manifesto": "Filosofía",
     "fleet": "Flota",
-    "experiences": "Experiencias",
+    "how": "Cómo funciona",
     "craft": "Artesanía",
     "contact": "Contacto",
     "cta": "Comenzar la historia",
@@ -12,71 +12,71 @@
     "skipToContent": "Saltar al contenido"
   },
   "hero": {
-    "headline": "El mar no vende sueños. Los guarda.",
-    "sub": "Descubre una flota creada no para poseerse, sino para vivirse.",
+    "headline": "El mar, allá donde lo lleves.",
+    "sub": "Un yate hinchable premium, forjado en blindaje drop-stitch y PVC de doble capa. Ínflalo con una bomba en minutos, pliégalo dentro de tu coche: sin marina, sin remolque, sin límites.",
     "ctaPrimary": "Comenzar la historia",
     "ctaGhost": "Conocer la flota",
     "scrollCue": "Desplázate para empezar"
   },
   "manifesto": {
     "overline": "Nuestra filosofía",
-    "title": "No construimos barcos. Construimos horizontes.",
-    "lead": "Cada casco es una invitación: a ir más despacio, a reunirse, a perseguir la luz. Una movilidad sobre el agua pensada en torno a la vida que de verdad quieres vivir."
+    "title": "No construimos barcos. Construimos una libertad que puedes llevar contigo.",
+    "lead": "Sin marina. Sin remolque. Sin facturas de invernaje. Solo un casco drop-stitch, rígido al tacto, que cabe en tu coche y se despliega allá donde haya agua. Esto es navegar, por fin en libertad."
   },
   "fleet": {
     "overline": "La flota",
-    "title": "Tres caracteres. Un horizonte.",
+    "title": "Tres plataformas. Una promesa: plégala, ínflala, navega.",
     "viewYacht": "Descubrir",
-    "cardCta": "Ver este yate"
+    "cardCta": "Ver esta plataforma"
   },
-  "experiences": {
-    "overline": "Una vida a bordo",
-    "title": "Cómo se despliega el día en el agua.",
-    "scenes": {
-      "firstLight": {
-        "title": "Primera luz",
-        "body": "Antes de que el mundo despierte, el agua es tuya. Un café en la proa, el horizonte pasando de la tinta al oro."
+  "how": {
+    "overline": "Cómo funciona",
+    "title": "Del maletero de tu coche a mar abierto, en cuestión de minutos.",
+    "steps": {
+      "inflate": {
+        "label": "Inflar",
+        "title": "Inflar",
+        "body": "Despliégala, conecta la bomba de alta presión y observa cómo una bolsa blanda se convierte en un yate rígido. Unos minutos, sin herramientas."
       },
-      "gathering": {
-        "title": "El encuentro",
-        "body": "Llegan los amigos, sube la música, la cubierta se convierte en escenario. La tarde se alarga hasta volverse algo digno de recordar."
+      "castoff": {
+        "label": "Zarpar",
+        "title": "Zarpar",
+        "body": "En el agua se comporta como un casco rígido: estable, silencioso, seguro. Súmale el silencioso motor eléctrico, o tu propio fueraborda."
       },
-      "longWay": {
-        "title": "El largo camino a casa",
-        "body": "Sin prisa, sin rumbo fijo. Solo la costa deslizándose y el lujo silencioso de no tener que estar en ningún sitio."
-      },
-      "stillness": {
-        "title": "La calma",
-        "body": "Motores en silencio, luces tenues. Esa serenidad que solo encuentras cuando la tierra por fin te suelta."
+      "pack": {
+        "label": "Plegar",
+        "title": "Plegar",
+        "body": "Desínflala, enróllala en las bolsas de transporte y vuelve a casa contigo en el coche. Sin marina, sin remolque; guárdala en un armario."
       }
     }
   },
   "craft": {
-    "overline": "Artesanía",
-    "title": "Hecho para confiar. Diseñado para sentir.",
+    "overline": "Creado para durar",
+    "title": "Un blindaje que flota.",
     "points": [
-      "Materiales premium elegidos tanto para la mano como para la vista.",
-      "Certificación CE [[PLACEHOLDER]] — construido según la norma, refinado mucho más allá de ella.",
-      "Una propulsión silenciosa que deja hablar al agua.",
-      "El detalle cuidado en todas partes, incluso donde nunca se ve."
+      "Un núcleo Fusion drop-stitch: miles de hilos que rigidizan el casco en cuanto alcanza la presión de trabajo.",
+      "PVC de doble capa, 0,5 + 0,9 mm [[PLACEHOLDER]], diseñado para resistir pinchazos, sol y sal.",
+      "Tapicería resistente a los rayos UV y al agua (tipo Silvertex) que sigue suave temporada tras temporada.",
+      "Herrajes de aluminio y acero inoxidable elegidos para resistir la corrosión, allí donde cuenta.",
+      "Certificación CE [[PLACEHOLDER]]: fabricado según la norma, y refinado mucho más allá de ella."
     ]
   },
   "testimonials": {
     "overline": "Voces",
-    "title": "Las personas que ya zarparon.",
+    "title": "Quienes ya largaron amarras.",
     "items": [
       {
-        "quote": "Compramos un barco y encontramos un ritmo. Las mañanas son ahora más lentas y, de algún modo, eso lo es todo.",
+        "quote": "Metimos el barco entero en el familiar y en veinte minutos lo teníamos flotando en el lago. Estable, silencioso, sin una gota de combustible.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Aurora owner]]"
       },
       {
-        "quote": "El primer fin de semana a bordo, doce de nosotros vimos ponerse el sol y nadie tocó el teléfono.",
+        "quote": "Sin marina, sin remolque, sin facturas de invierno. Simplemente conducimos hasta el agua, la inflamos y empieza el día.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Festa owner]]"
       },
       {
-        "quote": "Silencio, hecho navegable — no exageraban. Es el único lugar donde mi mente por fin descansa.",
+        "quote": "En el agua se siente como un casco rígido: olvidas que se pliega en dos bolsas. El silencio es lo que menos esperaba.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Sérénité owner]]"
       }
@@ -85,20 +85,27 @@
   "contact": {
     "overline": "La invitación",
     "title": "Cuéntanos la historia que quieres vivir.",
-    "lead": "Sin presión, sin discurso de ventas. Solo una conversación sobre lo que es posible.",
+    "lead": "Sin presión, sin discurso de ventas: solo una conversación sobre qué plataforma encaja con tu agua.",
     "ctaButton": "Iniciar la conversación",
     "form": {
       "name": "Tu nombre",
       "email": "Correo electrónico",
+      "model": "Plataforma que te interesa",
       "message": "Cuéntanos un poco sobre la historia que tienes en mente",
       "consent": "Acepto ser contactado(a) sobre mi consulta y he leído la política de privacidad.",
       "submit": "Iniciar la conversación",
       "success": "Gracias. Tu mensaje está en camino — te responderemos pronto.",
-      "error": "Algo salió mal al enviar tu mensaje. Inténtalo de nuevo o escríbenos directamente."
+      "error": "Algo salió mal al enviar tu mensaje. Inténtalo de nuevo o escríbenos directamente.",
+      "modelOptions": {
+        "festa": "Festa",
+        "aurora": "Aurora",
+        "serenite": "Sérénité",
+        "undecided": "Aún no lo sé"
+      }
     }
   },
   "footer": {
-    "tagline": "Historias que el mar recuerda.",
+    "tagline": "El mar, allá donde lo lleves.",
     "nav": "Explorar",
     "legal": "Legal",
     "cookieSettings": "Configuración de cookies",
@@ -158,32 +165,36 @@
     }
   },
   "yachts": {
-    "aurora": {
-      "tagline": "Para quienes persiguen la primera luz.",
-      "story": "Un yate para parejas y navegantes en solitario que persiguen el horizonte — largas autonomías, mañanas silenciosas, café al amanecer en la proa. Aurora está hecho para las horas anteriores a que despierte cualquier otra persona, cuando el mar te pertenece solo a ti.",
-      "idealFor": "Travesías en solitario al amanecer · escapadas de fin de semana en pareja · viajes más largos a lo largo de la costa."
-    },
     "festa": {
+      "label": "La plataforma-escenario",
       "tagline": "Donde el día se convierte en celebración.",
-      "story": "Una amplia cubierta-escenario para días con amigos y familia — baños, música, risas, atardeceres. Festa está construido para los encuentros que convierten una tarde cualquiera en un recuerdo que merece guardarse.",
-      "idealFor": "Celebraciones con amigos · días en familia sobre el agua · eventos flotantes."
+      "story": "La plataforma para los grandes días con amigos y familia. Infla una cubierta solárium amplia y rígida, con tobogán integrado, tumbonas y escalera de baño, y dedica la tarde a nadar, descansar y celebrar. Cuando se apaga la luz, la guardas en el coche.",
+      "idealFor": "Días con amigos · baños en familia · celebraciones flotantes · descanso en la cubierta solárium."
+    },
+    "aurora": {
+      "label": "Ve a cualquier parte",
+      "tagline": "El barco que llega donde terminan las carreteras.",
+      "story": "La plataforma más compacta y ligera de transportar de toda la flota. Cabe en el maletero, se infla en minutos y se bota desde cualquier orilla: lagos, calas escondidas, lugares sin rampa. Donde terminan las carreteras, empieza Aurora.",
+      "idealFor": "Lagos y calas escondidas · botar sin rampa · aventuras en solitario o en pareja · viajar ligero."
     },
     "serenite": {
-      "tagline": "Silencio, hecho navegable.",
-      "story": "Un refugio y un lugar para detenerse — tumbonas, el susurro de la propulsión eléctrica, un lujo íntimo. Sérénité es el silencio entre todo lo demás, diseñado para los momentos que quieres que duren.",
-      "idealFor": "Descanso y calma · veladas románticas · yoga y bienestar sobre el agua."
+      "label": "Un refugio sobre el agua",
+      "tagline": "El silencio, hecho portátil.",
+      "story": "La configuración para relajarse: tumbonas acolchadas, un silencioso motor eléctrico y nada más que agua a tu alrededor. Fondea en una cala tranquila, apágalo todo y deja que la plataforma se convierta en la estancia más serena que posees; luego, pliégala.",
+      "idealFor": "Descanso y quietud · veladas románticas · navegación eléctrica silenciosa · bienestar sobre el agua."
     }
   },
   "yachtsCommon": {
-    "loa": "Eslora total",
-    "beam": "Manga",
-    "draft": "Calado",
-    "guests": "Invitados",
-    "cabins": "Camarotes",
-    "range": "Autonomía",
-    "speed": "Velocidad máxima",
-    "propulsion": "Propulsión",
-    "sundeck": "Solárium",
+    "deckLengthInflated": "Eslora (inflada)",
+    "beamInflated": "Manga (inflada)",
+    "packedSize": "Dimensiones plegada",
+    "totalWeight": "Peso total",
+    "capacity": "Capacidad",
+    "workingPressure": "Presión de trabajo",
+    "inflationTime": "Tiempo de inflado",
+    "material": "Material",
+    "drive": "Propulsión",
+    "included": "En la caja",
     "idealFor": "Ideal para",
     "specsTitle": "Especificaciones",
     "specsNote": "Las cifras son orientativas y pueden variar según la configuración.",
@@ -191,22 +202,47 @@
     "galleryPrev": "Imagen anterior",
     "galleryNext": "Imagen siguiente",
     "backToFleet": "Volver a la flota",
-    "enquireCta": "Consultar sobre este yate"
+    "enquireCta": "Consulta sobre esta plataforma"
   },
   "tabs": {
     "deck": "Cubierta",
-    "interior": "Interior",
-    "propulsion": "Propulsión",
-    "equipment": "Equipamiento"
+    "material": "Material",
+    "drive": "Propulsión",
+    "transport": "Transporte"
+  },
+  "media": {
+    "alt": {
+      "heroMain": "Un yate hinchable premium drop-stitch deslizándose por aguas abiertas y en calma a la hora dorada",
+      "heroOverhead": "Vista aérea de la plataforma hinchable fondeada sobre aguas turquesas y cristalinas",
+      "atmosphereDawn": "Un paisaje marino sereno a primera luz, con el yate hinchable como una silueta lejana",
+      "stepInflate": "Una persona conectando una bomba eléctrica de alta presión a la plataforma drop-stitch a medio inflar en la orilla",
+      "stepCastoff": "El yate completamente inflado saliendo de la zona de poco fondo hacia mar abierto mientras una persona sube a bordo",
+      "stepPack": "La plataforma desinflada enrollada en dos bolsas de transporte y cargada en el maletero de un coche",
+      "materialMacro": "Sección macro del tejido drop-stitch de alta presión entre dos capas de PVC recubierto",
+      "valvePump": "Primer plano de la válvula de inflado de alta presión y la bomba eléctrica sobre el casco blanco mate",
+      "deckDetail": "Detalle de la cubierta faux-teak junto a la tapicería náutica gris acolchada y una anilla en D de acero inoxidable",
+      "modelFesta": "MARÉ Festa: la gran plataforma hinchable para fiestas, con tobogán integrado, sobre aguas turquesas",
+      "modelAurora": "MARÉ Aurora: el barco hinchable compacto y fácil de transportar, en un tranquilo lago de montaña",
+      "modelSerenite": "MARÉ Sérénité: la plataforma de relax con tumbonas acolchadas fondeada en una cala tranquila",
+      "friendsSunset": "Amigos relajándose y celebrando en la plataforma hinchable sobre aguas en calma al atardecer",
+      "familySlide": "Una familia en el yate hinchable, con un niño deslizándose por el tobogán integrado hacia el mar",
+      "coupleRelax": "Una pareja reclinada en las tumbonas acolchadas de la plataforma, en una cala tranquila al amanecer",
+      "swimLadder": "Un bañista subiendo por la escalera de acceso de acero inoxidable hasta la plataforma de baño faux-teak",
+      "sideProfile": "Perfil lateral nítido del yate hinchable completo flotando sobre aguas tranquilas de tono verde azulado",
+      "bowDetail": "Plano cercano de la proa, el recorte ovalado de la ventana y los asideros grises sobre el casco drop-stitch",
+      "archDetail": "El arco hinchable gris de la plataforma recortado contra un cielo de hora azul",
+      "cockpitTopdown": "Vista cenital de la bañera abierta, con cubierta faux-teak y asientos grises acolchados",
+      "ogDefault": "MARÉ: un yate hinchable y portátil premium sobre aguas verde azuladas a la hora dorada"
+    }
   },
   "meta": {
     "home": {
-      "title": "MARÉ — Historias que el mar recuerda",
-      "description": "Una flota cinematográfica creada no para poseerse, sino para vivirse. Descubre MARÉ — yates diseñados en torno a la vida que quieres sobre el agua."
+      "title": "MARÉ — Yates hinchables y portátiles que puedes llevar a cualquier parte",
+      "description": "MARÉ fabrica yates hinchables premium en drop-stitch y PVC de doble capa. Ínflalos en minutos y pliégalos dentro de tu coche: un barco portátil, sin marina y sin remolque."
     },
     "fleet": {
-      "title": "{name} — MARÉ",
-      "description": "Conoce {name}: {tagline} Explora la historia, las especificaciones y la galería de este yate MARÉ."
+      "title": "{name} — yate hinchable MARÉ",
+      "description": "Descubre {name}: {tagline} Una plataforma hinchable drop-stitch y portátil que puedes guardar en tu coche. Explora la historia, las especificaciones y la galería."
     },
     "privacy": {
       "title": "Política de privacidad — MARÉ",

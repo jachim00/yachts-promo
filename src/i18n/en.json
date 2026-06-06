@@ -1,8 +1,8 @@
 {
   "nav": {
-    "manifesto": "Manifesto",
+    "manifesto": "Philosophy",
     "fleet": "Fleet",
-    "experiences": "Experiences",
+    "how": "How it works",
     "craft": "Craftsmanship",
     "contact": "Contact",
     "cta": "Begin the story",
@@ -12,53 +12,53 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "headline": "The sea doesn't sell dreams. It keeps them.",
-    "sub": "Discover a fleet built not to be owned — but to be lived.",
+    "headline": "The sea, wherever you take it.",
+    "sub": "A premium inflatable yacht engineered from drop-stitch armour and double-layer PVC. Inflate it with a pump in minutes, fold it into your car — no marina, no trailer, no limits.",
     "ctaPrimary": "Begin the story",
     "ctaGhost": "Meet the fleet",
     "scrollCue": "Scroll to begin"
   },
   "manifesto": {
     "overline": "Our philosophy",
-    "title": "We don't build boats. We build horizons.",
-    "lead": "Every hull is an invitation: to slow down, to gather, to chase the light. This is water mobility designed around the life you want to live."
+    "title": "We don't build boats. We build freedom you can carry.",
+    "lead": "No marina. No trailer. No winter storage bills. Just a rigid-feeling, drop-stitch hull that packs into your car and unfolds wherever the water is. This is boating, finally set free."
   },
   "fleet": {
     "overline": "The fleet",
-    "title": "Three characters. One horizon.",
+    "title": "Three platforms. One promise: pack it, pump it, go.",
     "viewYacht": "Discover",
-    "cardCta": "View this yacht"
+    "cardCta": "View this platform"
   },
-  "experiences": {
-    "overline": "A life aboard",
-    "title": "How the day unfolds on the water.",
-    "scenes": {
-      "firstLight": {
-        "title": "First light",
-        "body": "Before the world wakes, the water is yours. Coffee on the bow, the horizon turning from ink to gold."
+  "how": {
+    "overline": "How it works",
+    "title": "From the boot of your car to the open water — in minutes.",
+    "steps": {
+      "inflate": {
+        "label": "Inflate",
+        "title": "Inflate",
+        "body": "Unroll it, connect the high-pressure pump, and watch a soft bag become a rigid yacht. A few minutes, no tools."
       },
-      "gathering": {
-        "title": "The gathering",
-        "body": "Friends arrive, music rises, the deck becomes a stage. The afternoon stretches into something worth remembering."
+      "castoff": {
+        "label": "Cast off",
+        "title": "Cast off",
+        "body": "On the water it behaves like a hard hull: stable, quiet, confident. Add the silent electric drive, or your own outboard."
       },
-      "longWay": {
-        "title": "The long way home",
-        "body": "No rush, no route. Just the coastline drifting by and the quiet luxury of having nowhere to be."
-      },
-      "stillness": {
-        "title": "Stillness",
-        "body": "Engines silent, lights low. The kind of calm you can only find when the land lets go."
+      "pack": {
+        "label": "Pack away",
+        "title": "Pack away",
+        "body": "Deflate, roll into the carry bags, and it rides home in your car. No marina, no trailer, store it in a closet."
       }
     }
   },
   "craft": {
-    "overline": "Craftsmanship",
-    "title": "Built to be trusted. Designed to be felt.",
+    "overline": "Built to last",
+    "title": "Armour that floats.",
     "points": [
-      "Premium materials chosen for the hand as much as the eye.",
-      "CE certification [[PLACEHOLDER]] — engineered to standard, refined beyond it.",
-      "Quiet propulsion that lets the water speak.",
-      "Detail honoured everywhere, even where it is never seen."
+      "A Fusion drop-stitch core — thousands of threads that lock the hull rigid once it reaches working pressure.",
+      "Double-layer PVC, 0.5 + 0.9 mm [[PLACEHOLDER]] — engineered to shrug off punctures, sun and salt.",
+      "UV- and water-resistant upholstery (Silvertex-style) that stays soft season after season.",
+      "Aluminium and stainless-steel fittings chosen to resist corrosion, everywhere it counts.",
+      "CE certification [[PLACEHOLDER]] — built to standard, refined far beyond it."
     ]
   },
   "testimonials": {
@@ -66,17 +66,17 @@
     "title": "The people who already cast off.",
     "items": [
       {
-        "quote": "We bought a boat and found a rhythm. Mornings are slower now, and somehow that is everything.",
+        "quote": "We packed the whole boat into the estate car and had it floating on the lake in twenty minutes. Stable, quiet, not a drop of fuel.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Aurora owner]]"
       },
       {
-        "quote": "The first weekend aboard, twelve of us watched the sun go down and nobody reached for a phone.",
+        "quote": "No marina, no trailer, no winter bills. We just drive to the water, pump it up and the day begins.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Festa owner]]"
       },
       {
-        "quote": "Silence, made seaworthy — they were not exaggerating. It is the only place my mind finally rests.",
+        "quote": "On the water it feels like a hard hull — you forget it folds into two bags. The silence is the part I didn't expect.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Sérénité owner]]"
       }
@@ -85,20 +85,27 @@
   "contact": {
     "overline": "The invitation",
     "title": "Tell us the story you want to live.",
-    "lead": "No pressure, no sales pitch. Just a conversation about what's possible.",
+    "lead": "No pressure, no sales pitch — just a conversation about which platform fits your water.",
     "ctaButton": "Start the conversation",
     "form": {
       "name": "Your name",
       "email": "Email address",
+      "model": "Platform you're interested in",
       "message": "Tell us a little about the story you have in mind",
       "consent": "I agree to be contacted about my enquiry and have read the privacy policy.",
       "submit": "Start the conversation",
       "success": "Thank you. Your message is on its way — we'll be in touch soon.",
-      "error": "Something went wrong sending your message. Please try again or email us directly."
+      "error": "Something went wrong sending your message. Please try again or email us directly.",
+      "modelOptions": {
+        "festa": "Festa",
+        "aurora": "Aurora",
+        "serenite": "Sérénité",
+        "undecided": "Not sure yet"
+      }
     }
   },
   "footer": {
-    "tagline": "Stories the sea remembers.",
+    "tagline": "The sea, wherever you take it.",
     "nav": "Explore",
     "legal": "Legal",
     "cookieSettings": "Cookie settings",
@@ -158,32 +165,36 @@
     }
   },
   "yachts": {
-    "aurora": {
-      "tagline": "For those who chase the first light.",
-      "story": "A yacht for couples and solo sailors chasing the horizon — long ranges, quiet mornings, coffee at dawn on the bow. Aurora is made for the hours before anyone else is awake, when the sea belongs to you alone.",
-      "idealFor": "Solo dawn voyages · weekend escapes for two · longer journeys along the coast."
-    },
     "festa": {
+      "label": "The stage platform",
       "tagline": "Where the day turns into a celebration.",
-      "story": "A spacious deck-as-stage for days with friends and family — swims, music, laughter, sunsets. Festa is built for the gatherings that turn an ordinary afternoon into a memory worth keeping.",
-      "idealFor": "Celebrations with friends · family days on the water · floating events."
+      "story": "The big-day platform for friends and family. Inflate a wide, rigid sun-deck with an integrated slide, daybeds and swim ladder — then spend the afternoon swimming, lounging and celebrating. Pack it into the car when the light goes.",
+      "idealFor": "Days with friends · family swims · floating celebrations · sun-deck lounging."
+    },
+    "aurora": {
+      "label": "Go anywhere",
+      "tagline": "The boat that goes where roads end.",
+      "story": "The most compact, lightest-to-carry platform in the fleet. It fits in the boot, inflates in minutes and launches from any shore — lakes, hidden coves, places with no slipway. Where roads end, Aurora begins.",
+      "idealFor": "Lakes and hidden coves · launching without a slipway · solo and two-up adventures · travelling light."
     },
     "serenite": {
-      "tagline": "Silence, made seaworthy.",
-      "story": "An escape and a place to be still — daybeds, the hush of electric propulsion, intimate luxury. Sérénité is the quiet between everything else, designed for the moments you want to last.",
-      "idealFor": "Rest and stillness · romantic evenings · yoga and wellness on the water."
+      "label": "A refuge on the water",
+      "tagline": "Silence, made portable.",
+      "story": "The relaxation configuration: quilted daybeds, a silent electric drive and nothing but water around you. Anchor in a quiet cove, switch everything off, and let the platform become the calmest room you own — then fold it away.",
+      "idealFor": "Rest and stillness · romantic evenings · silent electric cruising · wellness on the water."
     }
   },
   "yachtsCommon": {
-    "loa": "Length overall",
-    "beam": "Beam",
-    "draft": "Draft",
-    "guests": "Guests",
-    "cabins": "Cabins",
-    "range": "Range",
-    "speed": "Top speed",
-    "propulsion": "Propulsion",
-    "sundeck": "Sundeck",
+    "deckLengthInflated": "Length (inflated)",
+    "beamInflated": "Beam (inflated)",
+    "packedSize": "Packed size",
+    "totalWeight": "Total weight",
+    "capacity": "Capacity",
+    "workingPressure": "Working pressure",
+    "inflationTime": "Inflation time",
+    "material": "Material",
+    "drive": "Drive",
+    "included": "In the box",
     "idealFor": "Ideal for",
     "specsTitle": "Specifications",
     "specsNote": "Figures are indicative and may vary by configuration.",
@@ -191,22 +202,47 @@
     "galleryPrev": "Previous image",
     "galleryNext": "Next image",
     "backToFleet": "Back to the fleet",
-    "enquireCta": "Enquire about this yacht"
+    "enquireCta": "Enquire about this platform"
   },
   "tabs": {
     "deck": "Deck",
-    "interior": "Interior",
-    "propulsion": "Propulsion",
-    "equipment": "Equipment"
+    "material": "Material",
+    "drive": "Drive",
+    "transport": "Transport"
+  },
+  "media": {
+    "alt": {
+      "heroMain": "A premium inflatable drop-stitch yacht gliding across calm open water at golden hour",
+      "heroOverhead": "Aerial view of the inflatable platform anchored over crystal-clear turquoise water",
+      "atmosphereDawn": "A tranquil seascape at first light with the inflatable yacht as a distant silhouette",
+      "stepInflate": "A person connecting a high-pressure electric pump to the half-inflated drop-stitch platform on the shore",
+      "stepCastoff": "The fully inflated yacht leaving the shallows onto open water as a person steps aboard",
+      "stepPack": "The deflated platform rolled into two carry bags and loaded into the boot of a car",
+      "materialMacro": "Macro cross-section of high-pressure drop-stitch fabric between two layers of coated PVC",
+      "valvePump": "Close-up of the high-pressure inflation valve and electric pump on the matte-white hull",
+      "deckDetail": "Detail of the faux-teak deck meeting quilted grey marine upholstery and a stainless D-ring",
+      "modelFesta": "MARÉ Festa — the large inflatable party platform with an integrated slide on turquoise water",
+      "modelAurora": "MARÉ Aurora — the compact, easy-to-carry inflatable boat on a calm mountain lake",
+      "modelSerenite": "MARÉ Sérénité — the relaxation platform with quilted daybeds anchored in a quiet cove",
+      "friendsSunset": "Friends relaxing and celebrating on the inflatable platform on calm water at sunset",
+      "familySlide": "A family on the inflatable yacht, a child sliding off the integrated slide into the sea",
+      "coupleRelax": "A couple reclining on the quilted daybeds of the platform in a quiet cove at dawn",
+      "swimLadder": "A swimmer climbing the stainless boarding ladder back onto the faux-teak swim platform",
+      "sideProfile": "Clean side profile of the whole inflatable yacht floating on calm teal water",
+      "bowDetail": "Close shot of the bow, oval window cut-out and grey grab-handles on the drop-stitch hull",
+      "archDetail": "The grey inflatable arch frame of the platform against a blue-hour sky",
+      "cockpitTopdown": "Top-down view into the open cockpit with faux-teak deck and quilted grey seating",
+      "ogDefault": "MARÉ — a premium inflatable, portable yacht on teal water at golden hour"
+    }
   },
   "meta": {
     "home": {
-      "title": "MARÉ — Stories the sea remembers",
-      "description": "A cinematic fleet built not to be owned, but to be lived. Discover MARÉ — yachts designed around the life you want on the water."
+      "title": "MARÉ — Inflatable portable yachts you can carry anywhere",
+      "description": "MARÉ builds premium inflatable yachts from drop-stitch and double-layer PVC. Pump them up in minutes, fold them into your car — a portable boat with no marina and no trailer."
     },
     "fleet": {
-      "title": "{name} — MARÉ",
-      "description": "Meet {name}: {tagline} Explore the story, specifications and gallery of this MARÉ yacht."
+      "title": "{name} — MARÉ inflatable yacht",
+      "description": "Meet {name}: {tagline} A portable, drop-stitch inflatable platform you can pack into your car. Explore the story, specifications and gallery."
     },
     "privacy": {
       "title": "Privacy Policy — MARÉ",

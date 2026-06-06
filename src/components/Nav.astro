@@ -25,12 +25,13 @@ const t = useTranslations(lang);
 const homeHref = localizedPath(lang, '');
 
 // Chapter anchors used both for the menu and for the side indicator.
-// The Manifesto (#manifesto) and Craft (#craft) chapters were removed from the
-// one-pager, so their menu entries are gone too — every anchor below points to
-// a section that still exists. (i18n keys nav.manifesto / nav.craft are kept.)
+// Full v2 flow: Manifesto → Fleet → How it works → Craft (Material) → Contact.
+// Every id below corresponds to a section rendered on the home page.
 const chapters = [
+  { id: 'manifesto', label: t('nav.manifesto') },
   { id: 'fleet', label: t('nav.fleet') },
-  { id: 'experiences', label: t('nav.experiences') },
+  { id: 'how-it-works', label: t('nav.how') },
+  { id: 'craft', label: t('nav.craft') },
   { id: 'contact', label: t('nav.contact') },
 ];
 
@@ -302,7 +303,7 @@ const hrefFor = (id: string) => (onHome ? `#${id}` : `${homeHref}#${id}`);
   // ---- Chapter indicator + active nav link (IntersectionObserver) ----------
   const dots = Array.from(document.querySelectorAll<HTMLElement>('[data-chapter-dot]'));
   const links = Array.from(document.querySelectorAll<HTMLElement>('[data-nav-link]'));
-  const sections = ['fleet', 'experiences', 'contact']
+  const sections = ['manifesto', 'fleet', 'how-it-works', 'craft', 'contact']
     .map((id) => document.getElementById(id))
     .filter((el): el is HTMLElement => !!el);
 

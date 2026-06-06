@@ -2,7 +2,7 @@
   "nav": {
     "manifesto": "Philosophie",
     "fleet": "Flotte",
-    "experiences": "Erlebnisse",
+    "how": "So funktioniert's",
     "craft": "Handwerk",
     "contact": "Kontakt",
     "cta": "Die Geschichte beginnen",
@@ -12,71 +12,71 @@
     "skipToContent": "Zum Inhalt springen"
   },
   "hero": {
-    "headline": "Das Meer verkauft keine Träume. Es bewahrt sie.",
-    "sub": "Entdecke eine Flotte, die nicht besessen, sondern gelebt werden will.",
+    "headline": "Das Meer, wohin du es mitnimmst.",
+    "sub": "Eine aufblasbare Premium-Yacht, konstruiert aus einem drop-stitch-Panzer und zweilagigem PVC. In Minuten mit der Pumpe aufgepumpt, in den Kofferraum gefaltet — ohne Marina, ohne Trailer, ohne Grenzen.",
     "ctaPrimary": "Die Geschichte beginnen",
     "ctaGhost": "Die Flotte entdecken",
     "scrollCue": "Scrollen zum Beginnen"
   },
   "manifesto": {
     "overline": "Unsere Philosophie",
-    "title": "Wir bauen keine Boote. Wir bauen Horizonte.",
-    "lead": "Jeder Rumpf ist eine Einladung: zu entschleunigen, zusammenzukommen, dem Licht zu folgen. Das ist Mobilität auf dem Wasser, entworfen um das Leben, das du wirklich leben willst."
+    "title": "Wir bauen keine Boote. Wir bauen Freiheit, die du mitnehmen kannst.",
+    "lead": "Keine Marina. Kein Trailer. Keine Kosten fürs Winterlager. Nur ein drop-stitch-Rumpf, der sich anfühlt wie aus einem Guss, in dein Auto passt und sich überall dort entfaltet, wo Wasser ist. Bootfahren, endlich befreit."
   },
   "fleet": {
     "overline": "Die Flotte",
-    "title": "Drei Charaktere. Ein Horizont.",
+    "title": "Drei Plattformen. Ein Versprechen: einpacken, aufpumpen, los.",
     "viewYacht": "Entdecken",
-    "cardCta": "Diese Yacht ansehen"
+    "cardCta": "Diese Plattform ansehen"
   },
-  "experiences": {
-    "overline": "Ein Leben an Bord",
-    "title": "Wie sich der Tag auf dem Wasser entfaltet.",
-    "scenes": {
-      "firstLight": {
-        "title": "Erstes Licht",
-        "body": "Bevor die Welt erwacht, gehört das Wasser dir. Kaffee am Bug, der Horizont wechselt von Tinte zu Gold."
+  "how": {
+    "overline": "So funktioniert's",
+    "title": "Vom Kofferraum aufs offene Wasser — in Minuten.",
+    "steps": {
+      "inflate": {
+        "label": "Aufpumpen",
+        "title": "Aufpumpen",
+        "body": "Ausrollen, die Hochdruckpumpe anschließen und zusehen, wie aus einer weichen Tasche eine feste Yacht wird. Ein paar Minuten, kein Werkzeug."
       },
-      "gathering": {
-        "title": "Das Beisammensein",
-        "body": "Freunde kommen an, die Musik steigt, das Deck wird zur Bühne. Der Nachmittag dehnt sich zu etwas, das in Erinnerung bleibt."
+      "castoff": {
+        "label": "Ablegen",
+        "title": "Ablegen",
+        "body": "Auf dem Wasser verhält sie sich wie ein fester Rumpf: stabil, leise, souverän. Dazu der lautlose Elektroantrieb oder dein eigener Außenborder."
       },
-      "longWay": {
-        "title": "Der lange Weg nach Hause",
-        "body": "Keine Eile, keine Route. Nur die Küste, die vorbeizieht, und der stille Luxus, nirgendwo sein zu müssen."
-      },
-      "stillness": {
-        "title": "Stille",
-        "body": "Maschinen verstummt, Lichter gedämpft. Die Art von Ruhe, die du nur findest, wenn das Land dich loslässt."
+      "pack": {
+        "label": "Zusammenpacken",
+        "title": "Zusammenpacken",
+        "body": "Luft ablassen, in die Transporttaschen rollen — und sie fährt mit dir im Auto nach Hause. Keine Marina, kein Trailer, Stauraum im Schrank genügt."
       }
     }
   },
   "craft": {
-    "overline": "Handwerk",
-    "title": "Gebaut, um zu vertrauen. Gestaltet, um zu spüren.",
+    "overline": "Für die Ewigkeit gebaut",
+    "title": "Ein Panzer, der schwimmt.",
     "points": [
-      "Hochwertige Materialien, gewählt für die Hand ebenso wie für das Auge.",
-      "CE-Zertifizierung [[PLACEHOLDER]] — nach Norm gebaut, weit darüber hinaus verfeinert.",
-      "Leiser Antrieb, der das Wasser sprechen lässt.",
-      "Detailtreue überall, selbst dort, wo sie niemand sieht."
+      "Ein Fusion-drop-stitch-Kern — Tausende Fäden, die den Rumpf bei Betriebsdruck steif verriegeln.",
+      "Zweilagiges PVC, 0,5 + 0,9 mm [[PLACEHOLDER]] — konstruiert, um Durchstiche, Sonne und Salz abzuschütteln.",
+      "UV- und wasserbeständige Polster (Silvertex-Art), die Saison für Saison weich bleiben.",
+      "Beschläge aus Aluminium und Edelstahl, gewählt, um der Korrosion zu trotzen — überall, wo es zählt.",
+      "CE-Zertifizierung [[PLACEHOLDER]] — nach Norm gebaut, weit darüber hinaus verfeinert."
     ]
   },
   "testimonials": {
     "overline": "Stimmen",
-    "title": "Die Menschen, die bereits abgelegt haben.",
+    "title": "Die Menschen, die längst abgelegt haben.",
     "items": [
       {
-        "quote": "Wir haben ein Boot gekauft und einen Rhythmus gefunden. Die Morgen sind jetzt langsamer, und irgendwie ist das alles.",
+        "quote": "Wir haben das ganze Boot in den Kombi gepackt und es in zwanzig Minuten auf dem See zu Wasser gelassen. Stabil, leise, kein Tropfen Kraftstoff.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Aurora owner]]"
       },
       {
-        "quote": "Am ersten Wochenende an Bord sahen wir zu zwölft die Sonne untergehen, und niemand griff zum Telefon.",
+        "quote": "Keine Marina, kein Trailer, keine Winterrechnungen. Wir fahren einfach ans Wasser, pumpen sie auf — und der Tag beginnt.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Festa owner]]"
       },
       {
-        "quote": "Stille, hochseetauglich gemacht — sie haben nicht übertrieben. Es ist der einzige Ort, an dem mein Kopf endlich zur Ruhe kommt.",
+        "quote": "Auf dem Wasser fühlt sie sich an wie ein fester Rumpf — man vergisst, dass sie sich in zwei Taschen falten lässt. Die Stille hatte ich nicht erwartet.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Sérénité owner]]"
       }
@@ -85,20 +85,27 @@
   "contact": {
     "overline": "Die Einladung",
     "title": "Erzähl uns, welche Geschichte du leben willst.",
-    "lead": "Kein Druck, kein Verkaufsgespräch. Nur ein Gespräch darüber, was möglich ist.",
+    "lead": "Kein Druck, kein Verkaufsgespräch — nur ein Gespräch darüber, welche Plattform zu deinem Wasser passt.",
     "ctaButton": "Das Gespräch beginnen",
     "form": {
       "name": "Dein Name",
       "email": "E-Mail-Adresse",
+      "model": "Plattform, die dich interessiert",
       "message": "Erzähl uns ein wenig von der Geschichte, die dir vorschwebt",
       "consent": "Ich stimme zu, zu meiner Anfrage kontaktiert zu werden, und habe die Datenschutzerklärung gelesen.",
       "submit": "Das Gespräch beginnen",
       "success": "Danke. Deine Nachricht ist unterwegs — wir melden uns bald.",
-      "error": "Beim Senden ist etwas schiefgelaufen. Bitte versuche es erneut oder schreibe uns direkt."
+      "error": "Beim Senden ist etwas schiefgelaufen. Bitte versuche es erneut oder schreibe uns direkt.",
+      "modelOptions": {
+        "festa": "Festa",
+        "aurora": "Aurora",
+        "serenite": "Sérénité",
+        "undecided": "Noch unentschlossen"
+      }
     }
   },
   "footer": {
-    "tagline": "Geschichten, an die sich das Meer erinnert.",
+    "tagline": "Das Meer, wohin du es mitnimmst.",
     "nav": "Entdecken",
     "legal": "Rechtliches",
     "cookieSettings": "Cookie-Einstellungen",
@@ -158,32 +165,36 @@
     }
   },
   "yachts": {
-    "aurora": {
-      "tagline": "Für alle, die dem ersten Licht entgegenfahren.",
-      "story": "Eine Yacht für Paare und Solo-Segler, die dem Horizont folgen — große Reichweiten, stille Morgen, Kaffee bei Sonnenaufgang am Bug. Aurora ist für die Stunden gemacht, bevor jemand anderes wach ist, wenn das Meer dir ganz allein gehört.",
-      "idealFor": "Solo-Törns im Morgengrauen · Wochenend-Auszeiten zu zweit · längere Reisen entlang der Küste."
-    },
     "festa": {
+      "label": "Die Bühnen-Plattform",
       "tagline": "Wo der Tag zum Fest wird.",
-      "story": "Ein weitläufiges Deck als Bühne für Tage mit Freunden und Familie — Bäder, Musik, Lachen, Sonnenuntergänge. Festa ist für die Zusammenkünfte gebaut, die einen gewöhnlichen Nachmittag in eine Erinnerung verwandeln, die es wert ist, bewahrt zu werden.",
-      "idealFor": "Feiern mit Freunden · Familientage auf dem Wasser · schwimmende Events."
+      "story": "Die Plattform für die großen Tage mit Freunden und Familie. Pumpe ein breites, festes Sonnendeck mit integrierter Rutsche, Liegen und Badeleiter auf — und verbringe den Nachmittag mit Schwimmen, Faulenzen und Feiern. Wenn das Licht schwindet, packst du alles ins Auto.",
+      "idealFor": "Tage mit Freunden · Familienbäder · schwimmende Feste · Faulenzen auf dem Sonnendeck."
+    },
+    "aurora": {
+      "label": "Geh überallhin",
+      "tagline": "Das Boot, das fährt, wo die Straßen enden.",
+      "story": "Die kompakteste, am leichtesten zu tragende Plattform der Flotte. Sie passt in den Kofferraum, ist in Minuten aufgepumpt und legt von jedem Ufer ab — Seen, versteckte Buchten, Orte ganz ohne Slipanlage. Wo die Straßen enden, beginnt die Aurora.",
+      "idealFor": "Seen und versteckte Buchten · Ablegen ohne Slipanlage · Abenteuer solo und zu zweit · Reisen mit leichtem Gepäck."
     },
     "serenite": {
-      "tagline": "Stille, hochseetauglich gemacht.",
-      "story": "Ein Rückzugsort und ein Ort, um still zu werden — Liegen, das Flüstern des Elektroantriebs, intimer Luxus. Sérénité ist die Stille zwischen allem anderen, gestaltet für die Momente, die du festhalten willst.",
-      "idealFor": "Ruhe und Stille · romantische Abende · Yoga und Wellness auf dem Wasser."
+      "label": "Ein Refugium auf dem Wasser",
+      "tagline": "Stille, zum Mitnehmen.",
+      "story": "Die Konfiguration für Entspannung: gesteppte Liegen, ein lautloser Elektroantrieb und nichts als Wasser ringsum. Ankere in einer stillen Bucht, schalte alles ab und lass die Plattform zum ruhigsten Raum werden, den du besitzt — und falte sie danach wieder zusammen.",
+      "idealFor": "Ruhe und Stille · romantische Abende · lautloses Gleiten mit Elektroantrieb · Wellness auf dem Wasser."
     }
   },
   "yachtsCommon": {
-    "loa": "Länge über alles",
-    "beam": "Breite",
-    "draft": "Tiefgang",
-    "guests": "Gäste",
-    "cabins": "Kabinen",
-    "range": "Reichweite",
-    "speed": "Höchstgeschwindigkeit",
-    "propulsion": "Antrieb",
-    "sundeck": "Sonnendeck",
+    "deckLengthInflated": "Länge (aufgepumpt)",
+    "beamInflated": "Breite (aufgepumpt)",
+    "packedSize": "Packmaß",
+    "totalWeight": "Gesamtgewicht",
+    "capacity": "Kapazität",
+    "workingPressure": "Betriebsdruck",
+    "inflationTime": "Aufpumpzeit",
+    "material": "Material",
+    "drive": "Antrieb",
+    "included": "Im Lieferumfang",
     "idealFor": "Ideal für",
     "specsTitle": "Spezifikationen",
     "specsNote": "Angaben sind Richtwerte und können je nach Konfiguration variieren.",
@@ -191,22 +202,47 @@
     "galleryPrev": "Vorheriges Bild",
     "galleryNext": "Nächstes Bild",
     "backToFleet": "Zurück zur Flotte",
-    "enquireCta": "Zu dieser Yacht anfragen"
+    "enquireCta": "Diese Plattform anfragen"
   },
   "tabs": {
     "deck": "Deck",
-    "interior": "Innenraum",
-    "propulsion": "Antrieb",
-    "equipment": "Ausstattung"
+    "material": "Material",
+    "drive": "Antrieb",
+    "transport": "Transport"
+  },
+  "media": {
+    "alt": {
+      "heroMain": "Eine aufblasbare Premium-Yacht aus drop-stitch, die zur goldenen Stunde über ruhiges, offenes Wasser gleitet",
+      "heroOverhead": "Luftaufnahme der aufblasbaren Plattform, verankert über kristallklarem, türkisfarbenem Wasser",
+      "atmosphereDawn": "Eine ruhige Meereslandschaft im ersten Licht mit der aufblasbaren Yacht als ferne Silhouette",
+      "stepInflate": "Eine Person schließt eine elektrische Hochdruckpumpe an die halb aufgepumpte drop-stitch-Plattform am Ufer an",
+      "stepCastoff": "Die vollständig aufgepumpte Yacht verlässt das Flachwasser aufs offene Wasser, während eine Person an Bord geht",
+      "stepPack": "Die luftleere Plattform, in zwei Transporttaschen gerollt und in den Kofferraum eines Autos geladen",
+      "materialMacro": "Makro-Querschnitt des Hochdruck-drop-stitch-Gewebes zwischen zwei Schichten beschichtetem PVC",
+      "valvePump": "Nahaufnahme des Hochdruck-Ventils und der elektrischen Pumpe am mattweißen Rumpf",
+      "deckDetail": "Detail des Faux-Teak-Decks, wo es auf gesteppte graue Marine-Polster und einen Edelstahl-D-Ring trifft",
+      "modelFesta": "MARÉ Festa — die große aufblasbare Partyplattform mit integrierter Rutsche auf türkisfarbenem Wasser",
+      "modelAurora": "MARÉ Aurora — das kompakte, leicht zu tragende aufblasbare Boot auf einem ruhigen Bergsee",
+      "modelSerenite": "MARÉ Sérénité — die Entspannungsplattform mit gesteppten Liegen, verankert in einer stillen Bucht",
+      "friendsSunset": "Freunde entspannen und feiern auf der aufblasbaren Plattform auf ruhigem Wasser bei Sonnenuntergang",
+      "familySlide": "Eine Familie auf der aufblasbaren Yacht, ein Kind rutscht über die integrierte Rutsche ins Meer",
+      "coupleRelax": "Ein Paar entspannt auf den gesteppten Liegen der Plattform in einer stillen Bucht im Morgengrauen",
+      "swimLadder": "Eine schwimmende Person steigt über die Edelstahl-Badeleiter zurück auf das Faux-Teak-Badedeck",
+      "sideProfile": "Klares Seitenprofil der gesamten aufblasbaren Yacht auf ruhigem, blaugrünem Wasser",
+      "bowDetail": "Nahaufnahme des Bugs, des ovalen Fensterausschnitts und der grauen Haltegriffe am drop-stitch-Rumpf",
+      "archDetail": "Der graue aufblasbare Bügel der Plattform vor dem Himmel der blauen Stunde",
+      "cockpitTopdown": "Draufsicht in das offene Cockpit mit Faux-Teak-Deck und gesteppten grauen Sitzen",
+      "ogDefault": "MARÉ — eine aufblasbare, transportable Premium-Yacht auf blaugrünem Wasser zur goldenen Stunde"
+    }
   },
   "meta": {
     "home": {
-      "title": "MARÉ — Geschichten, an die sich das Meer erinnert",
-      "description": "Eine kinoreife Flotte, gebaut nicht zum Besitzen, sondern zum Leben. Entdecke MARÉ — Yachten, entworfen um das Leben, das du auf dem Wasser führen willst."
+      "title": "MARÉ — Aufblasbare, transportable Yachten, die du überallhin mitnimmst",
+      "description": "MARÉ baut aufblasbare Premium-Yachten aus drop-stitch und zweilagigem PVC. In Minuten aufgepumpt, in den Kofferraum gefaltet — ein transportables Boot ohne Marina und ohne Trailer."
     },
     "fleet": {
-      "title": "{name} — MARÉ",
-      "description": "Lerne {name} kennen: {tagline} Entdecke die Geschichte, die Spezifikationen und die Galerie dieser MARÉ-Yacht."
+      "title": "{name} — aufblasbare Yacht von MARÉ",
+      "description": "Lerne {name} kennen: {tagline} Eine transportable, aufblasbare drop-stitch-Plattform, die du in dein Auto packst. Entdecke die Geschichte, die Spezifikationen und die Galerie."
     },
     "privacy": {
       "title": "Datenschutzerklärung — MARÉ",

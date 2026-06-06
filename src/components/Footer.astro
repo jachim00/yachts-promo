@@ -34,10 +34,13 @@ const legalLinks = [
   { href: localizedPath(lang, 'cookies'), label: t('legal.cookies.title') },
 ];
 
-// Only sections that still exist on the one-pager (Manifesto + Craft removed).
+// Home-page chapters (full v2 flow): Manifesto · Fleet · How it works ·
+// Craft (Material) · Contact.
 const navLinks = [
+  { href: localizedPath(lang, '') + '#manifesto', label: t('nav.manifesto') },
   { href: localizedPath(lang, '') + '#fleet', label: t('nav.fleet') },
-  { href: localizedPath(lang, '') + '#experiences', label: t('nav.experiences') },
+  { href: localizedPath(lang, '') + '#how-it-works', label: t('nav.how') },
+  { href: localizedPath(lang, '') + '#craft', label: t('nav.craft') },
   { href: localizedPath(lang, '') + '#contact', label: t('nav.contact') },
 ];
 ---

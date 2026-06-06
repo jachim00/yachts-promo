@@ -2,8 +2,8 @@
   "nav": {
     "manifesto": "Manifest",
     "fleet": "Flota",
-    "experiences": "Doświadczenia",
-    "craft": "Rzemiosło",
+    "how": "Jak to działa",
+    "craft": "Materiał",
     "contact": "Kontakt",
     "cta": "Rozpocznij historię",
     "menuOpen": "Otwórz menu",
@@ -12,53 +12,53 @@
     "skipToContent": "Przejdź do treści"
   },
   "hero": {
-    "headline": "Morze nie sprzedaje marzeń. Ono je przechowuje.",
-    "sub": "Odkryj flotę stworzoną nie po to, by ją mieć — lecz by nią żyć.",
+    "headline": "Morze tam, dokąd je zabierzesz.",
+    "sub": "Pompowany jacht premium z pancerza drop-stitch i dwuwarstwowego PVC. Napompuj go pompą w kilka minut, złóż do bagażnika — bez mariny, bez przyczepy, bez ograniczeń.",
     "ctaPrimary": "Rozpocznij historię",
     "ctaGhost": "Poznaj flotę",
     "scrollCue": "Przewiń, aby rozpocząć"
   },
   "manifesto": {
     "overline": "Nasza filozofia",
-    "title": "Nie budujemy łodzi. Budujemy horyzonty.",
-    "lead": "Każdy kadłub to zaproszenie: by zwolnić, by się spotkać, by gonić światło. To mobilność na wodzie zaprojektowana wokół życia, którym naprawdę chcesz żyć."
+    "title": "Nie budujemy łodzi. Budujemy wolność, którą zabierasz ze sobą.",
+    "lead": "Bez mariny. Bez przyczepy. Bez opłat za zimowanie. Tylko sztywny w dotyku kadłub drop-stitch, który pakujesz do auta i rozkładasz tam, gdzie jest woda. To żeglowanie nareszcie uwolnione."
   },
   "fleet": {
     "overline": "Flota",
-    "title": "Trzy charaktery. Jeden horyzont.",
+    "title": "Trzy platformy. Jedna obietnica: spakuj, napompuj, płyń.",
     "viewYacht": "Odkryj",
-    "cardCta": "Zobacz ten jacht"
+    "cardCta": "Zobacz tę platformę"
   },
-  "experiences": {
-    "overline": "Życie na pokładzie",
-    "title": "Jak rozwija się dzień na wodzie.",
-    "scenes": {
-      "firstLight": {
-        "title": "Pierwsze światło",
-        "body": "Zanim świat się obudzi, woda należy do ciebie. Kawa na dziobie, horyzont zmieniający barwę z atramentu w złoto."
+  "how": {
+    "overline": "Jak to działa",
+    "title": "Z bagażnika na otwartą wodę — w kilka minut.",
+    "steps": {
+      "inflate": {
+        "label": "Napompuj",
+        "title": "Napompuj",
+        "body": "Rozłóż, podłącz pompę wysokociśnieniową i patrz, jak miękka torba zmienia się w sztywny jacht. Kilka minut, bez narzędzi."
       },
-      "gathering": {
-        "title": "Spotkanie",
-        "body": "Przyjaciele schodzą się na pokład, muzyka rośnie, deska staje się sceną. Popołudnie rozciąga się w coś, co warto zapamiętać."
+      "castoff": {
+        "label": "Wypłyń",
+        "title": "Wypłyń",
+        "body": "Na wodzie zachowuje się jak twardy kadłub: stabilnie, cicho, pewnie. Dołóż cichy napęd elektryczny lub własny zaburtowy."
       },
-      "longWay": {
-        "title": "Długa droga do domu",
-        "body": "Bez pośpiechu, bez wytyczonej trasy. Tylko brzeg przesuwający się obok i cichy luksus tego, że nie trzeba być nigdzie."
-      },
-      "stillness": {
-        "title": "Wyciszenie",
-        "body": "Silniki milczą, światła przygaszone. Ten rodzaj spokoju, który znajdziesz dopiero wtedy, gdy ląd cię puści."
+      "pack": {
+        "label": "Spakuj",
+        "title": "Spakuj",
+        "body": "Spuść powietrze, zwiń do toreb — wraca z Tobą w aucie. Bez mariny, bez przyczepy, zmieści się w szafie."
       }
     }
   },
   "craft": {
-    "overline": "Rzemiosło",
-    "title": "Zbudowane, by ufać. Zaprojektowane, by czuć.",
+    "overline": "Stworzone, by trwać",
+    "title": "Pancerz, który pływa.",
     "points": [
-      "Materiały premium dobrane tak samo pod dłoń, jak pod oko.",
-      "Certyfikat CE [[PLACEHOLDER]] — zbudowany zgodnie z normą, dopracowany daleko poza nią.",
-      "Cichy napęd, który pozwala mówić wodzie.",
-      "Dbałość o detal wszędzie, nawet tam, gdzie nikt jej nie zobaczy."
+      "Rdzeń Fusion drop-stitch — tysiące włókien, które usztywniają kadłub po osiągnięciu ciśnienia roboczego.",
+      "Dwuwarstwowy PVC 0,5 + 0,9 mm [[PLACEHOLDER]] — odporny na przebicia, słońce i sól.",
+      "Tapicerka odporna na UV i wodę (typ Silvertex), która pozostaje miękka sezon po sezonie.",
+      "Okucia z aluminium i stali nierdzewnej dobrane tak, by opierały się korozji wszędzie tam, gdzie to ważne.",
+      "Certyfikat CE [[PLACEHOLDER]] — zbudowany zgodnie z normą, dopracowany daleko poza nią."
     ]
   },
   "testimonials": {
@@ -66,17 +66,17 @@
     "title": "Ci, którzy już odbili od brzegu.",
     "items": [
       {
-        "quote": "Kupiliśmy łódź i odnaleźliśmy rytm. Poranki są teraz wolniejsze i w jakiś sposób to jest właśnie wszystko.",
+        "quote": "Spakowaliśmy »jacht« do kombi i rozłożyliśmy na jeziorze w 20 minut. Stabilny, cichy, bez śladu paliwa.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Aurora owner]]"
       },
       {
-        "quote": "Pierwszego weekendu na pokładzie cała dwunastka patrzyła na zachód słońca i nikt nie sięgnął po telefon.",
+        "quote": "Bez mariny, bez przyczepy, bez opłat za zimowanie. Po prostu podjeżdżamy nad wodę, pompujemy i dzień się zaczyna.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Festa owner]]"
       },
       {
-        "quote": "Cisza, zdatna do żeglugi — nie przesadzali. To jedyne miejsce, w którym mój umysł wreszcie odpoczywa.",
+        "quote": "Na wodzie czuje się jak twardy kadłub — zapominasz, że składa się do dwóch toreb. Cisza to coś, czego się nie spodziewałem.",
         "author": "[[PLACEHOLDER — owner name]]",
         "role": "[[PLACEHOLDER — Sérénité owner]]"
       }
@@ -85,20 +85,27 @@
   "contact": {
     "overline": "Zaproszenie",
     "title": "Opowiedz nam historię, którą chcesz przeżyć.",
-    "lead": "Bez presji, bez sprzedażowych formułek. Po prostu rozmowa o tym, co możliwe.",
+    "lead": "Bez presji, bez nachalnej sprzedaży — po prostu rozmowa o tym, która platforma pasuje do Twojej wody.",
     "ctaButton": "Rozpocznij rozmowę",
     "form": {
       "name": "Twoje imię",
       "email": "Adres e-mail",
+      "model": "Interesujący model",
       "message": "Opowiedz nam trochę o historii, którą masz w głowie",
       "consent": "Wyrażam zgodę na kontakt w sprawie mojego zapytania i przeczytałem(am) politykę prywatności.",
       "submit": "Rozpocznij rozmowę",
       "success": "Dziękujemy. Twoja wiadomość jest już w drodze — wkrótce się odezwiemy.",
-      "error": "Coś poszło nie tak przy wysyłce. Spróbuj ponownie lub napisz do nas bezpośrednio."
+      "error": "Coś poszło nie tak przy wysyłce. Spróbuj ponownie lub napisz do nas bezpośrednio.",
+      "modelOptions": {
+        "festa": "Festa",
+        "aurora": "Aurora",
+        "serenite": "Sérénité",
+        "undecided": "Jeszcze nie wiem"
+      }
     }
   },
   "footer": {
-    "tagline": "Historie, które morze pamięta.",
+    "tagline": "Morze tam, dokąd je zabierzesz.",
     "nav": "Odkrywaj",
     "legal": "Informacje prawne",
     "cookieSettings": "Ustawienia cookies",
@@ -158,32 +165,36 @@
     }
   },
   "yachts": {
-    "aurora": {
-      "tagline": "Dla tych, którzy gonią pierwsze światło.",
-      "story": "Jacht dla par i samotnych żeglarzy goniących horyzont — duże zasięgi, ciche poranki, kawa o świcie na dziobie. Aurora jest stworzona na godziny, zanim ktokolwiek inny się obudzi, gdy morze należy tylko do ciebie.",
-      "idealFor": "Samotne rejsy o świcie · weekendowe eskapady we dwoje · dłuższe wyprawy wzdłuż wybrzeża."
-    },
     "festa": {
+      "label": "Platforma-scena",
       "tagline": "Tam, gdzie dzień zmienia się w święto.",
-      "story": "Przestronny pokład-scena na dni ze znajomymi i rodziną — kąpiele, muzyka, śmiech, zachody słońca. Festa jest zbudowana na spotkania, które zamieniają zwykłe popołudnie we wspomnienie warte zachowania.",
-      "idealFor": "Świętowanie ze znajomymi · rodzinne dni na wodzie · pływające wydarzenia."
+      "story": "Platforma na wielkie dni ze znajomymi i rodziną. Napompuj szeroki, sztywny pokład ze zintegrowaną zjeżdżalnią, leżankami i drabinką do kąpieli — i spędź popołudnie na pływaniu, wylegiwaniu się i świętowaniu. Gdy gaśnie światło, pakujesz wszystko do auta.",
+      "idealFor": "Dni ze znajomymi · rodzinne kąpiele · pływające święta · relaks na pokładzie słonecznym."
+    },
+    "aurora": {
+      "label": "Idź gdziekolwiek",
+      "tagline": "Łódź, która płynie tam, gdzie kończą się drogi.",
+      "story": "Najbardziej kompaktowa, najlżejsza w transporcie platforma we flocie. Mieści się w bagażniku, pompuje się w kilka minut i woduje z każdego brzegu — jeziora, ukryte zatoczki, miejsca bez slipu. Tam, gdzie kończą się drogi, zaczyna się Aurora.",
+      "idealFor": "Jeziora i ukryte zatoczki · wodowanie bez slipu · wyprawy solo i we dwoje · podróżowanie na lekko."
     },
     "serenite": {
-      "tagline": "Cisza, zdatna do żeglugi.",
-      "story": "Ucieczka i miejsce na wyciszenie — leżanki, szept elektrycznego napędu, intymny luksus. Sérénité to cisza pomiędzy wszystkim innym, zaprojektowana na chwile, które chcesz zatrzymać.",
-      "idealFor": "Relaks i wyciszenie · romantyczne wieczory · joga i wellness na wodzie."
+      "label": "Azyl na wodzie",
+      "tagline": "Cisza, którą można zabrać ze sobą.",
+      "story": "Konfiguracja relaks: pikowane leżanki, cichy napęd elektryczny i nic poza wodą dookoła. Zakotwicz się w spokojnej zatoczce, wyłącz wszystko i pozwól platformie stać się najspokojniejszym pomieszczeniem, jakie masz — a potem ją złóż.",
+      "idealFor": "Relaks i wyciszenie · romantyczne wieczory · ciche pływanie na napędzie elektrycznym · wellness na wodzie."
     }
   },
   "yachtsCommon": {
-    "loa": "Długość całkowita",
-    "beam": "Szerokość",
-    "draft": "Zanurzenie",
-    "guests": "Goście",
-    "cabins": "Kabiny",
-    "range": "Zasięg",
-    "speed": "Prędkość maksymalna",
-    "propulsion": "Napęd",
-    "sundeck": "Pokład słoneczny",
+    "deckLengthInflated": "Długość (po napompowaniu)",
+    "beamInflated": "Szerokość (po napompowaniu)",
+    "packedSize": "Wymiary po spakowaniu",
+    "totalWeight": "Masa całkowita",
+    "capacity": "Pojemność",
+    "workingPressure": "Ciśnienie robocze",
+    "inflationTime": "Czas pompowania",
+    "material": "Materiał",
+    "drive": "Napęd",
+    "included": "W zestawie",
     "idealFor": "Idealny do",
     "specsTitle": "Specyfikacja",
     "specsNote": "Dane są orientacyjne i mogą się różnić w zależności od konfiguracji.",
@@ -191,22 +202,47 @@
     "galleryPrev": "Poprzednie zdjęcie",
     "galleryNext": "Następne zdjęcie",
     "backToFleet": "Powrót do floty",
-    "enquireCta": "Zapytaj o ten jacht"
+    "enquireCta": "Zapytaj o tę platformę"
   },
   "tabs": {
     "deck": "Pokład",
-    "interior": "Wnętrze",
-    "propulsion": "Napęd",
-    "equipment": "Wyposażenie"
+    "material": "Materiał",
+    "drive": "Napęd",
+    "transport": "Transport"
+  },
+  "media": {
+    "alt": {
+      "heroMain": "Pompowany jacht premium drop-stitch sunący po spokojnej, otwartej wodzie o złotej godzinie",
+      "heroOverhead": "Widok z lotu ptaka na pompowaną platformę zakotwiczoną nad krystalicznie czystą, turkusową wodą",
+      "atmosphereDawn": "Spokojny morski pejzaż o pierwszym świetle z pompowanym jachtem jako odległą sylwetką",
+      "stepInflate": "Osoba podłączająca pompę wysokociśnieniową do na wpół napompowanej platformy drop-stitch na brzegu",
+      "stepCastoff": "W pełni napompowany jacht wypływający z płycizny na otwartą wodę, gdy osoba wchodzi na pokład",
+      "stepPack": "Spuszczona z powietrza platforma zwinięta do dwóch toreb i ładowana do bagażnika auta",
+      "materialMacro": "Makro przekroju materiału drop-stitch między dwiema warstwami powlekanego PVC",
+      "valvePump": "Zbliżenie zaworu wysokociśnieniowego i elektrycznej pompy na matowo-białym kadłubie",
+      "deckDetail": "Detal pokładu faux-teak stykającego się z pikowaną szarą tapicerką morską i nierdzewnym D-ringiem",
+      "modelFesta": "MARÉ Festa — duża pompowana platforma imprezowa ze zintegrowaną zjeżdżalnią na turkusowej wodzie",
+      "modelAurora": "MARÉ Aurora — kompaktowa, łatwa w transporcie pompowana łódź na spokojnym górskim jeziorze",
+      "modelSerenite": "MARÉ Sérénité — platforma relaksacyjna z pikowanymi leżankami zakotwiczona w cichej zatoczce",
+      "friendsSunset": "Znajomi relaksujący się i świętujący na pompowanej platformie na spokojnej wodzie o zachodzie słońca",
+      "familySlide": "Rodzina na pompowanym jachcie, dziecko zjeżdżające ze zintegrowanej zjeżdżalni do morza",
+      "coupleRelax": "Para wylegująca się na pikowanych leżankach platformy w cichej zatoczce o świcie",
+      "swimLadder": "Pływak wspinający się po nierdzewnej drabince z powrotem na pokład kąpielowy faux-teak",
+      "sideProfile": "Czysty profil boczny całego pompowanego jachtu pływającego po spokojnej, turkusowej wodzie",
+      "bowDetail": "Zbliżenie dziobu, owalnego wycięcia okna i szarych uchwytów na kadłubie drop-stitch",
+      "archDetail": "Szary pompowany pałąk platformy na tle nieba w niebieskiej godzinie",
+      "cockpitTopdown": "Widok z góry na otwarty kokpit z pokładem faux-teak i pikowanymi szarymi siedziskami",
+      "ogDefault": "MARÉ — pompowany, przenośny jacht premium na turkusowej wodzie o złotej godzinie"
+    }
   },
   "meta": {
     "home": {
-      "title": "MARÉ — Historie, które morze pamięta",
-      "description": "Kinowa flota zbudowana nie po to, by ją mieć, lecz by nią żyć. Odkryj MARÉ — jachty zaprojektowane wokół życia, którego pragniesz na wodzie."
+      "title": "MARÉ — Pompowane, przenośne jachty, które zabierzesz wszędzie",
+      "description": "MARÉ buduje pompowane jachty premium z drop-stitch i dwuwarstwowego PVC. Napompuj je w kilka minut, złóż do auta — przenośna łódź bez mariny i bez przyczepy."
     },
     "fleet": {
-      "title": "{name} — MARÉ",
-      "description": "Poznaj {name}: {tagline} Odkryj historię, specyfikację i galerię tego jachtu MARÉ."
+      "title": "{name} — pompowany jacht MARÉ",
+      "description": "Poznaj {name}: {tagline} Przenośna, pompowana platforma drop-stitch, którą spakujesz do auta. Odkryj historię, specyfikację i galerię."
     },
     "privacy": {
       "title": "Polityka prywatności — MARÉ",

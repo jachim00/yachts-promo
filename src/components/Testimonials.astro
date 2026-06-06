@@ -1,0 +1,81 @@
+---
+// =========================================================================
+// Testimonials.astro — "Voices" chapter (LIGHT theme).
+// Three owner quotes (placeholders) repositioned for the inflatable, portable
+// product: easy transport, silence, stability, "we packed the boat into the
+// car". testimonials.items is an array of {quote, author, role} → getEntry.
+//
+// The 3-up grid is a SCOPED <style> grid with `minmax(0,…)` (not Tailwind
+// `lg:grid-cols-3`) for the same code-split reason as the other sections.
+// =========================================================================
+import { getLocaleFromUrl, useTranslations, getEntry } from '../i18n/utils';
+import SectionHeader from './SectionHeader.astro';
+
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+}
+
+const lang = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const items = (getEntry<Testimonial[]>(lang, 'testimonials.items') ?? []).filter(
+  (it) => it && typeof it.quote === 'string' && it.quote
+);
+
+// A value is "real" when it isn't a [[PLACEHOLDER]] token.
+const isReal = (v: string) => !!v && !v.startsWith('[[');
+---
+
+<section class="section scroll-mt-24 bg-ink-900">
+  <div class="shell shell-wide">
+    <SectionHeader overline={t('testimonials.overline')} title={t('testimonials.title')} as="h2" />
+
+    <ul class="testi-grid mt-12" data-reveal data-reveal-stagger>
+      {
+        items.map((item) => (
+          <li
+            class="testi-card flex flex-col gap-6 rounded-lg border border-line bg-ink-700 shadow-soft p-7"
+            data-reveal-item
+          >
+            <span class="font-display text-display leading-none text-coral-500/30" aria-hidden="true">
+              &ldquo;
+            </span>
+            <blockquote class="-mt-8 text-body-l text-sand-200">{item.quote}</blockquote>
+            <figcaption class="mt-auto flex flex-col gap-1 border-t border-line pt-5">
+              <span class="text-small font-semibold text-sand-100">
+                {isReal(item.author) ? item.author : '—'}
+              </span>
+              {isReal(item.role) && (
+                <span class="font-mono text-overline uppercase tracking-overline text-slate-500">
+                  {item.role}
+                </span>
+              )}
+            </figcaption>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* 3-up at lg, 1-up below — scoped grid (code-split safe). */
+  .testi-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  @media (min-width: 1024px) {
+    .testi-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .testi-grid > * {
+    min-width: 0;
+  }
+</style>

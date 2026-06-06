@@ -34,7 +34,7 @@ export interface SiteConfig {
 
 export const site: SiteConfig = {
   brand: 'MARÉ',
-  tagline: 'Stories the sea remembers.',
+  tagline: 'The sea, wherever you take it.',
   url: 'https://Jachim00.github.io/yachts-promo',
   contact: {
     // Replace before launch with the real channels.
@@ -53,7 +53,7 @@ export const site: SiteConfig = {
   formEndpoint: '[[FORM_ENDPOINT]]',
   // GA4 measurement ID, e.g. G-XXXXXXXXXX. Analytics stay off until consent.
   ga4Id: '[[GA4_MEASUREMENT_ID]]',
-  // Relative to /public — consumers join with withBase('og/og-image.jpg').
-  // Slot file lives in public/og/ (1200×630). See public/og/README.txt.
-  ogImage: 'og/og-image.jpg',
+  // Relative to /public — consumers join with withBase('media/og/og-default.jpg').
+  // Slot file lives in public/media/og/ (1200×630).
+  ogImage: 'media/og/og-default.jpg',
 };

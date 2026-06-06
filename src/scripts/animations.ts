@@ -5,7 +5,6 @@
 // Responsibilities:
 //   - reveals (opacity + y), with optional stagger of [data-reveal-item]
 //   - parallax on hero background + section accents
-//   - pin + horizontal scrub for the Experiences section
 //   - viewport-triggered spec counters (0 → target)
 //   - keeps ScrollTrigger in sync with Lenis if the smooth-scroll is active
 //
@@ -90,39 +89,7 @@ function setup(): void {
   }
 
   // ----------------------------------------------------------------------- //
-  // 3) EXPERIENCES — pin + horizontal scrub
-  // ----------------------------------------------------------------------- //
-  const expSection = document.querySelector<HTMLElement>('[data-experience]');
-  const expPin = expSection?.querySelector<HTMLElement>('[data-exp-pin]');
-  const expTrack = expSection?.querySelector<HTMLElement>('[data-exp-track]');
-  const panels = expSection
-    ? gsap.utils.toArray<HTMLElement>('[data-exp-panel]', expSection)
-    : [];
-
-  if (expSection && expPin && expTrack && panels.length > 1) {
-    // Flip to the horizontal layout (CSS keys off this class).
-    expSection.classList.add('is-pinned');
-
-    // Distance to scroll = full track width minus one viewport.
-    const getScrollDistance = () => expTrack.scrollWidth - window.innerWidth;
-
-    gsap.to(expTrack, {
-      x: () => -getScrollDistance(),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: expPin,
-        start: 'top top',
-        end: () => `+=${getScrollDistance()}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
-  }
-
-  // ----------------------------------------------------------------------- //
-  // 4) SECTION-LEVEL SUBTLE PARALLAX on decorative accents (optional hook)
+  // 3) SECTION-LEVEL SUBTLE PARALLAX on decorative accents (optional hook)
   // ----------------------------------------------------------------------- //
   gsap.utils.toArray<HTMLElement>('[data-parallax]').forEach((el) => {
     const speed = parseFloat(el.getAttribute('data-parallax') || '0.1');
@@ -139,7 +106,7 @@ function setup(): void {
   });
 
   // ----------------------------------------------------------------------- //
-  // 5) SPEC COUNTERS (count up from 0 on enter)
+  // 4) SPEC COUNTERS (count up from 0 on enter)
   // ----------------------------------------------------------------------- //
   const counters = gsap.utils.toArray<HTMLElement>('[data-counter]');
   counters.forEach((el) => {

@@ -1,13 +1,15 @@
 ---
 // =========================================================================
 // Tabs.astro — accessible tabbed panels for the yacht detail page.
-// Sections: Deck / Interior / Propulsion / Equipment (tabs.* i18n).
+// Sections: Deck / Material / Drive / Transport (tabs.* i18n) — mapped to the
+// inflatable-platform spec fields.
 // WAI-ARIA tabs pattern: role=tablist/tab/tabpanel, aria-selected, roving
 // tabindex, ArrowLeft/Right + Home/End keyboard support.
 //
-// Panel content is data-light: we surface the relevant spec line(s) and a
-// short descriptive note built from existing i18n strings, so no new keys are
-// invented. Each panel falls back gracefully when a spec field is absent.
+// Panel content is data-light: we surface the relevant spec line(s) from
+// yachts.ts using yachtsCommon.* labels, so no new i18n keys are invented and
+// everything stays translated. Each panel falls back gracefully when a spec
+// field is absent.
 // =========================================================================
 import { getLocaleFromUrl, useTranslations } from '../i18n/utils';
 import type { Yacht } from '../data/yachts';
@@ -31,36 +33,44 @@ const panels = [
     key: 'deck',
     label: t('tabs.deck'),
     rows: [
-      spec.sundeck && { label: t('yachtsCommon.sundeck'), value: spec.sundeck },
-      spec.guests && { label: t('yachtsCommon.guests'), value: spec.guests },
-      spec.beam && { label: t('yachtsCommon.beam'), value: spec.beam },
+      spec.deckLengthInflated && {
+        label: t('yachtsCommon.deckLengthInflated'),
+        value: spec.deckLengthInflated,
+      },
+      spec.beamInflated && { label: t('yachtsCommon.beamInflated'), value: spec.beamInflated },
+      spec.capacity && { label: t('yachtsCommon.capacity'), value: spec.capacity },
     ].filter(Boolean) as Array<{ label: string; value: string }>,
   },
   {
-    key: 'interior',
-    label: t('tabs.interior'),
+    key: 'material',
+    label: t('tabs.material'),
     rows: [
-      spec.cabins && { label: t('yachtsCommon.cabins'), value: spec.cabins },
-      spec.guests && { label: t('yachtsCommon.guests'), value: spec.guests },
-      spec.loa && { label: t('yachtsCommon.loa'), value: spec.loa },
+      spec.material && { label: t('yachtsCommon.material'), value: spec.material },
+      spec.workingPressure && {
+        label: t('yachtsCommon.workingPressure'),
+        value: spec.workingPressure,
+      },
+      spec.included && { label: t('yachtsCommon.included'), value: spec.included },
     ].filter(Boolean) as Array<{ label: string; value: string }>,
   },
   {
-    key: 'propulsion',
-    label: t('tabs.propulsion'),
+    key: 'drive',
+    label: t('tabs.drive'),
     rows: [
-      spec.propulsion && { label: t('yachtsCommon.propulsion'), value: spec.propulsion },
-      spec.speed && { label: t('yachtsCommon.speed'), value: spec.speed },
-      spec.range && { label: t('yachtsCommon.range'), value: spec.range },
+      spec.drive && { label: t('yachtsCommon.drive'), value: spec.drive },
+      spec.capacity && { label: t('yachtsCommon.capacity'), value: spec.capacity },
     ].filter(Boolean) as Array<{ label: string; value: string }>,
   },
   {
-    key: 'equipment',
-    label: t('tabs.equipment'),
+    key: 'transport',
+    label: t('tabs.transport'),
     rows: [
-      spec.draft && { label: t('yachtsCommon.draft'), value: spec.draft },
-      spec.loa && { label: t('yachtsCommon.loa'), value: spec.loa },
-      spec.propulsion && { label: t('yachtsCommon.propulsion'), value: spec.propulsion },
+      spec.packedSize && { label: t('yachtsCommon.packedSize'), value: spec.packedSize },
+      spec.totalWeight && { label: t('yachtsCommon.totalWeight'), value: spec.totalWeight },
+      spec.inflationTime && {
+        label: t('yachtsCommon.inflationTime'),
+        value: spec.inflationTime,
+      },
     ].filter(Boolean) as Array<{ label: string; value: string }>,
   },
 ];

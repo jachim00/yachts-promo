@@ -17,9 +17,10 @@ const lang = getLocaleFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 // Placeholder media slots — files may not exist; the gradient art shows through.
-const poster = withBase('media/hero-poster.jpg');
+const poster = withBase('media/hero/hero-main.jpg');
 const videoMp4 = withBase('media/hero.mp4');
 const videoWebm = withBase('media/hero.webm');
+const posterAlt = t('media.alt.heroMain');
 
 // Split the headline into lines for the staggered reveal. We split on the
 // sentence boundary so each clause animates separately; falls back to one line.
@@ -50,7 +51,7 @@ const lines = headline.includes('. ')
        gradient would show instead of the poster). */}
     <img
       src={poster}
-      alt=""
+      alt={posterAlt}
       decoding="async"
       onerror="this.remove()"
       onload="this.classList.add('is-loaded')"
@@ -78,7 +79,7 @@ const lines = headline.includes('. ')
   </div>
 
   {/* PLACEHOLDER NOTE (dev-only marker, hidden visually) */}
-  <span class="sr-only">Placeholder hero — replace /public/media/hero.* and hero-poster.jpg.</span>
+  <span class="sr-only">Placeholder hero — replace /public/media/hero.* and media/hero/hero-main.jpg.</span>
 
   <div class="shell shell-wide relative z-10 pb-section pt-32">
     <p class="overline mb-6" data-hero-overline>{site.tagline}</p>

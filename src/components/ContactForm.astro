@@ -71,6 +71,19 @@ const privacyHref = localizedPath(lang, 'privacy');
     </div>
   </div>
 
+  {/* Platform of interest (optional) */}
+  <div class="field flex flex-col gap-2">
+    <label for="cf-model" class="text-small font-medium text-sand-100">
+      {t('contact.form.model')}
+    </label>
+    <select id="cf-model" name="model" class="field-input">
+      <option value="festa">{t('contact.form.modelOptions.festa')}</option>
+      <option value="aurora">{t('contact.form.modelOptions.aurora')}</option>
+      <option value="serenite">{t('contact.form.modelOptions.serenite')}</option>
+      <option value="undecided" selected>{t('contact.form.modelOptions.undecided')}</option>
+    </select>
+  </div>
+
   {/* Message */}
   <div class="field flex flex-col gap-2">
     <label for="cf-message" class="text-small font-medium text-sand-100">
