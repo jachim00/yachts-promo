@@ -165,7 +165,15 @@ const navLinks = [
     <div
       class="shell shell-wide flex flex-col gap-2 py-5 text-small text-slate-500 sm:flex-row sm:items-center sm:justify-between"
     >
-      <p>© {year} {site.brand}. {t('footer.rights')}</p>
+      <p>
+        © {year} Copyright by PFL Group (<a
+          href="https://www.pflgroup.pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline-offset-4 transition-colors duration-fast hover:text-sand-100 hover:underline"
+          >www.pflgroup.pl</a
+        >). {t('footer.rights')}
+      </p>
       <p class="text-slate-500">
         <span aria-hidden="true">·</span>
         {site.tagline}
