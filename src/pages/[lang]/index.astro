@@ -5,11 +5,11 @@
 // Content & repositioning v2 — the product is now a PREMIUM INFLATABLE,
 // PORTABLE drop-stitch yacht/platform. The "Experiences" horizontal-scroll
 // chapter was removed; a product "How it works" chapter was added; the
-// Manifesto, Craft (Material/Durability) and Testimonials chapters were
-// restored (in their LIGHT-theme form).
+// Manifesto chapter was restored; Craft (Material) and Testimonials chapters
+// were later removed at the owner's request.
 //
 // Chapter flow:
-//   Hero → Manifesto → FleetTeaser → HowItWorks → Craft → Testimonials → Contact
+//   Hero → Manifesto → FleetTeaser → HowItWorks → Contact
 //
 // Wrapped in BaseLayout; <Seo slot="head"/> + <CookieConsent/> are Systems
 // components consumed as-is. Nav/Footer are Builder Frontend's own.
@@ -23,8 +23,6 @@ import Hero from '../../components/Hero.astro';
 import Manifesto from '../../components/Manifesto.astro';
 import FleetTeaser from '../../components/FleetTeaser.astro';
 import HowItWorks from '../../components/HowItWorks.astro';
-import Craft from '../../components/Craft.astro';
-import Testimonials from '../../components/Testimonials.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import { locales, useTranslations, getLocaleFromUrl } from '../../i18n/utils';
 import type { Locale } from '../../i18n/utils';
@@ -53,8 +51,6 @@ const t = useTranslations(lang);
     <Manifesto />
     <FleetTeaser />
     <HowItWorks />
-    <Craft />
-    <Testimonials />
     <ContactSection />
   </main>
 

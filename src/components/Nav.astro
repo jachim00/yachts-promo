@@ -31,7 +31,6 @@ const chapters = [
   { id: 'manifesto', label: t('nav.manifesto') },
   { id: 'fleet', label: t('nav.fleet') },
   { id: 'how-it-works', label: t('nav.how') },
-  { id: 'craft', label: t('nav.craft') },
   { id: 'contact', label: t('nav.contact') },
 ];
 
@@ -303,7 +302,7 @@ const hrefFor = (id: string) => (onHome ? `#${id}` : `${homeHref}#${id}`);
   // ---- Chapter indicator + active nav link (IntersectionObserver) ----------
   const dots = Array.from(document.querySelectorAll<HTMLElement>('[data-chapter-dot]'));
   const links = Array.from(document.querySelectorAll<HTMLElement>('[data-nav-link]'));
-  const sections = ['manifesto', 'fleet', 'how-it-works', 'craft', 'contact']
+  const sections = ['manifesto', 'fleet', 'how-it-works', 'contact']
     .map((id) => document.getElementById(id))
     .filter((el): el is HTMLElement => !!el);
 
