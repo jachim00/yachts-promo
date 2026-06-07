@@ -109,18 +109,6 @@ const lines = headline.includes('. ')
       </Button>
     </div>
   </div>
-
-  {/* Scroll cue — now points to the first chapter after the hero (#fleet). */}
-  <a
-    href="#fleet"
-    class="scroll-cue group absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-slate-500 transition-colors duration-fast hover:text-coral-600"
-    aria-label={t('hero.scrollCue')}
-  >
-    <span class="font-mono text-overline uppercase tracking-overline">{t('hero.scrollCue')}</span>
-    <span class="scroll-cue-track relative block h-9 w-px overflow-hidden bg-line">
-      <span class="scroll-cue-dot absolute left-1/2 top-0 block h-2 w-2 -translate-x-1/2 rounded-pill bg-coral-500"></span>
-    </span>
-  </a>
 </section>
 
 <style>

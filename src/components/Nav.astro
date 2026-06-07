@@ -252,10 +252,12 @@ const hrefFor = (id: string) => (onHome ? `#${id}` : `${homeHref}#${id}`);
     document.querySelectorAll<HTMLAnchorElement>('[data-mobile-link]')
   );
 
-  // Solid-after-scroll. Threshold ~ 80% viewport (past hero).
+  // Solid as soon as the user scrolls a little — gives the bar a clean
+  // background over the hero/photo so the brand + burger never overlap the
+  // headline messily (esp. on mobile). Transparent only at the very top.
   const onScroll = () => {
     if (!nav) return;
-    const solid = window.scrollY > Math.min(window.innerHeight * 0.7, 600);
+    const solid = window.scrollY > 32;
     nav.classList.toggle('is-solid', solid);
   };
   onScroll();
