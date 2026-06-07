@@ -42,7 +42,7 @@ const hrefFor = (id: string) => (onHome ? `#${id}` : `${homeHref}#${id}`);
   data-nav
   class="fixed inset-x-0 top-0 z-50 transition-colors duration-base ease-out"
 >
-  <div class="shell shell-wide flex items-center justify-between gap-6 py-4">
+  <div class="shell shell-wide flex items-center justify-between gap-6 py-2 lg:py-4">
     {/* Brand / home link */}
     <a
       href={homeHref}
@@ -77,7 +77,7 @@ const hrefFor = (id: string) => (onHome ? `#${id}` : `${homeHref}#${id}`);
     {/* Mobile menu trigger */}
     <button
       type="button"
-      class="nav-burger relative z-50 flex h-11 w-11 items-center justify-center rounded-pill text-sand-100 lg:hidden"
+      class="nav-burger relative z-50 flex h-9 w-9 items-center justify-center rounded-pill text-sand-100 lg:hidden"
       data-menu-open
       aria-expanded="false"
       aria-controls="mobile-menu"
