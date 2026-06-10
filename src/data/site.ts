@@ -35,7 +35,7 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   brand: 'MARÉ',
   tagline: 'The sea, wherever you take it.',
-  url: 'https://Jachim00.github.io/yachts-promo',
+  url: 'https://pflgroup.github.io/yachts-promo',
   contact: {
     // Replace before launch with the real channels.
     email: '[[EMAIL]]',

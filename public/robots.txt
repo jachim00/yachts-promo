@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap is emitted by @astrojs/sitemap at the site root.
-Sitemap: https://Jachim00.github.io/yachts-promo/sitemap-index.xml
+Sitemap: https://pflgroup.github.io/yachts-promo/sitemap-index.xml

@@ -13,8 +13,8 @@ Budowana zespołowo (Foundation → Frontend → Systems → Integrator) wg
 ## Lokalizacja
 
 - **Kod:** `D:\Automatyzacje\Landing Page\Projekty\yachts-promo\`
-- **Repo:** `Jachim00/yachts-promo` (GitHub, publiczne)
-- **Hosting:** GitHub Pages (GitHub Actions), URL **https://Jachim00.github.io/yachts-promo/**
+- **Repo:** `PFLGroup/yachts-promo` (GitHub, publiczne)
+- **Hosting:** GitHub Pages (GitHub Actions), URL **https://pflgroup.github.io/yachts-promo/**
 - Zgodne z konwencją innych landingów usera (statyczne na GH Pages — patrz pamięć
   `feedback_landing_hosting_github_pages`, `project_restauracja_different_landing`).
 

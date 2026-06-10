@@ -7,7 +7,7 @@ GSAP/ScrollTrigger + Lenis, deployed to GitHub Pages.
 > Working brand: **MARÉ** · *"Stories the sea remembers."* — everything is a
 > placeholder, easy to rebrand from one config + the i18n dictionaries.
 
-Live (after deploy): **https://Jachim00.github.io/yachts-promo/**
+Live (after deploy): **https://pflgroup.github.io/yachts-promo/**
 
 ---
 
@@ -194,10 +194,10 @@ JSON-LD `Organization` (always) + `Product` per yacht. All in `src/components/Se
 The repo ships `.github/workflows/deploy.yml` (build with `withastro/action@v3` →
 `actions/deploy-pages@v4`). It triggers on push to `main`.
 
-1. Push to `Jachim00/yachts-promo` (`main`).
+1. Push to `PFLGroup/yachts-promo` (`main`).
 2. **Settings → Pages → Build and deployment → Source: GitHub Actions** (one-time).
-   Equivalent via CLI: `gh api -X POST repos/Jachim00/yachts-promo/pages -f build_type=workflow`.
-3. The workflow builds and publishes. Live at **https://Jachim00.github.io/yachts-promo/**.
+   Equivalent via CLI: `gh api -X POST repos/PFLGroup/yachts-promo/pages -f build_type=workflow`.
+3. The workflow builds and publishes. Live at **https://pflgroup.github.io/yachts-promo/**.
 
 ### Base path
 This is a **project** Pages site, so it serves under `/yachts-promo/`. `astro.config.mjs`
